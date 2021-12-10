@@ -18,7 +18,8 @@ namespace CybersportTournament
         {
             if (Login.Text == "" || Password.Password == "")
             {
-                MessageBox.Show("Ошибка пустые поля");
+                AuthorizationEmptyFieldsErrorWindow aefew = new AuthorizationEmptyFieldsErrorWindow();
+                aefew.Show();
                 return;
             }
             if (Connection.db.Users.Select(item => item.Login + " " + item.Password).Contains(Login.Text + " " + Password.Password))
@@ -27,8 +28,8 @@ namespace CybersportTournament
             }
             else
             {
-                MessageBox.Show("Ошибка логина/пароля");
-                return;
+                AuthorizationLoginPasswordErrorWindow alpew = new AuthorizationLoginPasswordErrorWindow();
+                alpew.Show();
             }
         }
 

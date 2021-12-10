@@ -64,6 +64,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AuthorizationEmptyFieldsErrorWindow.xaml.cs">
+      <DependentUpon>AuthorizationEmptyFieldsErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorizationLoginPasswordErrorWindow.xaml.cs">
+      <DependentUpon>AuthorizationLoginPasswordErrorWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CybersportTournamentModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,8 +97,17 @@
     <Compile Include="Players.cs">
       <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RegistrationEmptyFieldsErrorWindow.xaml.cs">
+      <DependentUpon>RegistrationEmptyFieldsErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrationExistingUserErrorWindow.xaml.cs">
+      <DependentUpon>RegistrationExistingUserErrorWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegitrationConfirmedWindow.xaml.cs">
+      <DependentUpon>RegitrationConfirmedWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Rounds.cs">
       <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
@@ -115,6 +130,14 @@
     <Compile Include="Users.cs">
       <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
+    <Page Include="AuthorizationEmptyFieldsErrorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AuthorizationLoginPasswordErrorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AuthorizationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -128,7 +151,19 @@
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RegistrationEmptyFieldsErrorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistrationExistingUserErrorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegistrationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegitrationConfirmedWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

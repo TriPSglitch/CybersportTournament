@@ -16,24 +16,27 @@ namespace CybersportTournament
 
         private void RegistrationClick(object sender, RoutedEventArgs e)
         {
-            if (Login.Text == "" || Password.Password == "" || FirstName.Text == "" || SecondName.Text == "")
+            if (Login.Text == "" || Password.Password == "" || FirstName.Text == "" || SecondName.Text == "" || Email.Text == "")
             {
-                MessageBox.Show("Ошибка пустые поля");
+                RegistrationEmptyFieldsErrorWindow refew = new RegistrationEmptyFieldsErrorWindow();
+                refew.Show();
                 return;
             }
             if (Connection.db.Users.Select(item => item.Login).Contains(Login.Text))
             {
-                MessageBox.Show("Ошибка, такой пользователь уже существует");
+                RegistrationExistingUserErrorWindow reuew = new RegistrationExistingUserErrorWindow();
+                reuew.Show();
                 return;
             }
+
             Users user = new Users()
             {
                 Login = Login.Text,
                 Password = Password.Password,
                 FirstName = FirstName.Text,
-                SecondName = SecondName.Text
+                SecondName = SecondName.Text,
+                Email = Email.Text
             };
-
             if (MiddleName.Text != "")
             {
                 user.MiddleName = MiddleName.Text;
@@ -41,7 +44,8 @@ namespace CybersportTournament
 
             Connection.db.Users.Add(user);
             Connection.db.SaveChanges();
-            MessageBox.Show("Вы зарегестрировались");
+            RegitrationConfirmedWindow rcw = new RegitrationConfirmedWindow();
+            rcw.Show();
 
             AuthorizationWindow aw = new AuthorizationWindow();
             aw.Show();

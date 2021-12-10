@@ -1,0 +1,22 @@
+﻿<Window x:Class="CybersportTournament.AuthorizationEmptyFieldsErrorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CybersportTournament"
+        mc:Ignorable="d"
+        Title="AuthorizationEmptyFieldsErrorWindow" Height="100" Width="175" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Grid>
+        <Grid.Background>
+            <RadialGradientBrush MappingMode="RelativeToBoundingBox" GradientOrigin="0.9,0.2" Center="0.5,0.5" RadiusX="0.7" RadiusY="0.7">
+                <GradientStop Color="#FF1B1B15" Offset="1"/>
+                <GradientStop Color="#FF142F2C"/>
+            </RadialGradientBrush>
+        </Grid.Background>
+        <Border x:Name="BackBorder" CornerRadius="15" BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="130" Margin="0,57,0,0" Background="#FF3DBDA8">
+            <Button x:Name="BackButton" Content="Назад" Background="{Binding ElementName=BackBorder}" BorderThickness="0" Width="Auto" 
+                Height="Auto" Margin="4.5, 4.5, 4.5, 4.5" Click="BackClick"/>
+        </Border>
+        <Label Content="Ошибка: пустые поля" HorizontalAlignment="Center" Margin="0,18,0,0" VerticalAlignment="Top" Height="29" Width="127" Foreground="White"/>
+    </Grid>
+</Window>

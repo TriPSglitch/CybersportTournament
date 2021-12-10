@@ -15,7 +15,7 @@
         <EntityTypeShape EntityType="CybersportTournamentsModel.TeamsRounds" Width="1.5" PointX="7.5" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="CybersportTournamentsModel.TounamentsPlaces" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CybersportTournamentsModel.Tournaments" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.Users" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Users" Width="1.5" PointX="7.875" PointY="6.75" IsExpanded="true" />
         <AssociationConnector Association="CybersportTournamentsModel.FK_Rounds_Maps" ManuallyRouted="false" />
         <AssociationConnector Association="CybersportTournamentsModel.FK_TeamsRounds_Rounds" ManuallyRouted="false" />
         <AssociationConnector Association="CybersportTournamentsModel.FK_TeamsRounds_Teams" ManuallyRouted="false" />
