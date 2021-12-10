@@ -13,12 +13,12 @@
                 <GradientStop Color="#FF142F2C"/>
             </RadialGradientBrush>
         </Grid.Background>
-        <Border Name="AuthorizeBorder" CornerRadius="15" BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="130" Margin="0,153,0,0" Background="#FF3DBDA8">
-            <Button Name="AuthorizeButton" Content="Войти" Background="#FF3DBDA8" BorderThickness="0" Width="Auto" 
+        <Border Name="AuthorizeBorder" CornerRadius="15" BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="130" Margin="0,153,0,0" Background="#FF4F5856">
+            <Button Name="AuthorizeButton" Content="Войти" Background="{Binding ElementName=AuthorizeBorder}" BorderThickness="0" Width="Auto" 
                     Height="Auto" Margin="4.5, 4.5, 4.5, 4.5" Click="AuthorizationClick"/>
         </Border>
-        <Border x:Name="RegistrationBorder" CornerRadius="15" BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="130" Margin="0,202,0,0" Background="#FF3DBDA8">
-            <Button x:Name="RegistrationButton" Content="Зарегестрироваться" Background="#FF3DBDA8" BorderThickness="0" Width="Auto" 
+        <Border x:Name="RegistrationBorder" CornerRadius="15" BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="130" Margin="0,202,0,0" Background="#FF4F5856">
+            <Button x:Name="RegistrationButton" Content="Зарегестрироваться" Background="{Binding ElementName=RegistrationBorder}" BorderThickness="0" Width="Auto" 
                 Height="Auto" Margin="4.5, 4.5, 4.5, 4.5" Click="RegistrationClick"/>
         </Border>
         <TextBox Name="Login" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,55,0,0" Height="20" Width="120" Background="White"/>

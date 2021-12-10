@@ -17,16 +17,16 @@ namespace CybersportTournament
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Players()
         {
-            this.Teams = new HashSet<Teams>();
+            this.PlayersList = new HashSet<PlayersList>();
         }
     
         public int ID { get; set; }
-        public string SecondName { get; set; }
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
+        public int IDPerson { get; set; }
         public string Nickname { get; set; }
+        public byte[] Photo { get; set; }
     
+        public virtual Persons Persons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Teams> Teams { get; set; }
+        public virtual ICollection<PlayersList> PlayersList { get; set; }
     }
 }

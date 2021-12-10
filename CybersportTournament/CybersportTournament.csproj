@@ -64,44 +64,44 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AuthorizationEmptyFieldsErrorWindow.xaml.cs">
-      <DependentUpon>AuthorizationEmptyFieldsErrorWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AuthorizationLoginPasswordErrorWindow.xaml.cs">
-      <DependentUpon>AuthorizationLoginPasswordErrorWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CybersportTournamentModel.Context.cs">
+    <Compile Include="CybersportTournamentsModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CybersportTournamentModel.Context.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentsModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="CybersportTournamentModel.cs">
+    <Compile Include="CybersportTournamentsModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CybersportTournamentModel.Designer.cs">
+    <Compile Include="CybersportTournamentsModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CybersportTournamentModel.edmx</DependentUpon>
+      <DependentUpon>CybersportTournamentsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Games.cs">
-      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Maps.cs">
-      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
+    <Compile Include="MapsGame.cs">
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Match.cs">
-      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchList.cs">
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persons.cs">
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Players.cs">
-      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="RegistrationEmptyFieldsErrorWindow.xaml.cs">
-      <DependentUpon>RegistrationEmptyFieldsErrorWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RegistrationExistingUserErrorWindow.xaml.cs">
-      <DependentUpon>RegistrationExistingUserErrorWindow.xaml</DependentUpon>
+    <Compile Include="PlayersList.cs">
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
@@ -110,34 +110,29 @@
       <DependentUpon>RegitrationConfirmedWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Rounds.cs">
-      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoundsList.cs">
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Teams.cs">
-      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TeamsRounds.cs">
-      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TounamentsPlaces.cs">
-      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
+    <Compile Include="TeamsList.cs">
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Tournaments.cs">
-      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TournamentsResults.cs">
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
-      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
-    <Page Include="AuthorizationEmptyFieldsErrorWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AuthorizationLoginPasswordErrorWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="AuthorizationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -151,11 +146,7 @@
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="RegistrationEmptyFieldsErrorWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="RegistrationExistingUserErrorWindow.xaml">
+    <Page Include="ErrorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,12 +177,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="CybersportTournamentModel.edmx">
+    <EntityDeploy Include="CybersportTournamentsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CybersportTournamentModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>CybersportTournamentsModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="CybersportTournamentModel.edmx.diagram">
-      <DependentUpon>CybersportTournamentModel.edmx</DependentUpon>
+    <None Include="CybersportTournamentsModel.edmx.diagram">
+      <DependentUpon>CybersportTournamentsModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -206,15 +197,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CybersportTournamentModel.Context.tt">
+    <Content Include="CybersportTournamentsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CybersportTournamentModel.edmx</DependentUpon>
-      <LastGenOutput>CybersportTournamentModel.Context.cs</LastGenOutput>
+      <DependentUpon>CybersportTournamentsModel.edmx</DependentUpon>
+      <LastGenOutput>CybersportTournamentsModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="CybersportTournamentModel.tt">
+    <Content Include="CybersportTournamentsModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CybersportTournamentModel.edmx</DependentUpon>
-      <LastGenOutput>CybersportTournamentModel.cs</LastGenOutput>
+      <DependentUpon>CybersportTournamentsModel.edmx</DependentUpon>
+      <LastGenOutput>CybersportTournamentsModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

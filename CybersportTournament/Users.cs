@@ -15,11 +15,10 @@ namespace CybersportTournament
     public partial class Users
     {
         public int ID { get; set; }
+        public int IDPerson { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public string SecondName { get; set; }
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
-        public string Email { get; set; }
+    
+        public virtual Persons Persons { get; set; }
     }
 }

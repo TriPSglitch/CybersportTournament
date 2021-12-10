@@ -3,13 +3,14 @@
 namespace CybersportTournament
 {
     /// <summary>
-    /// Логика взаимодействия для AuthorizationErrorWindow.xaml
+    /// Логика взаимодействия для RegistrationExistingUserError.xaml
     /// </summary>
-    public partial class AuthorizationLoginPasswordErrorWindow : Window
+    public partial class ErrorWindow : Window
     {
-        public AuthorizationLoginPasswordErrorWindow()
+        public ErrorWindow(string error)
         {
             InitializeComponent();
+            Error.Content = "Ошибка: " + error;
         }
 
         private void BackClick(object sender, RoutedEventArgs e)

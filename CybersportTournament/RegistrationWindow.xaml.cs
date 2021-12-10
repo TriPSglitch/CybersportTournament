@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Linq;
 using ConnectionClass;
 
@@ -16,47 +17,66 @@ namespace CybersportTournament
 
         private void RegistrationClick(object sender, RoutedEventArgs e)
         {
+            #region Валидация
             if (Login.Text == "" || Password.Password == "" || FirstName.Text == "" || SecondName.Text == "" || Email.Text == "")
             {
-                RegistrationEmptyFieldsErrorWindow refew = new RegistrationEmptyFieldsErrorWindow();
-                refew.Show();
+                ErrorWindow ew = new ErrorWindow("пустые поля");
+                ew.Show();
                 return;
             }
             if (Connection.db.Users.Select(item => item.Login).Contains(Login.Text))
             {
-                RegistrationExistingUserErrorWindow reuew = new RegistrationExistingUserErrorWindow();
-                reuew.Show();
+                ErrorWindow ew = new ErrorWindow("такой пользователь уже существует");
+                ew.Show();
                 return;
             }
+            #endregion
 
-            Users user = new Users()
+            #region Добавление пользователя
+            Persons person = new Persons()
             {
-                Login = Login.Text,
-                Password = Password.Password,
                 FirstName = FirstName.Text,
                 SecondName = SecondName.Text,
-                Email = Email.Text
+                Email = Email.Text,
+                Role = 1
             };
             if (MiddleName.Text != "")
             {
-                user.MiddleName = MiddleName.Text;
+                person.MiddleName = MiddleName.Text;
             }
+
+            Connection.db.Persons.Add(person);
+            Connection.db.SaveChanges();
+
+            Users user = new Users()
+            {
+                IDPerson = Connection.db.Persons.Max(x => x.ID),
+                Login = Login.Text,
+                Password = Password.Password
+            };
 
             Connection.db.Users.Add(user);
             Connection.db.SaveChanges();
+            #endregion
+
+
+            #region Результат и переход на окно авторизации
             RegitrationConfirmedWindow rcw = new RegitrationConfirmedWindow();
             rcw.Show();
 
             AuthorizationWindow aw = new AuthorizationWindow();
             aw.Show();
             this.Close();
+            #endregion
         }
 
         private void BackClick(object sender, RoutedEventArgs e)
         {
+            #region Назад
             AuthorizationWindow aw = new AuthorizationWindow();
             aw.Show();
             this.Close();
+            #endregion
         }
     }
 }

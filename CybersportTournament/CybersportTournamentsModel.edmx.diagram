@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1117d50f907349449f734f1d261380da" Name="Diagram1">
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Games" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.MapsGame" Width="1.5" PointX="5.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Match" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.MatchList" Width="1.5" PointX="7.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Persons" Width="1.5" PointX="1.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Players" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.PlayersList" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Rounds" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.RoundsList" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Teams" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.TeamsList" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Tournaments" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.TournamentsResults" Width="1.5" PointX="7.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Users" Width="1.5" PointX="3.75" PointY="11.5" IsExpanded="true" />
+        <AssociationConnector Association="CybersportTournamentsModel.FK_MapsGame_Games" ManuallyRouted="false" />
+        <AssociationConnector Association="CybersportTournamentsModel.FK_Tournaments_Games" ManuallyRouted="false" />
+        <AssociationConnector Association="CybersportTournamentsModel.FK_MatchList_Match" ManuallyRouted="false" />
+        <AssociationConnector Association="CybersportTournamentsModel.FK_RoundsList_Match" ManuallyRouted="false" />
+        <AssociationConnector Association="CybersportTournamentsModel.FK_MatchList_Tournaments" ManuallyRouted="false" />
+        <AssociationConnector Association="CybersportTournamentsModel.FK_Players_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="CybersportTournamentsModel.FK_Users_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="CybersportTournamentsModel.FK_PlayersList_Players" ManuallyRouted="false" />
+        <AssociationConnector Association="CybersportTournamentsModel.FK_PlayersList_Teams" ManuallyRouted="false" />
+        <AssociationConnector Association="CybersportTournamentsModel.FK_RoundsList_Rounds" ManuallyRouted="false" />
+        <AssociationConnector Association="CybersportTournamentsModel.FK_TeamsList_Teams" ManuallyRouted="false" />
+        <AssociationConnector Association="CybersportTournamentsModel.FK_Tournaments_TeamsList" ManuallyRouted="false" />
+        <AssociationConnector Association="CybersportTournamentsModel.FK_TournamentsResults_Tournaments" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

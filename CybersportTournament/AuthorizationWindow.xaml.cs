@@ -16,10 +16,11 @@ namespace CybersportTournament
 
         private void AuthorizationClick(object sender, RoutedEventArgs e)
         {
+            #region Авторизация
             if (Login.Text == "" || Password.Password == "")
             {
-                AuthorizationEmptyFieldsErrorWindow aefew = new AuthorizationEmptyFieldsErrorWindow();
-                aefew.Show();
+                ErrorWindow ew = new ErrorWindow("пустые поля");
+                ew.Show();
                 return;
             }
             if (Connection.db.Users.Select(item => item.Login + " " + item.Password).Contains(Login.Text + " " + Password.Password))
@@ -28,16 +29,19 @@ namespace CybersportTournament
             }
             else
             {
-                AuthorizationLoginPasswordErrorWindow alpew = new AuthorizationLoginPasswordErrorWindow();
-                alpew.Show();
+                ErrorWindow ew = new ErrorWindow("неверный логин/пароль");
+                ew.Show();
             }
+            #endregion
         }
 
         private void RegistrationClick(object sender, RoutedEventArgs e)
         {
+            #region Переход на окно регистрации
             RegistrationWindow rw = new RegistrationWindow();
             rw.Show();
             this.Close();
+            #endregion
         }
     }
 }

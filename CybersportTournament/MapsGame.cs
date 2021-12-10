@@ -12,21 +12,13 @@ namespace CybersportTournament
     using System;
     using System.Collections.Generic;
     
-    public partial class Maps
+    public partial class MapsGame
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Maps()
-        {
-            this.Rounds = new HashSet<Rounds>();
-            this.Games = new HashSet<Games>();
-        }
-    
         public int ID { get; set; }
-        public string Title { get; set; }
+        public int IDGame { get; set; }
+        public string Name { get; set; }
+        public byte[] Image { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rounds> Rounds { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Games> Games { get; set; }
+        public virtual Games Games { get; set; }
     }
 }

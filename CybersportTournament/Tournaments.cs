@@ -17,20 +17,21 @@ namespace CybersportTournament
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tournaments()
         {
-            this.TounamentsPlaces = new HashSet<TounamentsPlaces>();
-            this.Games = new HashSet<Games>();
-            this.Match = new HashSet<Match>();
+            this.MatchList = new HashSet<MatchList>();
+            this.TournamentsResults = new HashSet<TournamentsResults>();
         }
     
         public int ID { get; set; }
-        public string Title { get; set; }
-        public Nullable<decimal> PrizeFund { get; set; }
+        public int IDGame { get; set; }
+        public int IDTeamList { get; set; }
+        public string Name { get; set; }
+        public decimal PrizeFund { get; set; }
     
+        public virtual Games Games { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TounamentsPlaces> TounamentsPlaces { get; set; }
+        public virtual ICollection<MatchList> MatchList { get; set; }
+        public virtual TeamsList TeamsList { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Games> Games { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Match> Match { get; set; }
+        public virtual ICollection<TournamentsResults> TournamentsResults { get; set; }
     }
 }

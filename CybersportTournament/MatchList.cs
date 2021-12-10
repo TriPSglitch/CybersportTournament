@@ -12,13 +12,13 @@ namespace CybersportTournament
     using System;
     using System.Collections.Generic;
     
-    public partial class TounamentsPlaces
+    public partial class MatchList
     {
+        public int ID { get; set; }
+        public int IDMatch { get; set; }
         public int IDTournament { get; set; }
-        public int IDTeam { get; set; }
-        public Nullable<int> Place { get; set; }
     
-        public virtual Teams Teams { get; set; }
+        public virtual Match Match { get; set; }
         public virtual Tournaments Tournaments { get; set; }
     }
 }

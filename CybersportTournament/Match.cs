@@ -17,17 +17,18 @@ namespace CybersportTournament
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Match()
         {
-            this.Rounds = new HashSet<Rounds>();
-            this.Tournaments = new HashSet<Tournaments>();
+            this.MatchList = new HashSet<MatchList>();
+            this.RoundsList = new HashSet<RoundsList>();
         }
     
         public int ID { get; set; }
-        public Nullable<int> FirstTeamScore { get; set; }
-        public Nullable<int> SecondTeamScore { get; set; }
+        public System.DateTime Time { get; set; }
+        public Nullable<System.TimeSpan> Period { get; set; }
+        public string Result { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rounds> Rounds { get; set; }
+        public virtual ICollection<MatchList> MatchList { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tournaments> Tournaments { get; set; }
+        public virtual ICollection<RoundsList> RoundsList { get; set; }
     }
 }
