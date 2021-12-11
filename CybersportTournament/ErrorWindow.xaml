@@ -7,10 +7,7 @@
         mc:Ignorable="d"
         Title="ErrorWindow" Height="100" Width="300" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Grid Background="#FF2D2D2D">
-        <Border x:Name="BackBorder" CornerRadius="15" BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="130" Margin="0,57,0,0" Background="#FF4F5856">
-            <Button x:Name="BackButton" Content="Назад" Background="{Binding ElementName=BackBorder}" BorderThickness="0" Width="Auto" 
-                Height="Auto" Margin="4.5, 4.5, 4.5, 4.5" Click="BackClick"/>
-        </Border>
+        <Button x:Name="BackButton" Content="Назад" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="130" Margin="0,57,0,0" Click="BackClick"/>
         <Label Name="Error" Content="Ошибка: " HorizontalAlignment="Center" Margin="0,18,0,0" VerticalAlignment="Top" Height="29" Width="262" Foreground="White"/>
     </Grid>
 </Window>

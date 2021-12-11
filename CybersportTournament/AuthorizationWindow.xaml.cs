@@ -25,7 +25,9 @@ namespace CybersportTournament
             }
             if (Connection.db.Users.Select(item => item.Login + " " + item.Password).Contains(Login.Text + " " + Password.Password))
             {
-                MessageBox.Show("Вы авторизованы");
+                Window1 w1 = new Window1();
+                w1.Show();
+                this.Close();
             }
             else
             {
