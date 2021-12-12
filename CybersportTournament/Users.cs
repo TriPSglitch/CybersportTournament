@@ -11,14 +11,20 @@ namespace CybersportTournament
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Users
     {
+        public Users(int IDPerson, string Login, string Password)
+        {
+            this.IDPerson = IDPerson;
+            this.Login = Login;
+            this.Password = Password;
+        }
         public int ID { get; set; }
         public int IDPerson { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-    
+
         public virtual Persons Persons { get; set; }
     }
 }

@@ -15,8 +15,9 @@ namespace CybersportTournament
     public partial class Games
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Games()
+        public Games(string Name)
         {
+            this.Name = Name;
             this.MapsGame = new HashSet<MapsGame>();
             this.Tournaments = new HashSet<Tournaments>();
         }
@@ -24,6 +25,7 @@ namespace CybersportTournament
         public int ID { get; set; }
         public string Name { get; set; }
         public string Link { get; set; }
+        public byte[] Logo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MapsGame> MapsGame { get; set; }

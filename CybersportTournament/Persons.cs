@@ -15,8 +15,11 @@ namespace CybersportTournament
     public partial class Persons
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Persons()
+        public Persons(string SecondName, string FirstName, string Email)
         {
+            this.SecondName = SecondName;
+            this.FirstName = FirstName;
+            this.Email = Email;
             this.Players = new HashSet<Players>();
             this.Users = new HashSet<Users>();
         }

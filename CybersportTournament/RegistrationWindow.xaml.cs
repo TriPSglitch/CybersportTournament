@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Linq;
 using ConnectionClass;
 
@@ -34,11 +33,8 @@ namespace CybersportTournament
 
 
             #region Добавление пользователя
-            Persons person = new Persons()
+            Persons person = new Persons(SecondName.Text, FirstName.Text, Email.Text)
             {
-                FirstName = FirstName.Text,
-                SecondName = SecondName.Text,
-                Email = Email.Text,
                 Role = 1
             };
             if (MiddleName.Text != "")
@@ -49,12 +45,7 @@ namespace CybersportTournament
             Connection.db.Persons.Add(person);
             Connection.db.SaveChanges();
 
-            Users user = new Users()
-            {
-                IDPerson = Connection.db.Persons.Max(x => x.ID),
-                Login = Login.Text,
-                Password = Password.Password
-            };
+            Users user = new Users(Connection.db.Persons.Max(x => x.ID), Login.Text, Password.Password);
 
             Connection.db.Users.Add(user);
             Connection.db.SaveChanges();

@@ -21,6 +21,7 @@ namespace CybersportTournament
 
         private void SelectButtonClick(object sender, RoutedEventArgs e)
         {
+            #region Выбор картинки
             OpenFileDialog op = new OpenFileDialog();
             op.Title = "Выбрать изображение";
             op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
@@ -30,6 +31,7 @@ namespace CybersportTournament
             {
                 Photo.Source = new BitmapImage(new Uri(op.FileName));
             }
+            #endregion
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -41,6 +43,7 @@ namespace CybersportTournament
 
         private void AddButtonClick(object sender, RoutedEventArgs e)
         {
+            #region Добавление игрока
             if (FirstName.Text == "" || SecondName.Text == "" || Email.Text == "" || Nickname.Text == "")
             {
                 ErrorWindow ew = new ErrorWindow("пустые поля");
@@ -48,11 +51,8 @@ namespace CybersportTournament
                 return;
             }
 
-            Persons person = new Persons()
+            Persons person = new Persons(SecondName.Text, FirstName.Text, Email.Text)
             {
-                FirstName = FirstName.Text,
-                SecondName = SecondName.Text,
-                Email = Email.Text,
                 Role = 2
             };
             if (MiddleName.Text != "")
@@ -62,22 +62,18 @@ namespace CybersportTournament
             Connection.db.Persons.Add(person);
             Connection.db.SaveChanges();
 
-            Players player = new Players()
-            {
-                IDPerson = Connection.db.Persons.Max(x => x.ID),
-                Nickname = Nickname.Text,
-                Photo = BitmapSourceToByteArray((BitmapSource)Photo.Source)
-            };
+            Players player = new Players(Connection.db.Persons.Max(x => x.ID), Nickname.Text);
+
+            if (Photo.Source != null)
+                player.Photo = BitmapSourceToByteArray((BitmapSource)Photo.Source);
+
             Connection.db.Players.Add(player);
             Connection.db.SaveChanges();
 
             if (TeamsBox.SelectedItem != null)
             {
-                PlayersList playersList = new PlayersList()
-                {
-                    IDPlayer = Connection.db.Players.Max(item => item.ID),
-                    IDTeam = Connection.db.Teams.Where(item => item.Name == TeamsBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault()
-                };
+                PlayersList playersList = new PlayersList(Connection.db.Teams.Where(item => item.Name == TeamsBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault(),
+                                                          Connection.db.Players.Max(item => item.ID));
                 Connection.db.PlayersList.Add(playersList);
                 Connection.db.SaveChanges();
             }
@@ -85,10 +81,12 @@ namespace CybersportTournament
             MainWindow mw = new MainWindow();
             mw.Show();
             this.Close();
+            #endregion
         }
 
         private byte[] BitmapSourceToByteArray(BitmapSource image)
         {
+            #region Кодирование картинки
             using (var stream = new MemoryStream())
             {
                 var encoder = new PngBitmapEncoder();
@@ -96,6 +94,7 @@ namespace CybersportTournament
                 encoder.Save(stream);
                 return stream.ToArray();
             }
+            #endregion
         }
     }
 }

@@ -15,8 +15,9 @@ namespace CybersportTournament
     public partial class Teams
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Teams()
+        public Teams(string Name)
         {
+            this.Name = Name;
             this.PlayersList = new HashSet<PlayersList>();
             this.TeamsList = new HashSet<TeamsList>();
         }

@@ -1,18 +1,18 @@
-﻿using Microsoft.Win32;
+﻿using ConnectionClass;
+using Microsoft.Win32;
 using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
-using ConnectionClass;
 
 namespace CybersportTournament
 {
     /// <summary>
-    /// Логика взаимодействия для AddTeamWindow.xaml
+    /// Логика взаимодействия для AddGameWindow.xaml
     /// </summary>
-    public partial class AddTeamWindow : Window
+    public partial class AddGameWindow : Window
     {
-        public AddTeamWindow()
+        public AddGameWindow()
         {
             InitializeComponent();
         }
@@ -28,10 +28,6 @@ namespace CybersportTournament
             if (op.ShowDialog() == true)
             {
                 Logo.Source = new BitmapImage(new Uri(op.FileName));
-                int lastSlash = op.FileName.LastIndexOf("\\") + 1;
-                int lastPoint = op.FileName.LastIndexOf(".");
-                string logoName = op.FileName.Substring(lastSlash, lastPoint - lastSlash);
-                LogoLabel.Content = logoName;
             }
             #endregion
         }
@@ -42,15 +38,25 @@ namespace CybersportTournament
             mw.Show();
             this.Close();
         }
-
         private void AddButtonClick(object sender, RoutedEventArgs e)
         {
-            #region Добавление команды
-            Teams team = new Teams(Name.Text);
-            if (Logo.Source != null)
-                team.Logo = BitmapSourceToByteArray((BitmapSource)Logo.Source);
+            #region Добавление игры
+            if (Name.Text == "")
+            {
+                ErrorWindow ew = new ErrorWindow("пустые поля");
+                ew.Show();
+                return;
+            }
 
-            Connection.db.Teams.Add(team);
+            Games game = new Games(Name.Text);
+
+            if (Link.Text != null)
+                game.Link = Link.Text;
+
+            if (Logo.Source != null)
+                game.Logo = BitmapSourceToByteArray((BitmapSource)Logo.Source);
+
+            Connection.db.Games.Add(game);
             Connection.db.SaveChanges();
 
             MainWindow mw = new MainWindow();

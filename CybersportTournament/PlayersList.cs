@@ -14,6 +14,11 @@ namespace CybersportTournament
     
     public partial class PlayersList
     {
+        public PlayersList(int IDTeam, int IDPlayer)
+        {
+            this.IDTeam = IDTeam;
+            this.IDPlayer = IDPlayer;
+        }
         public int ID { get; set; }
         public int IDPlayer { get; set; }
         public int IDTeam { get; set; }

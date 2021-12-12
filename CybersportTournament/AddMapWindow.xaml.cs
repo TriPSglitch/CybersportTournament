@@ -1,20 +1,23 @@
-﻿using Microsoft.Win32;
+﻿using ConnectionClass;
+using Microsoft.Win32;
 using System;
 using System.IO;
+using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using ConnectionClass;
 
 namespace CybersportTournament
 {
     /// <summary>
-    /// Логика взаимодействия для AddTeamWindow.xaml
+    /// Логика взаимодействия для AddMapWindow.xaml
     /// </summary>
-    public partial class AddTeamWindow : Window
+    public partial class AddMapWindow : Window
     {
-        public AddTeamWindow()
+        public AddMapWindow()
         {
             InitializeComponent();
+            GamesBox.ItemsSource = Connection.db.Games.Select(item => item.Name).ToList();
         }
 
         private void SelectButtonClick(object sender, RoutedEventArgs e)
@@ -27,11 +30,7 @@ namespace CybersportTournament
                         "Portable Network Graphic (*.png)|*.png";
             if (op.ShowDialog() == true)
             {
-                Logo.Source = new BitmapImage(new Uri(op.FileName));
-                int lastSlash = op.FileName.LastIndexOf("\\") + 1;
-                int lastPoint = op.FileName.LastIndexOf(".");
-                string logoName = op.FileName.Substring(lastSlash, lastPoint - lastSlash);
-                LogoLabel.Content = logoName;
+                Image.Source = new BitmapImage(new Uri(op.FileName));
             }
             #endregion
         }
@@ -45,12 +44,20 @@ namespace CybersportTournament
 
         private void AddButtonClick(object sender, RoutedEventArgs e)
         {
-            #region Добавление команды
-            Teams team = new Teams(Name.Text);
-            if (Logo.Source != null)
-                team.Logo = BitmapSourceToByteArray((BitmapSource)Logo.Source);
+            #region Добавление Карты
+            if (Name.Text == "" || GamesBox.SelectedItem == null)
+            {
+                ErrorWindow ew = new ErrorWindow("пустые поля");
+                ew.Show();
+                return;
+            }
 
-            Connection.db.Teams.Add(team);
+            MapsGame mapsGame = new MapsGame(Connection.db.Games.Where(item => item.Name == GamesBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault(), Name.Text);
+
+            if (Image.Source != null)
+                mapsGame.Image = BitmapSourceToByteArray((BitmapSource)Image.Source);
+
+            Connection.db.MapsGame.Add(mapsGame);
             Connection.db.SaveChanges();
 
             MainWindow mw = new MainWindow();

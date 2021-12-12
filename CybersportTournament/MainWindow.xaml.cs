@@ -1,6 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace CybersportTournament
 {
@@ -18,6 +16,7 @@ namespace CybersportTournament
             }*/
         }
 
+        #region Переход на другие окна
         private void AddTeamClick(object sender, RoutedEventArgs e)
         {
             AddTeamWindow atw = new AddTeamWindow();
@@ -31,5 +30,20 @@ namespace CybersportTournament
             apw.Show();
             this.Close();
         }
+
+        private void AddGameClick(object sender, RoutedEventArgs e)
+        {
+            AddGameWindow apw = new AddGameWindow();
+            apw.Show();
+            this.Close();
+        }
+
+        private void AddMapClick(object sender, RoutedEventArgs e)
+        {
+            AddMapWindow apw = new AddMapWindow();
+            apw.Show();
+            this.Close();
+        }
+        #endregion
     }
 }
