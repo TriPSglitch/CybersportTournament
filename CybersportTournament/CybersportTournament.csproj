@@ -64,6 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddPlayersInTeamWindow.xaml.cs">
+      <DependentUpon>AddPlayersInTeamWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddPlayerWindow.xaml.cs">
       <DependentUpon>AddPlayerWindow.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
     <Compile Include="Users.cs">
       <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
+    <Page Include="AddPlayersInTeamWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddPlayerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

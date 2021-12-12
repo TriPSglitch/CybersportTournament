@@ -16,6 +16,7 @@ namespace CybersportTournament
         public AddPlayerWindow()
         {
             InitializeComponent();
+            TeamsBox.ItemsSource = Connection.db.Teams.Select(item => item.Name).ToList();
         }
 
         private void SelectButtonClick(object sender, RoutedEventArgs e)
@@ -40,6 +41,13 @@ namespace CybersportTournament
 
         private void AddButtonClick(object sender, RoutedEventArgs e)
         {
+            if (FirstName.Text == "" || SecondName.Text == "" || Email.Text == "" || Nickname.Text == "")
+            {
+                ErrorWindow ew = new ErrorWindow("пустые поля");
+                ew.Show();
+                return;
+            }
+
             Persons person = new Persons()
             {
                 FirstName = FirstName.Text,
@@ -62,6 +70,17 @@ namespace CybersportTournament
             };
             Connection.db.Players.Add(player);
             Connection.db.SaveChanges();
+
+            if (TeamsBox.SelectedItem != null)
+            {
+                PlayersList playersList = new PlayersList()
+                {
+                    IDPlayer = Connection.db.Players.Max(item => item.ID),
+                    IDTeam = Connection.db.Teams.Where(item => item.Name == TeamsBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault()
+                };
+                Connection.db.PlayersList.Add(playersList);
+                Connection.db.SaveChanges();
+            }
 
             MainWindow mw = new MainWindow();
             mw.Show();

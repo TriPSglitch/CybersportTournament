@@ -8,13 +8,13 @@
         Title="MainWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <TabControl BorderThickness="0">
-            <TabItem Header="Главная" Height="20" Width="100">
+            <TabItem Header="Главная" Height="20" Width="100" Background="#FF4F5856">
                 <Grid Margin="-3,-22,-3,-2"/>
             </TabItem>
-            <TabItem Name="AddItem" Header="Добавить" Height="20" Width="100">
+            <TabItem Name="AddItem" Header="Добавить" Height="20" Width="100" Background="#FF4F5856">
                 <Grid Margin="-3,-22,-3,-2">
                     <Button Name="AddTeam"  Content="Команду" HorizontalAlignment="Left" Margin="158,156,0,0" VerticalAlignment="Top" Height="70" Width="177" Click="AddTeamClick" FontSize="36"/>
-                    <Button x:Name="AddPlayer"  Content="Игрока" HorizontalAlignment="Left" Margin="158,248,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="AddPlayerClick"/>
+                    <Button Name="AddPlayer"  Content="Игрока" HorizontalAlignment="Left" Margin="158,248,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="AddPlayerClick"/>
                 </Grid>
             </TabItem>
         </TabControl>
