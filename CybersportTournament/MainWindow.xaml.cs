@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace CybersportTournament
@@ -22,6 +23,24 @@ namespace CybersportTournament
         public MainWindow()
         {
             InitializeComponent();
+            /*if (AuthorizationWindow.user.Role == 1)
+            {
+                AddItem.Visibility = Visibility.Hidden;
+            }*/
+        }
+
+        private void AddTeamClick(object sender, RoutedEventArgs e)
+        {
+            AddTeamWindow atw = new AddTeamWindow();
+            atw.Show();
+            this.Close();
+        }
+
+        private void AddPlayerClick(object sender, RoutedEventArgs e)
+        {
+            AddPlayerWindow apw = new AddPlayerWindow();
+            apw.Show();
+            this.Close();
         }
     }
 }

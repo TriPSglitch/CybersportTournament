@@ -23,6 +23,7 @@ namespace CybersportTournament
     
         public int ID { get; set; }
         public string Name { get; set; }
+        public byte[] Logo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PlayersList> PlayersList { get; set; }

@@ -1,0 +1,19 @@
+﻿<Window x:Class="CybersportTournament.AddTeamWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CybersportTournament"
+        mc:Ignorable="d"
+        Title="Добавление команды" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="Название:" HorizontalAlignment="Left" Margin="165,328,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
+        <TextBox Name="Name" HorizontalAlignment="Left" Margin="345,328,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="350" FontSize="36"/>
+        <Label Content="Логотип:" HorizontalAlignment="Left" Margin="165,410,0,0" VerticalAlignment="Top" Height="61" Width="162" Foreground="White" FontSize="36"/>
+        <Label Name="LogoLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="345,410,0,0" Height="60" Width="614" Foreground="White" FontSize="36"/>
+        <Button Name="SelectButton" Content="Выбрать" HorizontalAlignment="Left" Margin="165,490,0,0" VerticalAlignment="Top" Height="60" Width="180" FontSize="36" Click="SelectButtonClick"/>
+        <Image Name="Logo" HorizontalAlignment="Left" Height="400" Margin="982,240,0,0" VerticalAlignment="Top" Width="500"/>
+        <Button Name="BackButton"  Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>
+        <Button Name="AddButton" Content="Добавить" HorizontalAlignment="Center" Margin="0,746,0,0" VerticalAlignment="Top" Height="60" Width="180" FontSize="36" Click="AddButtonClick" />
+    </Grid>
+</Window>

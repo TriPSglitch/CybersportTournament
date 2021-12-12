@@ -5,14 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CybersportTournament"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="MainWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <TabControl BorderThickness="0">
-            <TabItem Header="TabItem" Height="20" Width="100">
+            <TabItem Header="Главная" Height="20" Width="100">
                 <Grid Margin="-3,-22,-3,-2"/>
             </TabItem>
-            <TabItem Header="Поиск" Height="20" Width="100">
-                <Grid Margin="-3,-22,-3,-2"/>
+            <TabItem Name="AddItem" Header="Добавить" Height="20" Width="100">
+                <Grid Margin="-3,-22,-3,-2">
+                    <Button Name="AddTeam"  Content="Команду" HorizontalAlignment="Left" Margin="158,156,0,0" VerticalAlignment="Top" Height="70" Width="177" Click="AddTeamClick" FontSize="36"/>
+                    <Button x:Name="AddPlayer"  Content="Игрока" HorizontalAlignment="Left" Margin="158,248,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="AddPlayerClick"/>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>

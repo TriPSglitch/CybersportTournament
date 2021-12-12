@@ -32,6 +32,7 @@ namespace CybersportTournament
             }
             #endregion
 
+
             #region Добавление пользователя
             Persons person = new Persons()
             {
