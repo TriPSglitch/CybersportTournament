@@ -33,15 +33,22 @@ namespace CybersportTournament
 
         private void AddGameClick(object sender, RoutedEventArgs e)
         {
-            AddGameWindow apw = new AddGameWindow();
-            apw.Show();
+            AddGameWindow agw = new AddGameWindow();
+            agw.Show();
             this.Close();
         }
 
         private void AddMapClick(object sender, RoutedEventArgs e)
         {
-            AddMapWindow apw = new AddMapWindow();
-            apw.Show();
+            AddMapWindow amw = new AddMapWindow();
+            amw.Show();
+            this.Close();
+        }
+
+        private void AddTournamentClick(object sender, RoutedEventArgs e)
+        {
+            AddTournamentWindow atw = new AddTournamentWindow();
+            atw.Show();
             this.Close();
         }
         #endregion

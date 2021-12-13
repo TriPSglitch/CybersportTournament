@@ -11,27 +11,28 @@ namespace CybersportTournament
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Tournaments
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tournaments()
+        public Tournaments(int IDGame, string Name)
         {
+            this.IDGame = IDGame;
+            this.Name = Name;
             this.MatchList = new HashSet<MatchList>();
-            this.TournamentsResults = new HashSet<TournamentsResults>();
+            this.TeamsList = new HashSet<TeamsList>();
         }
-    
+
         public int ID { get; set; }
         public int IDGame { get; set; }
-        public int IDTeamList { get; set; }
         public string Name { get; set; }
-        public decimal PrizeFund { get; set; }
-    
+        public Nullable<decimal> PrizeFund { get; set; }
+        public byte[] Logo { get; set; }
+
         public virtual Games Games { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MatchList> MatchList { get; set; }
-        public virtual TeamsList TeamsList { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TournamentsResults> TournamentsResults { get; set; }
+        public virtual ICollection<TeamsList> TeamsList { get; set; }
     }
 }

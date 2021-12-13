@@ -17,6 +17,7 @@
                     <Button Name="AddPlayer" Content="Игрока" HorizontalAlignment="Left" Margin="158,248,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="AddPlayerClick"/>
                     <Button Name="AddGame" Content="Игру" HorizontalAlignment="Left" Margin="158,340,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="AddGameClick"/>
                     <Button Name="AddMap" Content="Карту" HorizontalAlignment="Left" Margin="158,432,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="AddMapClick"/>
+                    <Button Name="AddTournament" Content="Турнир" HorizontalAlignment="Left" Margin="158,524,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="AddTournamentClick"/>
                 </Grid>
             </TabItem>
         </TabControl>

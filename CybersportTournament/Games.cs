@@ -20,6 +20,8 @@ namespace CybersportTournament
             this.Name = Name;
             this.MapsGame = new HashSet<MapsGame>();
             this.Tournaments = new HashSet<Tournaments>();
+            this.MapsGame = new HashSet<MapsGame>();
+            this.Tournaments = new HashSet<Tournaments>();
         }
     
         public int ID { get; set; }

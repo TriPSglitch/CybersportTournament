@@ -17,15 +17,17 @@ namespace CybersportTournament
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TeamsList()
         {
-            this.Tournaments = new HashSet<Tournaments>();
+            this.MatchesResults = new HashSet<MatchesResults>();
         }
     
         public int ID { get; set; }
+        public int IDTournament { get; set; }
         public int IDTeam { get; set; }
         public int NumberTeamList { get; set; }
     
-        public virtual Teams Teams { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tournaments> Tournaments { get; set; }
+        public virtual ICollection<MatchesResults> MatchesResults { get; set; }
+        public virtual Teams Teams { get; set; }
+        public virtual Tournaments Tournaments { get; set; }
     }
 }

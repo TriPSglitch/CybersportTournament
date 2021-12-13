@@ -76,6 +76,24 @@
     <Compile Include="AddTeamWindow.xaml.cs">
       <DependentUpon>AddTeamWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddTournamentWindow.xaml.cs">
+      <DependentUpon>AddTournamentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CybersportTournamentsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CybersportTournamentsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CybersportTournamentsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CybersportTournamentsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CybersportTournamentsModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Games.cs">
       <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
@@ -83,6 +101,9 @@
       <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Match.cs">
+      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchesResults.cs">
       <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MatchList.cs">
@@ -104,21 +125,6 @@
       <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Styles\Style.xaml.cs" />
-    <Compile Include="CybersportTournamentsModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CybersportTournamentsModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CybersportTournamentsModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CybersportTournamentsModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CybersportTournamentsModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
     </Compile>
@@ -138,9 +144,6 @@
       <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Tournaments.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TournamentsResults.cs">
       <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
@@ -163,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddTeamWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddTournamentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,6 +245,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AddWindows\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="CybersportTournamentsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CybersportTournamentsModel.edmx</DependentUpon>
@@ -249,6 +259,5 @@
       <LastGenOutput>CybersportTournamentsModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
