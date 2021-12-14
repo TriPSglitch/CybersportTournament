@@ -9,7 +9,7 @@
     <Grid>
         <Label Content="Турнир:" HorizontalAlignment="Left" Margin="367,134,0,0" VerticalAlignment="Top" Height="50" Width="190" Foreground="White" FontSize="30"/>
         <ComboBox Name="TournamentBox" HorizontalAlignment="Left" Margin="557,134,0,0" VerticalAlignment="Top" Height="50" Width="400" FontSize="30"/>
-        <DatePicker Name="Date" Margin="1010,134,0,0" VerticalAlignment="Top" Height="50" Width="250" FontSize="30" HorizontalAlignment="Left"/>
+        <DatePicker Name="Date" Margin="1010,134,0,0" VerticalAlignment="Top" Height="50" Width="250" FontSize="30" HorizontalAlignment="Left" Foreground="White"/>
         <Label Content="Команда 1:" HorizontalAlignment="Left" Margin="127,586,0,0" VerticalAlignment="Top" Height="50" Width="190" Foreground="White" FontSize="30"/>
         <ComboBox Name="TeamOneBox" HorizontalAlignment="Left" Margin="317,586,0,0" VerticalAlignment="Top" Height="50" Width="400" FontSize="30" SelectionChanged="TeamOneBoxSelectionChanged"/>
         <Label Content="Команда 2:" HorizontalAlignment="Left" Margin="883,586,0,0" VerticalAlignment="Top" Height="50" Width="190" Foreground="White" FontSize="30"/>

@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6996699ac1f949c688d776250d9d6ba6" Name="Diagram1">
+      <Diagram DiagramId="dbe17a3be94a4295b809711df323d76c" Name="Diagram1">
         <EntityTypeShape EntityType="CybersportTournamentsModel.Games" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CybersportTournamentsModel.MapsGame" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.Match" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Match" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CybersportTournamentsModel.MatchesResults" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CybersportTournamentsModel.MatchList" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CybersportTournamentsModel.Persons" Width="1.5" PointX="7.75" PointY="8.5" IsExpanded="true" />

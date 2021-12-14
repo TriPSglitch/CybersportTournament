@@ -19,7 +19,6 @@ namespace CybersportTournament
             this.IDGame = IDGame;
             this.Name = Name;
         }
-
         public int ID { get; set; }
         public int IDGame { get; set; }
         public string Name { get; set; }

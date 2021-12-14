@@ -23,7 +23,7 @@ namespace CybersportTournament
             this.Players = new HashSet<Players>();
             this.Users = new HashSet<Users>();
         }
-    
+
         public int ID { get; set; }
         public string SecondName { get; set; }
         public string FirstName { get; set; }

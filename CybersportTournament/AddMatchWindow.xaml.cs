@@ -58,7 +58,7 @@ namespace CybersportTournament
 
         private void AddButtonClick(object sender, RoutedEventArgs e)
         {
-            #region Добавление игрока
+            #region Добавление матча
             if (TournamentBox.SelectedItem == null || TeamOneBox.SelectedItem == null || TeamTwoBox.SelectedItem == null || Date.SelectedDate == null)
             {
                 ErrorWindow ew = new ErrorWindow("пустые поля");
@@ -93,6 +93,19 @@ namespace CybersportTournament
             Connection.db.TeamsList.Add(teamsListTwo);
 
             Connection.db.SaveChanges();
+
+            string Name = Connection.db.Tournaments.Where(item => item.ID == TournamentID).Select(item => item.Name).FirstOrDefault();
+            int FirstTeamID = Connection.db.TeamsList.Where(item => item.NumberTeamList == NumberTeamList).Select(item => item.IDTeam).First();
+            int SecondTeamID = Connection.db.TeamsList.Where(item => item.NumberTeamList == NumberTeamList && item.IDTeam != FirstTeamID).Select(item => item.IDTeam).First();
+
+            Name += " " + Connection.db.Teams.Where(item => item.ID == FirstTeamID).Select(item => item.Name).FirstOrDefault();
+            Name += " " + Connection.db.Teams.Where(item => item.ID == SecondTeamID).Select(item => item.Name).FirstOrDefault();
+            Name += " " + Connection.db.Match.Where(item => item.ID == MatchID).Select(item => item.Time).FirstOrDefault();
+
+            var matchUpdate = Connection.db.Match.Where(item => item.ID == MatchID).FirstOrDefault();
+            matchUpdate.Name = Name;
+            Connection.db.SaveChanges();
+
 
             MainWindow mw = new MainWindow();
             mw.Show();

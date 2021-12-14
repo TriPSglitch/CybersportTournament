@@ -28,6 +28,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Time" Type="date" Nullable="false" />
           <Property Name="Period" Type="time" Precision="7" />
           <Property Name="Result" Type="varchar" MaxLength="10" />
@@ -394,6 +395,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Time" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Period" Type="Time" Precision="7" />
           <Property Name="Result" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -782,6 +784,7 @@
             <EntityTypeMapping TypeName="CybersportTournamentsModel.Match">
               <MappingFragment StoreEntitySet="Match">
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Period" ColumnName="Period" />
                 <ScalarProperty Name="Result" ColumnName="Result" />

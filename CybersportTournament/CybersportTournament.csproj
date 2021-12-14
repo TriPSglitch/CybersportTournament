@@ -76,56 +76,59 @@
     <Compile Include="AddPlayerWindow.xaml.cs">
       <DependentUpon>AddPlayerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddRoundWindow.xaml.cs">
+      <DependentUpon>AddRoundWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddTeamWindow.xaml.cs">
       <DependentUpon>AddTeamWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddTournamentWindow.xaml.cs">
       <DependentUpon>AddTournamentWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CybersportTournamentsModel.Context.cs">
+    <Compile Include="CybersportTournamentModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CybersportTournamentsModel.Context.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="CybersportTournamentsModel.cs">
+    <Compile Include="CybersportTournamentModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CybersportTournamentsModel.Designer.cs">
+    <Compile Include="CybersportTournamentModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CybersportTournamentsModel.edmx</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Games.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MapsGame.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Match.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MatchesResults.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MatchList.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Persons.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Players.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PlayersList.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Rounds.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RoundsList.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Styles\Style.xaml.cs" />
     <Compile Include="ErrorWindow.xaml.cs">
@@ -138,23 +141,23 @@
       <DependentUpon>RegitrationConfirmedWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Teams.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TeamsList.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Tournaments.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
-      <DependentUpon>CybersportTournamentsModel.tt</DependentUpon>
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Page Include="AddGameWindow.xaml">
       <SubType>Designer</SubType>
@@ -169,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddPlayerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddRoundWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -232,12 +239,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="CybersportTournamentsModel.edmx">
+    <EntityDeploy Include="CybersportTournamentModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CybersportTournamentsModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>CybersportTournamentModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="CybersportTournamentsModel.edmx.diagram">
-      <DependentUpon>CybersportTournamentsModel.edmx</DependentUpon>
+    <None Include="CybersportTournamentModel.edmx.diagram">
+      <DependentUpon>CybersportTournamentModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -255,15 +262,15 @@
     <Folder Include="AddWindows\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CybersportTournamentsModel.Context.tt">
+    <Content Include="CybersportTournamentModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CybersportTournamentsModel.edmx</DependentUpon>
-      <LastGenOutput>CybersportTournamentsModel.Context.cs</LastGenOutput>
+      <DependentUpon>CybersportTournamentModel.edmx</DependentUpon>
+      <LastGenOutput>CybersportTournamentModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="CybersportTournamentsModel.tt">
+    <Content Include="CybersportTournamentModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CybersportTournamentsModel.edmx</DependentUpon>
-      <LastGenOutput>CybersportTournamentsModel.cs</LastGenOutput>
+      <DependentUpon>CybersportTournamentModel.edmx</DependentUpon>
+      <LastGenOutput>CybersportTournamentModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

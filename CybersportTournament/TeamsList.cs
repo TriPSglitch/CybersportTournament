@@ -22,7 +22,7 @@ namespace CybersportTournament
             this.NumberTeamList = NumberTeamList;
             this.MatchesResults = new HashSet<MatchesResults>();
         }
-    
+
         public int ID { get; set; }
         public int IDTournament { get; set; }
         public int IDTeam { get; set; }

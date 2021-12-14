@@ -21,7 +21,7 @@ namespace CybersportTournament
             this.Nickname = Nickname;
             this.PlayersList = new HashSet<PlayersList>();
         }
-    
+
         public int ID { get; set; }
         public int IDPerson { get; set; }
         public string Nickname { get; set; }

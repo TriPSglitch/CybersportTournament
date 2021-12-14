@@ -21,7 +21,7 @@ namespace CybersportTournament
             this.PlayersList = new HashSet<PlayersList>();
             this.TeamsList = new HashSet<TeamsList>();
         }
-    
+
         public int ID { get; set; }
         public string Name { get; set; }
         public byte[] Logo { get; set; }

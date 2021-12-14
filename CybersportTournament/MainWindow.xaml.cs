@@ -58,6 +58,13 @@ namespace CybersportTournament
             amw.Show();
             this.Close();
         }
+
+        private void AddRoundClick(object sender, RoutedEventArgs e)
+        {
+            AddRoundWindow arw = new AddRoundWindow();
+            arw.Show();
+            this.Close();
+        }
         #endregion
     }
 }
