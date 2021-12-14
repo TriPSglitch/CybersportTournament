@@ -51,6 +51,13 @@ namespace CybersportTournament
             atw.Show();
             this.Close();
         }
+
+        private void AddMatchClick(object sender, RoutedEventArgs e)
+        {
+            AddMatchWindow amw = new AddMatchWindow();
+            amw.Show();
+            this.Close();
+        }
         #endregion
     }
 }
