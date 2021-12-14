@@ -14,6 +14,11 @@ namespace CybersportTournament
     
     public partial class RoundsList
     {
+        public RoundsList(int IDRound, int IDMatch)
+        {
+            this.IDRound = IDRound;
+            this.IDMatch = IDMatch;
+        }
         public int ID { get; set; }
         public int IDRound { get; set; }
         public int IDMatch { get; set; }

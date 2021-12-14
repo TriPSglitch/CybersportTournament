@@ -7,21 +7,10 @@
         mc:Ignorable="d"
         Title="AddRoundWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Label Content="Фамилия:" HorizontalAlignment="Left" Margin="127,142,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <TextBox Name="SecondName" HorizontalAlignment="Left" Margin="307,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>
-        <Label Content="Имя:" HorizontalAlignment="Left" Margin="127,224,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <TextBox Name="FirstName" HorizontalAlignment="Left" Margin="307,224,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>
-        <Label Content="Отчество:" HorizontalAlignment="Left" Margin="127,306,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <TextBox Name="MiddleName" HorizontalAlignment="Left" Margin="307,306,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>
-        <Label Content="Почта:" HorizontalAlignment="Left" Margin="127,388,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <TextBox Name="Email" HorizontalAlignment="Left" Margin="307,388,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>
-        <Label Content="Ник:" HorizontalAlignment="Left" Margin="127,470,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <TextBox x:Name="Nickname" HorizontalAlignment="Left" Margin="307,470,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>
-        <Label Content="Команда:" HorizontalAlignment="Left" Margin="127,552,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <ComboBox Name="TeamsBox" HorizontalAlignment="Left" Margin="307,552,0,0" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>
-        <Label Content="Фото:" HorizontalAlignment="Left" Margin="127,634,0,0" VerticalAlignment="Top" Height="61" Width="162" Foreground="White" FontSize="36"/>
-        <Button Name="SelectButton" Content="Выбрать" HorizontalAlignment="Left" Margin="307,634,0,0" VerticalAlignment="Top" Height="60" Width="180" FontSize="36" Click="SelectButtonClick"/>
-        <Image Name="Photo" HorizontalAlignment="Left" Height="500" Margin="1000,170,0,0" VerticalAlignment="Top"  Width="500"/>
+        <Label Content="Матч:" HorizontalAlignment="Left" Margin="127,318,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
+        <ComboBox Name="MatchesBox" HorizontalAlignment="Left" Margin="307,318,0,0" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>
+        <Label Content="Раунд:" HorizontalAlignment="Left" Margin="127,400,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
+        <TextBox Name="RoundBox" HorizontalAlignment="Left" Margin="307,400,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36" TextChanged="RoundBoxTextChanged"/>
         <Button Name="BackButton"  Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>
         <Button Name="AddButton" Content="Добавить" HorizontalAlignment="Center" Margin="0,746,0,0" VerticalAlignment="Top" Height="60" Width="180" FontSize="36" Click="AddButtonClick" />
     </Grid>
