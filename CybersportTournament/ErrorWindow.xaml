@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CybersportTournament"
         mc:Ignorable="d"
-        Title="ErrorWindow" Height="100" Width="300" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="ErrorWindow" Height="100" Width="300" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanMinimize">
     <Grid Background="#FF2D2D2D">
         <Button x:Name="BackButton" Content="Назад" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="130" Margin="0,57,0,0" Click="BackClick"/>
         <Label Name="Error" Content="Ошибка: " HorizontalAlignment="Center" Margin="0,18,0,0" VerticalAlignment="Top" Height="29" Width="262" Foreground="White"/>

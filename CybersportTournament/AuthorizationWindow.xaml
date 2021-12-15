@@ -5,15 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CybersportTournament"
         mc:Ignorable="d"
-        Title="Авторизация" Height="300" Width="250" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Авторизация" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
-        <Button Name="AuthorizeButton" Content="Войти" VerticalAlignment="Top" HorizontalAlignment="Center"
-                   Height="30" Width="130" Margin="0,153,0,0" Click="AuthorizationClick"/>
-        <Button x:Name="RegistrationButton" Content="Зарегестрироваться" VerticalAlignment="Top" HorizontalAlignment="Center" 
-                   Height="30" Width="130" Margin="0,202,0,0" Click="RegistrationClick"/>
-        <TextBox Name="Login" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,55,0,0" Height="20" Width="120" Background="White"/>
-        <Label Name="LoginLab"  Content="Логин" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,25,0,0" Foreground="White" Height="30" Width="120"/>
-        <PasswordBox Name="Password" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,115,0,0" Height="20" Width="120"/>
-        <Label Content="Пароль" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" Margin="0,85,0,0" Height="30" Width="120"/>
+        <Label Name="LoginLab"  Content="Логин:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="388,329,0,0" Foreground="White" Height="60" Width="180" FontSize="36"/>
+        <TextBox Name="Login" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="567,329,0,0" Height="60" Width="550" Background="White"/>
+        <Label Content="Пароль" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="White" Margin="388,411,0,0" Height="60" Width="180" FontSize="36"/>
+        <PasswordBox Name="Password" VerticalAlignment="Top" HorizontalAlignment="Left" Height="60" Width="550" Margin="567,411,0,0"/>
+        <Button Name="AuthorizeButton" Content="Войти" VerticalAlignment="Top" HorizontalAlignment="Left" Height="60" Width="360" Margin="350,746,0,0" Click="AuthorizationClick" FontSize="36"/>
+        <Button Name="RegistrationButton" Content="Зарегестрироваться" VerticalAlignment="Top" HorizontalAlignment="Right" Height="60" Width="360" Margin="0,746,350,0" Click="RegistrationClick" FontSize="36"/>
     </Grid>
 </Window>

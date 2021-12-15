@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CybersportTournament"
         mc:Ignorable="d"
-        Title="Добавление игрока" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Добавление игрока" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Label Content="Фамилия:" HorizontalAlignment="Left" Margin="127,142,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
         <TextBox Name="SecondName" HorizontalAlignment="Left" Margin="307,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>

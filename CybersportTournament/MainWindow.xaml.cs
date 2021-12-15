@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using CybersportTournament.ListWindows;
+using System.Windows;
 
 namespace CybersportTournament
 {
@@ -17,6 +18,8 @@ namespace CybersportTournament
         }
 
         #region Переход на другие окна
+
+        #region Окна добавления
         private void AddTeamClick(object sender, RoutedEventArgs e)
         {
             AddTeamWindow atw = new AddTeamWindow();
@@ -66,5 +69,49 @@ namespace CybersportTournament
             this.Close();
         }
         #endregion
+
+        #region Окна списков
+        private void TeamsListClick(object sender, RoutedEventArgs e)
+        {
+            TeamsListWindow tlw = new TeamsListWindow();
+            tlw.Show();
+            this.Close();
+        }
+
+        private void PlayersListClick(object sender, RoutedEventArgs e)
+        {
+            PlayersListWindow plw = new PlayersListWindow();
+            plw.Show();
+            this.Close();
+        }
+
+        private void GamesListClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MapsListClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TournamrntsListClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MatchesListClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RoundsListClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #endregion
+
     }
 }
