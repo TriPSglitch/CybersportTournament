@@ -48,7 +48,7 @@ namespace CybersportTournament.ListWindows
 
         private void SearchTextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            if (Search.Text != "" || Search.Text != "Поиск")
+            if (Search.Text != "" && Search.Text != "Поиск")
             {
                 var result = (from ID in Connection.db.PlayersList
                               join Team in Connection.db.Teams on ID.IDTeam equals Team.ID
@@ -59,9 +59,23 @@ namespace CybersportTournament.ListWindows
                                   Name = Team.Name,
                                   Player = Player.Nickname,
                                   Logo = Team.Logo
-                              });
+                              }).ToList();
 
-                TeamList.ItemsSource = result.ToList();
+                TeamList.ItemsSource = result;
+            }
+            else if (Search.Text == "" || Search.Text == "Поиск")
+            {
+                var result = (from ID in Connection.db.PlayersList
+                              join Team in Connection.db.Teams on ID.IDTeam equals Team.ID
+                              join Player in Connection.db.Players on ID.IDPlayer equals Player.ID
+                              select new
+                              {
+                                  Name = Team.Name,
+                                  Player = Player.Nickname,
+                                  Logo = Team.Logo
+                              }).ToList();
+
+                TeamList.ItemsSource = result;
             }
             #endregion
         }

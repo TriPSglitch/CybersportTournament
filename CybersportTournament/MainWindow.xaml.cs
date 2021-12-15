@@ -87,27 +87,30 @@ namespace CybersportTournament
 
         private void GamesListClick(object sender, RoutedEventArgs e)
         {
-
+            GamesListWindow glw = new GamesListWindow();
+            glw.Show();
+            this.Close();
         }
 
         private void MapsListClick(object sender, RoutedEventArgs e)
         {
-
+            MapsListWindow mlw = new MapsListWindow();
+            mlw.Show();
+            this.Close();
         }
 
         private void TournamrntsListClick(object sender, RoutedEventArgs e)
         {
-
+            TournamrntsListWindow tlw = new TournamrntsListWindow();
+            tlw.Show();
+            this.Close();
         }
 
         private void MatchesListClick(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void RoundsListClick(object sender, RoutedEventArgs e)
-        {
-
+            MatchesListWindow mlw = new MatchesListWindow();
+            mlw.Show();
+            this.Close();
         }
         #endregion
 

@@ -103,11 +103,23 @@
     <Compile Include="Games.cs">
       <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ListWindows\GamesListWindow.xaml.cs">
+      <DependentUpon>GamesListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListWindows\MapsListWindow.xaml.cs">
+      <DependentUpon>MapsListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListWindows\MatchesListWindow.xaml.cs">
+      <DependentUpon>MatchesListWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ListWindows\PlayersListWindow.xaml.cs">
       <DependentUpon>PlayersListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListWindows\TeamsListWindow.xaml.cs">
       <DependentUpon>TeamsListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListWindows\TournamrntsListWindow.xaml.cs">
+      <DependentUpon>TournamrntsListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MapsGame.cs">
       <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
@@ -210,11 +222,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ListWindows\GamesListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListWindows\MapsListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListWindows\MatchesListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ListWindows\PlayersListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ListWindows\TeamsListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListWindows\TournamrntsListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

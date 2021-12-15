@@ -55,7 +55,7 @@ namespace CybersportTournament.ListWindows
 
         private void SearchTextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            if (Search.Text != "" || Search.Text != "Поиск")
+            if (Search.Text != "" && Search.Text != "Поиск")
             {
                 var result = (from ID in Connection.db.PlayersList
                               join Team in Connection.db.Teams on ID.IDTeam equals Team.ID
@@ -73,9 +73,29 @@ namespace CybersportTournament.ListWindows
                                   Nickname = Player.Nickname,
                                   Team = Team.Name,
                                   Photo = Player.Photo
-                              });
+                              }).ToList();
 
-                PlayersList.ItemsSource = result.ToList();
+                PlayersList.ItemsSource = result;
+            }
+            else if (Search.Text == "" || Search.Text == "Поиск")
+            {
+                var result = (from ID in Connection.db.PlayersList
+                              join Team in Connection.db.Teams on ID.IDTeam equals Team.ID
+                              join Player in Connection.db.Players on ID.IDPlayer equals Player.ID
+                              from Players in Connection.db.Players
+                              join Person in Connection.db.Persons on Player.IDPerson equals Person.ID
+                              join PlayerID in Connection.db.PlayersList on Player.ID equals PlayerID.IDPlayer
+                              select new
+                              {
+                                  FirstName = Person.FirstName,
+                                  SecondName = Person.SecondName,
+                                  MiddleName = Person.MiddleName,
+                                  Nickname = Player.Nickname,
+                                  Team = Team.Name,
+                                  Photo = Player.Photo
+                              }).ToList();
+
+                PlayersList.ItemsSource = result;
             }
             #endregion
         }

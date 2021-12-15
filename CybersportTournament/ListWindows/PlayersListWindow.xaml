@@ -8,8 +8,6 @@
         Title="PlayersListWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Button Name="BackButton"  Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>
-        <TextBox Name="Search" HorizontalAlignment="Center" Margin="0,99,0,0" TextWrapping="Wrap" Text="Поиск" VerticalAlignment="Top" Width="1340" Height="25" FontSize="20" 
-                 Foreground="#FF675B5B" PreviewMouseLeftButtonUp="SearchPreviewMouseLeftButtonUp" LostFocus="SearchLostFocus" TextChanged="SearchTextChanged"/>
         <DataGrid Name="PlayersList" AutoGenerateColumns="False" Height="600" Margin="0,158,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1340"
                    RowHeaderStyle="{StaticResource RowHeaderStyle}" ColumnHeaderStyle="{StaticResource ColumnHeaderStyle}">
             <DataGrid.Columns>
@@ -27,5 +25,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <TextBox Name="Search" HorizontalAlignment="Center" Margin="0,99,0,0" TextWrapping="Wrap" Text="Поиск" VerticalAlignment="Top" Width="1340" Height="25" FontSize="20" 
+                 Foreground="#FF675B5B" PreviewMouseLeftButtonUp="SearchPreviewMouseLeftButtonUp" LostFocus="SearchLostFocus" TextChanged="SearchTextChanged"/>
     </Grid>
 </Window>

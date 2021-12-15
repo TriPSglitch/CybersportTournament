@@ -10,13 +10,12 @@
         <TabControl BorderThickness="0">
             <TabItem Header="Главная" Height="20" Width="100" Background="#FF4F5856">
                 <Grid Margin="-3,-22,-3,-2">
-                    <Button Name="TeamsList" Content="Команды" HorizontalAlignment="Left" Margin="158,130,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="TeamsListClick"/>
-                    <Button Name="PlayersList" Content="Игроки" HorizontalAlignment="Left" Margin="158,222,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="PlayersListClick"/>
-                    <Button Name="GamesList" Content="Игры" HorizontalAlignment="Left" Margin="158,314,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="GamesListClick"/>
-                    <Button Name="MapsList" Content="Карты" HorizontalAlignment="Left" Margin="158,406,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="MapsListClick"/>
-                    <Button Name="TournamrntsList" Content="Турниры" HorizontalAlignment="Left" Margin="158,498,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="TournamrntsListClick"/>
-                    <Button Name="MatchesList" Content="Матчи" HorizontalAlignment="Left" Margin="158,590,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="MatchesListClick"/>
-                    <Button Name="RoundsList" Content="Раунды" HorizontalAlignment="Left" Margin="158,682,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="RoundsListClick"/>
+                    <Button Name="TeamsList" Content="Команды" HorizontalAlignment="Left" Margin="158,150,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="TeamsListClick"/>
+                    <Button Name="PlayersList" Content="Игроки" HorizontalAlignment="Left" Margin="158,242,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="PlayersListClick"/>
+                    <Button Name="GamesList" Content="Игры" HorizontalAlignment="Left" Margin="158,334,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="GamesListClick"/>
+                    <Button Name="MapsList" Content="Карты" HorizontalAlignment="Left" Margin="158,426,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="MapsListClick"/>
+                    <Button Name="TournamrntsList" Content="Турниры" HorizontalAlignment="Left" Margin="158,518,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="TournamrntsListClick"/>
+                    <Button Name="MatchesList" Content="Матчи" HorizontalAlignment="Left" Margin="158,610,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="MatchesListClick"/>
                 </Grid>
             </TabItem>
             <TabItem Name="AddItem" Header="Добавить" Height="20" Width="100" Background="#FF4F5856">
