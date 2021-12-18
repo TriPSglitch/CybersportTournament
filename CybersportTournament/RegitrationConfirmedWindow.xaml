@@ -8,6 +8,6 @@
         Title="RegitrationConfirmedWindow" Height="100" Width="175" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanMinimize">
     <Grid Background="#FF2D2D2D">
         <Button x:Name="BackButton" Content="Назад" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="130" Margin="0,57,0,0" Click="BackClick"/>
-        <Label Content="Вы зарегестрировались" HorizontalAlignment="Center" Margin="0,18,0,0" VerticalAlignment="Top" Height="29" Width="140" Foreground="White"/>
+        <Label Content="Вы зарегистрировались" HorizontalAlignment="Center" Margin="0,18,0,0" VerticalAlignment="Top" Height="29" Width="140" Foreground="White"/>
     </Grid>
 </Window>

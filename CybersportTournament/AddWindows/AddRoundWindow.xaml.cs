@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
-namespace CybersportTournament
+namespace CybersportTournament.AddWindows
 {
     /// <summary>
     /// Логика взаимодействия для AddRoundWindow.xaml
@@ -28,12 +28,19 @@ namespace CybersportTournament
                 return;
             }
 
-            Rounds round = new Rounds(Convert.ToInt32(RoundBox.Text));
+            Rounds round = new Rounds()
+            {
+                Name = Convert.ToInt32(RoundBox.Text)
+            };
             Connection.db.Rounds.Add(round);
             Connection.db.SaveChanges();
 
 
-            RoundsList roundList = new RoundsList(Connection.db.Rounds.Max(item => item.ID), Connection.db.Match.Where(item => item.Name == MatchesBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault());
+            RoundsList roundList = new RoundsList()
+            {
+                IDRound = Connection.db.Rounds.Max(item => item.ID),
+                IDMatch = Connection.db.Match.Where(item => item.Name == MatchesBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault()
+            };
             Connection.db.RoundsList.Add(roundList);
             Connection.db.SaveChanges();
 

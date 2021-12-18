@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using ConnectionClass;
 
-namespace CybersportTournament
+namespace CybersportTournament.AddWindows
 {
     /// <summary>
     /// Логика взаимодействия для AddTeamWindow.xaml
@@ -46,7 +46,10 @@ namespace CybersportTournament
         private void AddButtonClick(object sender, RoutedEventArgs e)
         {
             #region Добавление команды
-            Teams team = new Teams(Name.Text);
+            Teams team = new Teams()
+            {
+                Name = Name.Text
+            };
             if (Logo.Source != null)
                 team.Logo = BitmapSourceToByteArray((BitmapSource)Logo.Source);
 

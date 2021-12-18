@@ -15,9 +15,8 @@ namespace CybersportTournament
     public partial class Rounds
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Rounds(int Name)
+        public Rounds()
         {
-            this.Name = Name;
             this.RoundsList = new HashSet<RoundsList>();
         }
     

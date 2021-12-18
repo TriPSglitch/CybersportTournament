@@ -33,8 +33,11 @@ namespace CybersportTournament
 
 
             #region Добавление пользователя
-            Persons person = new Persons(SecondName.Text, FirstName.Text, Email.Text)
+            Persons person = new Persons()
             {
+                SecondName = SecondName.Text,
+                FirstName = FirstName.Text,
+                Email = Email.Text,
                 Role = 1
             };
             if (MiddleName.Text != "")
@@ -45,7 +48,12 @@ namespace CybersportTournament
             Connection.db.Persons.Add(person);
             Connection.db.SaveChanges();
 
-            Users user = new Users(Connection.db.Persons.Max(x => x.ID), Login.Text, Password.Password);
+            Users user = new Users()
+            {
+                IDPerson = Connection.db.Persons.Max(x => x.ID),
+                Login = Login.Text,
+                Password = Password.Password
+            };
 
             Connection.db.Users.Add(user);
             Connection.db.SaveChanges();

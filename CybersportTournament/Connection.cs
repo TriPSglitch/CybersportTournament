@@ -4,6 +4,6 @@ namespace ConnectionClass
 {
     internal class Connection
     {
-        public static CybersportTournamentsEntities db = new CybersportTournamentsEntities();
+        public static CybersportTournamentEntities db = new CybersportTournamentEntities();
     }
 }

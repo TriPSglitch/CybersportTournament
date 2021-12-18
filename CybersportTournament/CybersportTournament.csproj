@@ -64,25 +64,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddGameWindow.xaml.cs">
+    <Compile Include="AddWindows\AddGameWindow.xaml.cs">
       <DependentUpon>AddGameWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddMapWindow.xaml.cs">
-      <DependentUpon>AddMapWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AddMatchWindow.xaml.cs">
+    <Compile Include="AddWindows\AddMatchWindow.xaml.cs">
       <DependentUpon>AddMatchWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddPlayerWindow.xaml.cs">
+    <Compile Include="AddWindows\AddPlayerWindow.xaml.cs">
       <DependentUpon>AddPlayerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddRoundWindow.xaml.cs">
+    <Compile Include="AddWindows\AddRoundWindow.xaml.cs">
       <DependentUpon>AddRoundWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddTeamWindow.xaml.cs">
+    <Compile Include="AddWindows\AddTeamWindow.xaml.cs">
       <DependentUpon>AddTeamWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddTournamentWindow.xaml.cs">
+    <Compile Include="AddWindows\AddTournamentWindow.xaml.cs">
       <DependentUpon>AddTournamentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="CybersportTournamentModel.Context.cs">
@@ -100,14 +97,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CybersportTournamentModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ElementsWindows\PlayerWindow.xaml.cs">
+      <DependentUpon>PlayerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Games.cs">
       <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ListWindows\GamesListWindow.xaml.cs">
       <DependentUpon>GamesListWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ListWindows\MapsListWindow.xaml.cs">
-      <DependentUpon>MapsListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListWindows\MatchesListWindow.xaml.cs">
       <DependentUpon>MatchesListWindow.xaml</DependentUpon>
@@ -120,9 +117,6 @@
     </Compile>
     <Compile Include="ListWindows\TournamrntsListWindow.xaml.cs">
       <DependentUpon>TournamrntsListWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MapsGame.cs">
-      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Match.cs">
       <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
@@ -177,31 +171,27 @@
     <Compile Include="Users.cs">
       <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
-    <Page Include="AddGameWindow.xaml">
+    <Page Include="AddWindows\AddGameWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddMapWindow.xaml">
+    <Page Include="AddWindows\AddMatchWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddMatchWindow.xaml">
+    <Page Include="AddWindows\AddPlayerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddPlayerWindow.xaml">
+    <Page Include="AddWindows\AddRoundWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddRoundWindow.xaml">
+    <Page Include="AddWindows\AddTeamWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddTeamWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AddTournamentWindow.xaml">
+    <Page Include="AddWindows\AddTournamentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -218,15 +208,15 @@
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ElementsWindows\PlayerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ErrorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ListWindows\GamesListWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ListWindows\MapsListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -300,7 +290,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="CybersportTournamentModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

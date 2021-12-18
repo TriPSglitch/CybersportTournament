@@ -5,7 +5,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
-namespace CybersportTournament
+namespace CybersportTournament.AddWindows
 {
     /// <summary>
     /// Логика взаимодействия для AddGameWindow.xaml
@@ -48,7 +48,10 @@ namespace CybersportTournament
                 return;
             }
 
-            Games game = new Games(Name.Text);
+            Games game = new Games()
+            {
+                Name = Name.Text
+            };
 
             if (Link.Text != null)
                 game.Link = Link.Text;

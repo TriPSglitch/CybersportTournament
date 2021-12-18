@@ -13,10 +13,10 @@ namespace CybersportTournament
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CybersportTournamentsEntities : DbContext
+    public partial class CybersportTournamentEntities : DbContext
     {
-        public CybersportTournamentsEntities()
-            : base("name=CybersportTournamentsEntities")
+        public CybersportTournamentEntities()
+            : base("name=CybersportTournamentEntities")
         {
         }
     
@@ -26,7 +26,6 @@ namespace CybersportTournament
         }
     
         public virtual DbSet<Games> Games { get; set; }
-        public virtual DbSet<MapsGame> MapsGame { get; set; }
         public virtual DbSet<Match> Match { get; set; }
         public virtual DbSet<MatchesResults> MatchesResults { get; set; }
         public virtual DbSet<MatchList> MatchList { get; set; }

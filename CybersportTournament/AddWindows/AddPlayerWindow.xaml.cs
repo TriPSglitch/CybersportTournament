@@ -4,20 +4,19 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-namespace CybersportTournament
+namespace CybersportTournament.AddWindows
 {
     /// <summary>
-    /// Логика взаимодействия для AddMapWindow.xaml
+    /// Логика взаимодействия для AddPlayerWindow.xaml
     /// </summary>
-    public partial class AddMapWindow : Window
+    public partial class AddPlayerWindow : Window
     {
-        public AddMapWindow()
+        public AddPlayerWindow()
         {
             InitializeComponent();
-            GamesBox.ItemsSource = Connection.db.Games.Select(item => item.Name).ToList();
+            TeamsBox.ItemsSource = Connection.db.Teams.Select(item => item.Name).ToList();
         }
 
         private void SelectButtonClick(object sender, RoutedEventArgs e)
@@ -30,7 +29,7 @@ namespace CybersportTournament
                         "Portable Network Graphic (*.png)|*.png";
             if (op.ShowDialog() == true)
             {
-                Image.Source = new BitmapImage(new Uri(op.FileName));
+                Photo.Source = new BitmapImage(new Uri(op.FileName));
             }
             #endregion
         }
@@ -44,21 +43,50 @@ namespace CybersportTournament
 
         private void AddButtonClick(object sender, RoutedEventArgs e)
         {
-            #region Добавление Карты
-            if (Name.Text == "" || GamesBox.SelectedItem == null)
+            #region Добавление игрока
+            if (FirstName.Text == "" || SecondName.Text == "" || Email.Text == "" || Nickname.Text == "")
             {
                 ErrorWindow ew = new ErrorWindow("пустые поля");
                 ew.Show();
                 return;
             }
 
-            MapsGame mapsGame = new MapsGame(Connection.db.Games.Where(item => item.Name == GamesBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault(), Name.Text);
-
-            if (Image.Source != null)
-                mapsGame.Image = BitmapSourceToByteArray((BitmapSource)Image.Source);
-
-            Connection.db.MapsGame.Add(mapsGame);
+            Persons person = new Persons()
+            {
+                SecondName = SecondName.Text,
+                FirstName = FirstName.Text,
+                Email = Email.Text,
+                Role = 2
+            };
+            if (MiddleName.Text != "")
+            {
+                person.MiddleName = MiddleName.Text;
+            }
+            Connection.db.Persons.Add(person);
             Connection.db.SaveChanges();
+
+            Players player = new Players()
+            {
+                IDPerson = Connection.db.Persons.Max(x => x.ID),
+                Nickname = Nickname.Text
+            };
+
+            if (Photo.Source != null)
+                player.Photo = BitmapSourceToByteArray((BitmapSource)Photo.Source);
+
+            Connection.db.Players.Add(player);
+            Connection.db.SaveChanges();
+
+            if (TeamsBox.SelectedItem != null)
+            {
+                PlayersList playersList = new PlayersList()
+                {
+                    IDTeam = Connection.db.Teams.Where(item => item.Name == TeamsBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault(),
+                    IDPlayer = Connection.db.Players.Max(item => item.ID)
+                };
+                Connection.db.PlayersList.Add(playersList);
+                Connection.db.SaveChanges();
+            }
 
             MainWindow mw = new MainWindow();
             mw.Show();

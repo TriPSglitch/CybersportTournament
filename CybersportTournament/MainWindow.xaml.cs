@@ -1,5 +1,6 @@
 ﻿using CybersportTournament.ListWindows;
 using System.Windows;
+using CybersportTournament.AddWindows;
 
 namespace CybersportTournament
 {
@@ -38,13 +39,6 @@ namespace CybersportTournament
         {
             AddGameWindow agw = new AddGameWindow();
             agw.Show();
-            this.Close();
-        }
-
-        private void AddMapClick(object sender, RoutedEventArgs e)
-        {
-            AddMapWindow amw = new AddMapWindow();
-            amw.Show();
             this.Close();
         }
 
@@ -89,13 +83,6 @@ namespace CybersportTournament
         {
             GamesListWindow glw = new GamesListWindow();
             glw.Show();
-            this.Close();
-        }
-
-        private void MapsListClick(object sender, RoutedEventArgs e)
-        {
-            MapsListWindow mlw = new MapsListWindow();
-            mlw.Show();
             this.Close();
         }
 

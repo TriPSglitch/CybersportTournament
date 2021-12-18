@@ -20,13 +20,7 @@ namespace CybersportTournament
             this.MatchList = new HashSet<MatchList>();
             this.RoundsList = new HashSet<RoundsList>();
         }
-        public Match(DateTime date)
-        {
-            this.Time = date;
-            this.MatchList = new HashSet<MatchList>();
-            this.RoundsList = new HashSet<RoundsList>();
-        }
-
+    
         public int ID { get; set; }
         public string Name { get; set; }
         public System.DateTime Time { get; set; }

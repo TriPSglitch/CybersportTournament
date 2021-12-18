@@ -20,6 +20,6 @@
         <Label Content="Почта:" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="925,456,0,0" Foreground="White" Height="60" Width="180" FontSize="36"/>
         <TextBox Name="Email" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="925,516,0,0" Height="60" Width="550" Background="White" FontSize="36"/>
         <Button Name="BackButton" Content="Назад" VerticalAlignment="Top" HorizontalAlignment="Left" Height="60" Width="360" Margin="350,746,0,0" Click="BackClick" FontSize="36"/>
-        <Button Name="RegistrationButton" Content="Зарегестрироваться" VerticalAlignment="Top" HorizontalAlignment="Right" Height="60" Width="360" Margin="0,746,350,0" FontSize="36" Click="RegistrationClick"/>
+        <Button Name="RegistrationButton" Content="Зарегистрироваться" VerticalAlignment="Top" HorizontalAlignment="Right" Height="60" Width="360" Margin="0,746,350,0" FontSize="36" Click="RegistrationClick"/>
     </Grid>
 </Window>

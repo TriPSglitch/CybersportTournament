@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
-namespace CybersportTournament
+namespace CybersportTournament.AddWindows
 {
     /// <summary>
     /// Логика взаимодействия для AddTournamentWindow.xaml
@@ -51,7 +51,11 @@ namespace CybersportTournament
                 return;
             }
 
-            Tournaments tournament = new Tournaments(Connection.db.Games.Where(item => item.Name == GamesBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault(), Name.Text);
+            Tournaments tournament = new Tournaments()
+            {
+                IDGame = Connection.db.Games.Where(item => item.Name == GamesBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault(),
+                Name = Name.Text
+            };
 
             if (PrizeFund.Text != "")
             {

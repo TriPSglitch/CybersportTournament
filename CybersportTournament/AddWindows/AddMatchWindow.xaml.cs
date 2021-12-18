@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-namespace CybersportTournament
+namespace CybersportTournament.AddWindows
 {
     /// <summary>
     /// Логика взаимодействия для AddMatchWindow.xaml
@@ -66,13 +66,20 @@ namespace CybersportTournament
                 return;
             }
 
-            Match match = new Match((DateTime)Date.SelectedDate);
+            Match match = new Match()
+            {
+                Time = (DateTime)Date.SelectedDate
+            };
             Connection.db.Match.Add(match);
             Connection.db.SaveChanges();
 
             int MatchID = Connection.db.Match.Max(item => item.ID);
             int TournamentID = Connection.db.Tournaments.Where(item => item.Name == TournamentBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault();
-            MatchList matchList = new MatchList(MatchID, TournamentID);
+            MatchList matchList = new MatchList()
+            {
+                IDMatch = MatchID,
+                IDTournament = TournamentID
+            };
             Connection.db.MatchList.Add(matchList);
             Connection.db.SaveChanges();
 
@@ -86,8 +93,18 @@ namespace CybersportTournament
                 NumberTeamList = Convert.ToInt32(Connection.db.TeamsList.Max(item => item.NumberTeamList).ToString()) + 1;
             }
 
-            TeamsList teamsListOne = new TeamsList(TournamentID, Connection.db.Teams.Where(item => item.Name == TeamOneBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault(), NumberTeamList);
-            TeamsList teamsListTwo = new TeamsList(TournamentID, Connection.db.Teams.Where(item => item.Name == TeamTwoBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault(), NumberTeamList);
+            TeamsList teamsListOne = new TeamsList()
+            {
+                IDTournament = TournamentID,
+                IDTeam = Connection.db.Teams.Where(item => item.Name == TeamOneBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault(),
+                NumberTeamList = NumberTeamList
+            };
+            TeamsList teamsListTwo = new TeamsList()
+            {
+                IDTournament = TournamentID,
+                IDTeam = Connection.db.Teams.Where(item => item.Name == TeamTwoBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault(),
+                NumberTeamList = NumberTeamList
+            };
 
             Connection.db.TeamsList.Add(teamsListOne);
             Connection.db.TeamsList.Add(teamsListTwo);
