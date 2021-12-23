@@ -21,13 +21,16 @@ namespace CybersportTournament.ElementsWindows
             Game.Content = tournament.Games.Name;
             PrizeFund.Content = tournament.PrizeFund;
             Logo.Source = NewImage(tournament);
-            if (Connection.db.TeamsList.Where(item => item.IDTournament == tournament.ID).Select(item => item.NumberTeamList).Contains(1))
+            for (int i = 1; i < 8; i++)
             {
-                FMatchFTeam.Content = Connection.db.TeamsList.Where(item => item.IDTournament == tournament.ID && item.NumberTeamList == 1).Select(item => item.Teams.Name).FirstOrDefault();
-                int firstTeamID = Connection.db.TeamsList.Where(item => item.IDTournament == tournament.ID && item.NumberTeamList == 1).Select(item => item.IDTeam).FirstOrDefault();
-                FMatchSTeam.Content = Connection.db.TeamsList.Where(item => item.IDTournament == tournament.ID && item.NumberTeamList == 1 
-                                                                    && item.IDTeam != firstTeamID).Select(item => item.Teams.Name).FirstOrDefault();
+                if (Connection.db.TeamsList.Where(item => item.IDTournament == tournament.ID).Select(item => item.NumberTeamList).Contains(i))
+                {
+                    FMatchFTeam.Content = Connection.db.TeamsList.Where(item => item.IDTournament == tournament.ID && item.NumberTeamList == i).Select(item => item.Teams.Name).FirstOrDefault();
+                    int firstTeamID = Connection.db.TeamsList.Where(item => item.IDTournament == tournament.ID && item.NumberTeamList == i).Select(item => item.IDTeam).FirstOrDefault();
+                    FMatchSTeam.Content = Connection.db.TeamsList.Where(item => item.IDTournament == tournament.ID && item.NumberTeamList == i
+                                                                        && item.IDTeam != firstTeamID).Select(item => item.Teams.Name).FirstOrDefault();
 
+                }
             }
         }
 
