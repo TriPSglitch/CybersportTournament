@@ -1,6 +1,7 @@
 ﻿using ConnectionClass;
 using System.Linq;
 using System.Windows;
+using CybersportTournament.ElementsWindows;
 
 namespace CybersportTournament.ListWindows
 {
@@ -13,17 +14,7 @@ namespace CybersportTournament.ListWindows
         {
             InitializeComponent();
 
-            var result = (from ID in Connection.db.PlayersList
-                         join Team in Connection.db.Teams on ID.IDTeam equals Team.ID
-                         join Player in Connection.db.Players on ID.IDPlayer equals Player.ID
-                         select new
-                         {
-                             Name = Team.Name,
-                             Player = Player.Nickname,
-                             Logo = Team.Logo
-                         }).ToList();
-
-            TeamList.ItemsSource = result;
+            TeamList.ItemsSource = Connection.db.PlayersList.ToList();
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -50,34 +41,21 @@ namespace CybersportTournament.ListWindows
         {
             if (Search.Text != "" && Search.Text != "Поиск")
             {
-                var result = (from ID in Connection.db.PlayersList
-                              join Team in Connection.db.Teams on ID.IDTeam equals Team.ID
-                              join Player in Connection.db.Players on ID.IDPlayer equals Player.ID
-                              where Team.Name.Contains(Search.Text) || Player.Nickname.Contains(Search.Text)
-                              select new
-                              {
-                                  Name = Team.Name,
-                                  Player = Player.Nickname,
-                                  Logo = Team.Logo
-                              }).ToList();
-
-                TeamList.ItemsSource = result;
+                TeamList.ItemsSource = Connection.db.PlayersList.Where(item => (item.Teams.Name + " " + item.Players.Nickname).Contains(Search.Text)).ToList();
             }
             else if (Search.Text == "" || Search.Text == "Поиск")
             {
-                var result = (from ID in Connection.db.PlayersList
-                              join Team in Connection.db.Teams on ID.IDTeam equals Team.ID
-                              join Player in Connection.db.Players on ID.IDPlayer equals Player.ID
-                              select new
-                              {
-                                  Name = Team.Name,
-                                  Player = Player.Nickname,
-                                  Logo = Team.Logo
-                              }).ToList();
-
-                TeamList.ItemsSource = result;
+                TeamList.ItemsSource = Connection.db.PlayersList.ToList();
             }
             #endregion
+        }
+
+        private void TeamListMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            int id = ((Teams)TeamList.SelectedItem).ID;
+            TeamWindow tw = new TeamWindow(id);
+            tw.Show();
+            this.Hide();
         }
     }
 }

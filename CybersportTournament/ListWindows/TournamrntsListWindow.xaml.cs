@@ -1,5 +1,5 @@
 ﻿using ConnectionClass;
-using System;
+using CybersportTournament.ElementsWindows;
 using System.Linq;
 using System.Windows;
 
@@ -8,23 +8,13 @@ namespace CybersportTournament.ListWindows
     /// <summary>
     /// Логика взаимодействия для TournamrntsListWindow.xaml
     /// </summary>
-    public partial class TournamrntsListWindow : Window
+    public partial class TournamentsListWindow : Window
     {
-        public TournamrntsListWindow()
+        public TournamentsListWindow()
         {
             InitializeComponent();
 
-            var result = (from Tournament in Connection.db.Tournaments
-                          join Game in Connection.db.Games on Tournament.IDGame equals Game.ID
-                          select new
-                          {
-                              Name = Tournament.Name,
-                              Game = Game.Name,
-                              PrizeFund = Tournament.PrizeFund,
-                              Logo = Tournament.Logo
-                          }).ToList();
-
-            TournamrntsList.ItemsSource = result;
+            TournamrntsList.ItemsSource = Connection.db.Tournaments.ToList();
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -51,34 +41,21 @@ namespace CybersportTournament.ListWindows
         {
             if (Search.Text != "" && Search.Text != "Поиск")
             {
-                var result = (from Tournament in Connection.db.Tournaments
-                              join Game in Connection.db.Games on Tournament.IDGame equals Game.ID
-                              where Tournament.Name.Contains(Search.Text) || Game.Name.Contains(Search.Text) || Tournament.PrizeFund.ToString().Contains(Search.Text)
-                              select new
-                              {
-                                  Name = Tournament.Name,
-                                  Game = Game.Name,
-                                  PrizeFund = Tournament.PrizeFund,
-                                  Logo = Tournament.Logo
-                              }).ToList();
-
-                TournamrntsList.ItemsSource = result;
+                TournamrntsList.ItemsSource = Connection.db.Tournaments.Where(item => (item.Name + " " + item.Games.Name + " " + item.PrizeFund).Contains(Search.Text)).ToList();
             }
             else if (Search.Text == "" || Search.Text == "Поиск")
             {
-                var result = (from Tournament in Connection.db.Tournaments
-                              join Game in Connection.db.Games on Tournament.IDGame equals Game.ID
-                              select new
-                              {
-                                  Name = Tournament.Name,
-                                  Game = Game.Name,
-                                  PrizeFund = Tournament.PrizeFund,
-                                  Logo = Tournament.Logo
-                              }).ToList();
-
-                TournamrntsList.ItemsSource = result;
+                TournamrntsList.ItemsSource = Connection.db.Tournaments.ToList();
             }
             #endregion
+        }
+
+        private void TournamentsListMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            int id = ((Tournaments)TournamrntsList.SelectedItem).ID;
+            TournamentWindow tw = new TournamentWindow(id);
+            tw.Show();
+            this.Hide();
         }
     }
 }

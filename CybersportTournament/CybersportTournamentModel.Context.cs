@@ -26,8 +26,8 @@ namespace CybersportTournament
         }
     
         public virtual DbSet<Games> Games { get; set; }
+        public virtual DbSet<MapsGame> MapsGame { get; set; }
         public virtual DbSet<Match> Match { get; set; }
-        public virtual DbSet<MatchesResults> MatchesResults { get; set; }
         public virtual DbSet<MatchList> MatchList { get; set; }
         public virtual DbSet<Persons> Persons { get; set; }
         public virtual DbSet<Players> Players { get; set; }
@@ -38,6 +38,7 @@ namespace CybersportTournament
         public virtual DbSet<Teams> Teams { get; set; }
         public virtual DbSet<TeamsList> TeamsList { get; set; }
         public virtual DbSet<Tournaments> Tournaments { get; set; }
+        public virtual DbSet<TournamentsResults> TournamentsResults { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }

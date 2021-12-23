@@ -1,0 +1,38 @@
+﻿<Window x:Class="CybersportTournament.ElementsWindows.MatchWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CybersportTournament.ElementsWindows"
+        mc:Ignorable="d"
+        Title="MatchWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <Button Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>
+        <Label Content="Название:" HorizontalAlignment="Left" Margin="493,80,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
+        <Label Name="Name" HorizontalAlignment="Left" Margin="674,80,0,0" VerticalAlignment="Top" Height="60" Width="600" FontSize="36" Foreground="#FF54E4FF"/>
+        <Label Content="Время:" HorizontalAlignment="Left" Margin="112,176,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
+        <Label Name="Time" HorizontalAlignment="Left" Margin="294,176,0,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36" Foreground="#FF54E4FF"/>
+        <Label Content="Длительность:" HorizontalAlignment="Right" Margin="0,176,564,0" VerticalAlignment="Top" Height="60" Width="248" Foreground="White" FontSize="36"/>
+        <Label Name="Period" HorizontalAlignment="Right" Margin="0,176,112,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36" Foreground="#FF54E4FF"/>
+        <Label Content="Команда 1:" HorizontalAlignment="Left" Margin="98,272,0,0" VerticalAlignment="Top" Height="60" Width="194" Foreground="White" FontSize="36"/>
+        <Label Name="Team1" HorizontalAlignment="Left" Margin="294,272,0,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36" Foreground="#FF54E4FF"/>
+        <Label Content="Команда 2:" HorizontalAlignment="Right" Margin="0,272,564,0" VerticalAlignment="Top" Height="60" Width="195" Foreground="White" FontSize="36"/>
+        <Label Name="Team2" HorizontalAlignment="Right" Margin="0,272,112,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36" Foreground="#FF54E4FF"/>
+        <Label Content="Результат:" HorizontalAlignment="Left" Margin="493,368,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
+        <Label Name="Result" HorizontalAlignment="Left" Margin="676,368,0,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36" Foreground="#FF54E4FF"/>
+        <DataGrid Name="RoundsList" AutoGenerateColumns="False" Height="295" Margin="0,455,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1340"
+                   RowHeaderStyle="{StaticResource RowHeaderStyle}" ColumnHeaderStyle="{StaticResource ColumnHeaderStyle}">
+            <DataGrid.ItemContainerStyle>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="RoundsListMouseDoubleClick"/>
+                </Style>
+            </DataGrid.ItemContainerStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Rounds.Name}" Header="Tournament"  Width="500" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Rounds.Period}" Header="Period"  Width="500" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Rounds.Result}" Header="Result"  Width="250" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="AddRound" Content="Добавить раунд" HorizontalAlignment="Center" Margin="0,787,0,0" VerticalAlignment="Top" Height="39" Width="220" FontSize="25" Click="AddRoundClick"/>
+    </Grid>
+</Window>

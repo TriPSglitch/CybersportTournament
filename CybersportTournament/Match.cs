@@ -26,6 +26,7 @@ namespace CybersportTournament
         public System.DateTime Time { get; set; }
         public Nullable<System.TimeSpan> Period { get; set; }
         public string Result { get; set; }
+        public int Number { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MatchList> MatchList { get; set; }

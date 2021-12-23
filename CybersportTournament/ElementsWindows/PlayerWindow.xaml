@@ -7,16 +7,18 @@
         mc:Ignorable="d"
         Title="PlayerWindow"  Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
-        <Button Name="BackButton"  Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>
+        <Button Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>
         <Label Content="Фамилия:" HorizontalAlignment="Left" Margin="140,122,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <Label Name="SecondName" HorizontalAlignment="Left" Margin="140,181,0,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36"/>
+        <Label Name="SecondName" HorizontalAlignment="Left" Margin="140,181,0,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36" Foreground="#FF54E4FF"/>
         <Label Content="Имя:" HorizontalAlignment="Left" Margin="140,263,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <Label Name="FirstName" HorizontalAlignment="Left" Margin="140,324,0,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36"/>
+        <Label Name="FirstName" HorizontalAlignment="Left" Margin="140,324,0,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36" Foreground="#FF54E4FF"/>
         <Label Content="Отчество:" HorizontalAlignment="Left" Margin="140,406,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <Label Name="MiddleName" HorizontalAlignment="Left" Margin="140,467,0,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36"/>
+        <Label Name="MiddleName" HorizontalAlignment="Left" Margin="140,467,0,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36" Foreground="#FF54E4FF"/>
         <Label Content="Ник:" HorizontalAlignment="Left" Margin="140,549,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <Label Name="Nickname" HorizontalAlignment="Left" Margin="140,610,0,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36"/>
+        <Label Name="Nickname" HorizontalAlignment="Left" Margin="140,610,0,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36" Foreground="#FF54E4FF"/>
         <Label Content="Команда:" HorizontalAlignment="Left" Margin="140,692,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <Label Name="Team" HorizontalAlignment="Left" Margin="140,753,0,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36"/>
+        <Label Name="Team" HorizontalAlignment="Left" Margin="140,753,0,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36" Foreground="#FF54E4FF"/>
+        <Image Name="Photo" HorizontalAlignment="Left" Margin="1033,192,0,0" Width="500" Height="500" VerticalAlignment="Top"/>
+        <Image Name="TeamLogo" HorizontalAlignment="Left" Margin="654,671,0,0" Width="150" Height="150" VerticalAlignment="Top"/>
     </Grid>
 </Window>

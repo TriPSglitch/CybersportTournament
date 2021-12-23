@@ -10,13 +10,18 @@
         <Button Name="BackButton"  Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>
         <DataGrid Name="TeamList" AutoGenerateColumns="False" Height="600" Margin="0,158,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1340"
                    RowHeaderStyle="{StaticResource RowHeaderStyle}" ColumnHeaderStyle="{StaticResource ColumnHeaderStyle}">
+            <DataGrid.ItemContainerStyle>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="TeamListMouseDoubleClick"/>
+                </Style>
+            </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="200" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding Player}" Header="Players"  Width="500" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Teams.Name}" Header="Name" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Players.Nickname}" Header="Players"  Width="500" IsReadOnly="True"/>
                 <DataGridTemplateColumn Header="Logo" Width="500">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Logo}" Height="150"/>
+                            <Image Source="{Binding Teams.Logo}" Height="150"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

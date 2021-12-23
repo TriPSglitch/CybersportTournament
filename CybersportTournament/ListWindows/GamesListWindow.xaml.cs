@@ -1,6 +1,7 @@
 ﻿using ConnectionClass;
 using System.Linq;
 using System.Windows;
+using CybersportTournament.ElementsWindows;
 
 namespace CybersportTournament.ListWindows
 {
@@ -13,8 +14,7 @@ namespace CybersportTournament.ListWindows
         {
             InitializeComponent();
 
-            var result = (from Game in Connection.db.Games select new { Name = Game.Name, Logo = Game.Logo }).ToList();
-            GamesList.ItemsSource = result;
+            GamesList.ItemsSource = Connection.db.Games.ToList();
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -41,17 +41,21 @@ namespace CybersportTournament.ListWindows
         {
             if (Search.Text != "" && Search.Text != "Поиск")
             {
-                var result = (from Game in Connection.db.Games where Game.Name.Contains(Search.Text) select new { Name = Game.Name, Logo = Game.Logo }).ToList();
-
-                GamesList.ItemsSource = result;
+                GamesList.ItemsSource = Connection.db.Games.Where(item => item.Name.Contains(Search.Text)).ToList();
             }
             else if (Search.Text == "" || Search.Text == "Поиск")
             {
-                var result = (from Game in Connection.db.Games select new { Name = Game.Name, Logo = Game.Logo }).ToList();
-
-                GamesList.ItemsSource = result;
+                GamesList.ItemsSource = Connection.db.Games.ToList();
             }
             #endregion
+        }
+
+        private void PlayersListMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            int id = ((Games)GamesList.SelectedItem).ID;
+            GameWindow gw = new GameWindow(id);
+            gw.Show();
+            this.Hide();
         }
     }
 }

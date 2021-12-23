@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище gr692_kmeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище CybersportTournamentsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Games">
           <Key>
             <PropertyRef Name="ID" />
@@ -12,7 +12,16 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Link" Type="varchar(max)" />
-          <Property Name="Logo" Type="varbinary(max)" />
+          <Property Name="Logo" Type="image" />
+        </EntityType>
+        <EntityType Name="MapsGame">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDGame" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Image" Type="image" />
         </EntityType>
         <EntityType Name="Match">
           <Key>
@@ -20,17 +29,10 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
-          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Time" Type="date" Nullable="false" />
           <Property Name="Period" Type="time" Precision="7" />
           <Property Name="Result" Type="varchar" MaxLength="10" />
-        </EntityType>
-        <EntityType Name="MatchesResults">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IDTeamList" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MatchList">
           <Key>
@@ -58,7 +60,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDPerson" Type="int" Nullable="false" />
           <Property Name="Nickname" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="Photo" Type="image" />
         </EntityType>
         <EntityType Name="PlayersList">
           <Key>
@@ -75,6 +77,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="int" Nullable="false" />
           <Property Name="Period" Type="time" Precision="7" />
+          <Property Name="Result" Type="varchar" MaxLength="15" />
         </EntityType>
         <EntityType Name="RoundsList">
           <Key>
@@ -100,7 +103,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Logo" Type="varbinary(max)" />
+          <Property Name="Logo" Type="image" />
         </EntityType>
         <EntityType Name="TeamsList">
           <Key>
@@ -118,8 +121,16 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDGame" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="PrizeFund" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="Logo" Type="varbinary(max)" />
+          <Property Name="PrizeFund" Type="money" />
+          <Property Name="Logo" Type="image" />
+        </EntityType>
+        <EntityType Name="TournamentsResults">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDTournament" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -130,15 +141,15 @@
           <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK_MatchesResults_TeamsList">
-          <End Role="TeamsList" Type="Self.TeamsList" Multiplicity="1" />
-          <End Role="MatchesResults" Type="Self.MatchesResults" Multiplicity="*" />
+        <Association Name="FK_MapsGame_Games">
+          <End Role="Games" Type="Self.Games" Multiplicity="1" />
+          <End Role="MapsGame" Type="Self.MapsGame" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TeamsList">
+            <Principal Role="Games">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="MatchesResults">
-              <PropertyRef Name="IDTeamList" />
+            <Dependent Role="MapsGame">
+              <PropertyRef Name="IDGame" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -262,6 +273,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TournamentsResults_Tournaments">
+          <End Role="Tournaments" Type="Self.Tournaments" Multiplicity="1" />
+          <End Role="TournamentsResults" Type="Self.TournamentsResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tournaments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TournamentsResults">
+              <PropertyRef Name="IDTournament" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Users_Persons">
           <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
@@ -274,10 +297,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище gr692_kmeModelContainer">
+        <EntityContainer Name="Хранилище CybersportTournamentsModelContainer">
           <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MapsGame" EntityType="Self.MapsGame" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Match" EntityType="Self.Match" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="MatchesResults" EntityType="Self.MatchesResults" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MatchList" EntityType="Self.MatchList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Persons" EntityType="Self.Persons" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
@@ -288,10 +311,11 @@
           <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TeamsList" EntityType="Self.TeamsList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tournaments" EntityType="Self.Tournaments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TournamentsResults" EntityType="Self.TournamentsResults" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_MatchesResults_TeamsList" Association="Self.FK_MatchesResults_TeamsList">
-            <End Role="TeamsList" EntitySet="TeamsList" />
-            <End Role="MatchesResults" EntitySet="MatchesResults" />
+          <AssociationSet Name="FK_MapsGame_Games" Association="Self.FK_MapsGame_Games">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="MapsGame" EntitySet="MapsGame" />
           </AssociationSet>
           <AssociationSet Name="FK_MatchList_Match" Association="Self.FK_MatchList_Match">
             <End Role="Match" EntitySet="Match" />
@@ -333,6 +357,10 @@
             <End Role="Games" EntitySet="Games" />
             <End Role="Tournaments" EntitySet="Tournaments" />
           </AssociationSet>
+          <AssociationSet Name="FK_TournamentsResults_Tournaments" Association="Self.FK_TournamentsResults_Tournaments">
+            <End Role="Tournaments" EntitySet="Tournaments" />
+            <End Role="TournamentsResults" EntitySet="TournamentsResults" />
+          </AssociationSet>
           <AssociationSet Name="FK_Users_Persons" Association="Self.FK_Users_Persons">
             <End Role="Persons" EntitySet="Persons" />
             <End Role="Users" EntitySet="Users" />
@@ -341,7 +369,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="gr692_kmeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="CybersportTournamentsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Games">
           <Key>
             <PropertyRef Name="ID" />
@@ -350,7 +378,18 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="MapsGame" Relationship="Self.FK_MapsGame_Games" FromRole="Games" ToRole="MapsGame" />
           <NavigationProperty Name="Tournaments" Relationship="Self.FK_Tournaments_Games" FromRole="Games" ToRole="Tournaments" />
+        </EntityType>
+        <EntityType Name="MapsGame">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDGame" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Games" Relationship="Self.FK_MapsGame_Games" FromRole="MapsGame" ToRole="Games" />
         </EntityType>
         <EntityType Name="Match">
           <Key>
@@ -358,20 +397,12 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Period" Type="Time" Precision="7" />
           <Property Name="Result" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="MatchList" Relationship="Self.FK_MatchList_Match" FromRole="Match" ToRole="MatchList" />
           <NavigationProperty Name="RoundsList" Relationship="Self.FK_RoundsList_Match" FromRole="Match" ToRole="RoundsList" />
-        </EntityType>
-        <EntityType Name="MatchesResults">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IDTeamList" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="TeamsList" Relationship="Self.FK_MatchesResults_TeamsList" FromRole="MatchesResults" ToRole="TeamsList" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="MatchList">
           <Key>
@@ -425,6 +456,7 @@
           <Property Name="Name" Type="Int32" Nullable="false" />
           <Property Name="Period" Type="Time" Precision="7" />
           <NavigationProperty Name="RoundsList" Relationship="Self.FK_RoundsList_Rounds" FromRole="Rounds" ToRole="RoundsList" />
+          <Property Name="Result" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="RoundsList">
           <Key>
@@ -464,7 +496,6 @@
           <Property Name="IDTournament" Type="Int32" Nullable="false" />
           <Property Name="IDTeam" Type="Int32" Nullable="false" />
           <Property Name="NumberTeamList" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="MatchesResults" Relationship="Self.FK_MatchesResults_TeamsList" FromRole="TeamsList" ToRole="MatchesResults" />
           <NavigationProperty Name="Teams" Relationship="Self.FK_TeamsList_Teams" FromRole="TeamsList" ToRole="Teams" />
           <NavigationProperty Name="Tournaments" Relationship="Self.FK_TeamsList_Tournaments" FromRole="TeamsList" ToRole="Tournaments" />
         </EntityType>
@@ -480,6 +511,16 @@
           <NavigationProperty Name="Games" Relationship="Self.FK_Tournaments_Games" FromRole="Tournaments" ToRole="Games" />
           <NavigationProperty Name="MatchList" Relationship="Self.FK_MatchList_Tournaments" FromRole="Tournaments" ToRole="MatchList" />
           <NavigationProperty Name="TeamsList" Relationship="Self.FK_TeamsList_Tournaments" FromRole="Tournaments" ToRole="TeamsList" />
+          <NavigationProperty Name="TournamentsResults" Relationship="Self.FK_TournamentsResults_Tournaments" FromRole="Tournaments" ToRole="TournamentsResults" />
+        </EntityType>
+        <EntityType Name="TournamentsResults">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDTournament" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Tournaments" Relationship="Self.FK_TournamentsResults_Tournaments" FromRole="TournamentsResults" ToRole="Tournaments" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -491,6 +532,18 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Persons" Relationship="Self.FK_Users_Persons" FromRole="Users" ToRole="Persons" />
         </EntityType>
+        <Association Name="FK_MapsGame_Games">
+          <End Role="Games" Type="Self.Games" Multiplicity="1" />
+          <End Role="MapsGame" Type="Self.MapsGame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MapsGame">
+              <PropertyRef Name="IDGame" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Tournaments_Games">
           <End Role="Games" Type="Self.Games" Multiplicity="1" />
           <End Role="Tournaments" Type="Self.Tournaments" Multiplicity="*" />
@@ -524,18 +577,6 @@
             </Principal>
             <Dependent Role="RoundsList">
               <PropertyRef Name="IDMatch" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MatchesResults_TeamsList">
-          <End Role="TeamsList" Type="Self.TeamsList" Multiplicity="1" />
-          <End Role="MatchesResults" Type="Self.MatchesResults" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TeamsList">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="MatchesResults">
-              <PropertyRef Name="IDTeamList" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -635,10 +676,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TournamentsResults_Tournaments">
+          <End Role="Tournaments" Type="Self.Tournaments" Multiplicity="1" />
+          <End Role="TournamentsResults" Type="Self.TournamentsResults" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tournaments">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TournamentsResults">
+              <PropertyRef Name="IDTournament" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="CybersportTournamentEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Games" EntityType="Self.Games" />
+          <EntitySet Name="MapsGame" EntityType="Self.MapsGame" />
           <EntitySet Name="Match" EntityType="Self.Match" />
-          <EntitySet Name="MatchesResults" EntityType="Self.MatchesResults" />
           <EntitySet Name="MatchList" EntityType="Self.MatchList" />
           <EntitySet Name="Persons" EntityType="Self.Persons" />
           <EntitySet Name="Players" EntityType="Self.Players" />
@@ -649,7 +702,12 @@
           <EntitySet Name="Teams" EntityType="Self.Teams" />
           <EntitySet Name="TeamsList" EntityType="Self.TeamsList" />
           <EntitySet Name="Tournaments" EntityType="Self.Tournaments" />
+          <EntitySet Name="TournamentsResults" EntityType="Self.TournamentsResults" />
           <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK_MapsGame_Games" Association="Self.FK_MapsGame_Games">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="MapsGame" EntitySet="MapsGame" />
+          </AssociationSet>
           <AssociationSet Name="FK_Tournaments_Games" Association="Self.FK_Tournaments_Games">
             <End Role="Games" EntitySet="Games" />
             <End Role="Tournaments" EntitySet="Tournaments" />
@@ -661,10 +719,6 @@
           <AssociationSet Name="FK_RoundsList_Match" Association="Self.FK_RoundsList_Match">
             <End Role="Match" EntitySet="Match" />
             <End Role="RoundsList" EntitySet="RoundsList" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MatchesResults_TeamsList" Association="Self.FK_MatchesResults_TeamsList">
-            <End Role="TeamsList" EntitySet="TeamsList" />
-            <End Role="MatchesResults" EntitySet="MatchesResults" />
           </AssociationSet>
           <AssociationSet Name="FK_MatchList_Tournaments" Association="Self.FK_MatchList_Tournaments">
             <End Role="Tournaments" EntitySet="Tournaments" />
@@ -698,15 +752,19 @@
             <End Role="Tournaments" EntitySet="Tournaments" />
             <End Role="TeamsList" EntitySet="TeamsList" />
           </AssociationSet>
+          <AssociationSet Name="FK_TournamentsResults_Tournaments" Association="Self.FK_TournamentsResults_Tournaments">
+            <End Role="Tournaments" EntitySet="Tournaments" />
+            <End Role="TournamentsResults" EntitySet="TournamentsResults" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище gr692_kmeModelContainer" CdmEntityContainer="CybersportTournamentEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CybersportTournamentsModelContainer" CdmEntityContainer="CybersportTournamentEntities">
           <EntitySetMapping Name="Games">
-            <EntityTypeMapping TypeName="gr692_kmeModel.Games">
+            <EntityTypeMapping TypeName="CybersportTournamentsModel.Games">
               <MappingFragment StoreEntitySet="Games">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -715,9 +773,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="MapsGame">
+            <EntityTypeMapping TypeName="CybersportTournamentsModel.MapsGame">
+              <MappingFragment StoreEntitySet="MapsGame">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDGame" ColumnName="IDGame" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Match">
-            <EntityTypeMapping TypeName="gr692_kmeModel.Match">
+            <EntityTypeMapping TypeName="CybersportTournamentsModel.Match">
               <MappingFragment StoreEntitySet="Match">
+                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
@@ -726,17 +795,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MatchesResults">
-            <EntityTypeMapping TypeName="gr692_kmeModel.MatchesResults">
-              <MappingFragment StoreEntitySet="MatchesResults">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="IDTeamList" ColumnName="IDTeamList" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MatchList">
-            <EntityTypeMapping TypeName="gr692_kmeModel.MatchList">
+            <EntityTypeMapping TypeName="CybersportTournamentsModel.MatchList">
               <MappingFragment StoreEntitySet="MatchList">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IDMatch" ColumnName="IDMatch" />
@@ -745,7 +805,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Persons">
-            <EntityTypeMapping TypeName="gr692_kmeModel.Persons">
+            <EntityTypeMapping TypeName="CybersportTournamentsModel.Persons">
               <MappingFragment StoreEntitySet="Persons">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="SecondName" ColumnName="SecondName" />
@@ -757,7 +817,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Players">
-            <EntityTypeMapping TypeName="gr692_kmeModel.Players">
+            <EntityTypeMapping TypeName="CybersportTournamentsModel.Players">
               <MappingFragment StoreEntitySet="Players">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IDPerson" ColumnName="IDPerson" />
@@ -767,7 +827,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PlayersList">
-            <EntityTypeMapping TypeName="gr692_kmeModel.PlayersList">
+            <EntityTypeMapping TypeName="CybersportTournamentsModel.PlayersList">
               <MappingFragment StoreEntitySet="PlayersList">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IDPlayer" ColumnName="IDPlayer" />
@@ -776,8 +836,9 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rounds">
-            <EntityTypeMapping TypeName="gr692_kmeModel.Rounds">
+            <EntityTypeMapping TypeName="CybersportTournamentsModel.Rounds">
               <MappingFragment StoreEntitySet="Rounds">
+                <ScalarProperty Name="Result" ColumnName="Result" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Period" ColumnName="Period" />
@@ -785,7 +846,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RoundsList">
-            <EntityTypeMapping TypeName="gr692_kmeModel.RoundsList">
+            <EntityTypeMapping TypeName="CybersportTournamentsModel.RoundsList">
               <MappingFragment StoreEntitySet="RoundsList">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IDRound" ColumnName="IDRound" />
@@ -794,7 +855,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="gr692_kmeModel.sysdiagrams">
+            <EntityTypeMapping TypeName="CybersportTournamentsModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -805,7 +866,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Teams">
-            <EntityTypeMapping TypeName="gr692_kmeModel.Teams">
+            <EntityTypeMapping TypeName="CybersportTournamentsModel.Teams">
               <MappingFragment StoreEntitySet="Teams">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -814,7 +875,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TeamsList">
-            <EntityTypeMapping TypeName="gr692_kmeModel.TeamsList">
+            <EntityTypeMapping TypeName="CybersportTournamentsModel.TeamsList">
               <MappingFragment StoreEntitySet="TeamsList">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IDTournament" ColumnName="IDTournament" />
@@ -824,7 +885,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tournaments">
-            <EntityTypeMapping TypeName="gr692_kmeModel.Tournaments">
+            <EntityTypeMapping TypeName="CybersportTournamentsModel.Tournaments">
               <MappingFragment StoreEntitySet="Tournaments">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IDGame" ColumnName="IDGame" />
@@ -834,8 +895,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TournamentsResults">
+            <EntityTypeMapping TypeName="CybersportTournamentsModel.TournamentsResults">
+              <MappingFragment StoreEntitySet="TournamentsResults">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDTournament" ColumnName="IDTournament" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="gr692_kmeModel.Users">
+            <EntityTypeMapping TypeName="CybersportTournamentsModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="IDPerson" ColumnName="IDPerson" />

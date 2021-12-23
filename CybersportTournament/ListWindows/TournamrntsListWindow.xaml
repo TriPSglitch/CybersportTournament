@@ -1,18 +1,23 @@
-﻿<Window x:Class="CybersportTournament.ListWindows.TournamrntsListWindow"
+﻿<Window x:Class="CybersportTournament.ListWindows.TournamentsListWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CybersportTournament.ListWindows"
         mc:Ignorable="d"
-        Title="TournamrntsListWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="TournamentsListWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Button Name="BackButton"  Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>
         <DataGrid Name="TournamrntsList" AutoGenerateColumns="False" Height="600" Margin="0,158,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1340"
                    RowHeaderStyle="{StaticResource RowHeaderStyle}" ColumnHeaderStyle="{StaticResource ColumnHeaderStyle}">
+            <DataGrid.ItemContainerStyle>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="TournamentsListMouseDoubleClick"/>
+                </Style>
+            </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="300" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding Game}" Header="Game"  Width="300" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Games.Name}" Header="Game"  Width="300" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding PrizeFund}" Header="PrizeFund"  Width="300" IsReadOnly="True"/>
                 <DataGridTemplateColumn Header="Logo" Width="400">
                     <DataGridTemplateColumn.CellTemplate>

@@ -12,20 +12,12 @@ namespace CybersportTournament
     using System;
     using System.Collections.Generic;
     
-    public partial class Rounds
+    public partial class TournamentsResults
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Rounds()
-        {
-            this.RoundsList = new HashSet<RoundsList>();
-        }
-    
         public int ID { get; set; }
-        public int Name { get; set; }
-        public Nullable<System.TimeSpan> Period { get; set; }
-        public string Result { get; set; }
+        public int IDTournament { get; set; }
+        public string Name { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RoundsList> RoundsList { get; set; }
+        public virtual Tournaments Tournaments { get; set; }
     }
 }

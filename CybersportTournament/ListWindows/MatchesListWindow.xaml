@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CybersportTournament.ListWindows"
         mc:Ignorable="d"
-        Title="MatchesListWindow" Height="450" Width="800">
+        Title="MatchesListWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
-        
+        <Button Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>
+        <DataGrid Name="MatchesList" AutoGenerateColumns="False" Height="600" Margin="0,158,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1340"
+                   RowHeaderStyle="{StaticResource RowHeaderStyle}" ColumnHeaderStyle="{StaticResource ColumnHeaderStyle}">
+            <DataGrid.ItemContainerStyle>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="MatchesListMouseDoubleClick"/>
+                </Style>
+            </DataGrid.ItemContainerStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name"  Width="600" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Time}" Header="Time" Width="300" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Period}" Header="Period" Width="250" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Result}" Header="Result" Width="150" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox Name="Search" HorizontalAlignment="Center" Margin="0,99,0,0" TextWrapping="Wrap" Text="Поиск" VerticalAlignment="Top" Width="1340" Height="30" FontSize="20" 
+                 Foreground="#FF675B5B" PreviewMouseLeftButtonUp="SearchPreviewMouseLeftButtonUp" LostFocus="SearchLostFocus" TextChanged="SearchTextChanged"/>
     </Grid>
 </Window>

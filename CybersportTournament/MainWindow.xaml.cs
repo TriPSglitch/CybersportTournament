@@ -88,7 +88,7 @@ namespace CybersportTournament
 
         private void TournamrntsListClick(object sender, RoutedEventArgs e)
         {
-            TournamrntsListWindow tlw = new TournamrntsListWindow();
+            TournamentsListWindow tlw = new TournamentsListWindow();
             tlw.Show();
             this.Close();
         }

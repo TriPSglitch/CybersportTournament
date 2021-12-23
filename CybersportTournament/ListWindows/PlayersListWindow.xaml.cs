@@ -1,6 +1,8 @@
 ﻿using ConnectionClass;
 using System.Linq;
 using System.Windows;
+using CybersportTournament.ElementsWindows;
+using System;
 
 namespace CybersportTournament.ListWindows
 {
@@ -22,6 +24,7 @@ namespace CybersportTournament.ListWindows
                           join PlayerID in Connection.db.PlayersList on Player.ID equals PlayerID.IDPlayer
                           select new
                           {
+                              Id = Player.ID,
                               FirstName = Person.FirstName,
                               SecondName = Person.SecondName,
                               MiddleName = Person.MiddleName,
@@ -98,6 +101,16 @@ namespace CybersportTournament.ListWindows
                 PlayersList.ItemsSource = result;
             }
             #endregion
+        }
+
+        private void PlayersListMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            int startIndex = PlayersList.SelectedItem.ToString().IndexOfAny("Id = ".ToCharArray()) + 6;
+            int lastIndex = PlayersList.SelectedItem.ToString().IndexOf(",");
+            int id = Convert.ToInt32(PlayersList.SelectedItem.ToString().Substring(startIndex, lastIndex - startIndex));
+            PlayerWindow pw = new PlayerWindow(id);
+            pw.Show();
+            this.Hide();
         }
     }
 }
