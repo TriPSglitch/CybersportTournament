@@ -134,12 +134,12 @@ namespace CybersportTournament.ElementsWindows
                 && SMatchFTeam.Content.ToString() !=  "" && SMatchSTeam.Content.ToString() != "") 
                 && (FiMatchFTeam.Content.ToString() == "" && FiMatchSTeam.Content.ToString() == ""))
             {
-                List<int> teams = new List<int>();
-                teams.Add(Connection.db.Teams.Where(item => item.Name == FMatchFTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
-                teams.Add(Connection.db.Teams.Where(item => item.Name == FMatchSTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
-                teams.Add(Connection.db.Teams.Where(item => item.Name == SMatchFTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
-                teams.Add(Connection.db.Teams.Where(item => item.Name == SMatchSTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
-                AddMatchWindow mw = new AddMatchWindow(tournament.ID, teams);
+                List<int> teamsID = new List<int>();
+                teamsID.Add(Connection.db.Teams.Where(item => item.Name == FMatchFTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
+                teamsID.Add(Connection.db.Teams.Where(item => item.Name == FMatchSTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
+                teamsID.Add(Connection.db.Teams.Where(item => item.Name == SMatchFTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
+                teamsID.Add(Connection.db.Teams.Where(item => item.Name == SMatchSTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
+                AddMatchWindow mw = new AddMatchWindow(tournament.ID, teamsID);
                 mw.Show();
                 this.Close();
             }
