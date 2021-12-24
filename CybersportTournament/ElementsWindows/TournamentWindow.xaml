@@ -16,28 +16,28 @@
         <Label Name="PrizeFund" HorizontalAlignment="Right" Margin="0,158,183,0" VerticalAlignment="Top" Height="45" Width="450" FontSize="25" Foreground="#FF54E4FF"/>
         <Image Name="Logo" HorizontalAlignment="Left" Margin="984,34,0,0" Width="540" Height="93" VerticalAlignment="Top"/>
         <Label Name="FMatchFTeam" Content="" HorizontalAlignment="Left" Margin="78,270,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
-               Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>
+               Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="FMatchMouseDoubleClick"/>
         <Polyline Stroke="White" Points="0,0 75,0 75,30 150,30" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,292,0,0"/>
         <Label Name="FMatchSTeam" Content="" HorizontalAlignment="Left" Margin="78,330,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
-               Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>
+               Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="FMatchMouseDoubleClick"/>
         <Polyline Stroke="White" Points="0,30 75,30 75,0 150,0" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,322,0,0"/>
         <Label x:Name="SMatchFTeam" Content="" HorizontalAlignment="Left" Margin="78,390,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
-            Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>
+            Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="SMatchMouseDoubleClick"/>
         <Polyline Stroke="White" Points="0,0, 75,0 75,30, 150,30" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,412,0,0"/>
         <Label x:Name="SMatchSTeam" Content="" HorizontalAlignment="Left" Margin="78,450,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
-            Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>
+            Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="SMatchMouseDoubleClick"/>
         <Polyline Stroke="White" Points="0,30, 75,30 75,0, 150,0" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,442,0,0"/>
         <Label x:Name="TMatchFTeam" Content="" HorizontalAlignment="Left" Margin="78,510,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
-            Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>
+            Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="TMatchMouseDoubleClick"/>
         <Polyline Stroke="White" Points="0,0, 75,0 75,30, 150,30" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,532,0,0"/>
         <Label x:Name="TMatchSTeam" Content="" HorizontalAlignment="Left" Margin="78,570,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
-            Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>
+            Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="TMatchMouseDoubleClick"/>
         <Polyline Stroke="White" Points="0,30, 75,30 75,0 150,0" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,562,0,0"/>
         <Label x:Name="FoMatchFTeam" Content="" HorizontalAlignment="Left" Margin="78,630,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
-            Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>
+            Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="FoMatchMouseDoubleClick"/>
         <Polyline Stroke="White" Points="0,0, 75,0 75,30 150,30" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,652,0,0"/>
         <Label x:Name="FoMatchSTeam" Content="" HorizontalAlignment="Left" Margin="78,690,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
-            Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>
+            Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="FoMatchMouseDoubleClick"/>
         <Polyline Stroke="White" Points="0,30, 75,30 75,0 150,0" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,682,0,0"/>
         <Label x:Name="FiMatchFTeam" Content="" HorizontalAlignment="Left" Margin="480,300,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>

@@ -1,5 +1,6 @@
 ﻿using ConnectionClass;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -14,6 +15,7 @@ namespace CybersportTournament.AddWindows
     public partial class AddMatchWindow : Window
     {
         static int TeamOneID, TeamTwoID;
+        List<int> teams;
         public AddMatchWindow()
         {
             InitializeComponent();
@@ -21,13 +23,22 @@ namespace CybersportTournament.AddWindows
             TeamTwoBox.ItemsSource = Connection.db.Teams.Select(item => item.Name).ToList();
             TournamentBox.ItemsSource = Connection.db.Tournaments.Select(item => item.Name).ToList();
         }
+        public AddMatchWindow(int TournamentID)
+        {
+            InitializeComponent();
+            teams = Connection.db.TeamsList.Where(item => item.IDTournament == TournamentID).Select(item => item.IDTeam).ToList();
+            TeamOneBox.ItemsSource = Connection.db.Teams.Where(item => !teams.Contains(item.ID)).Select(item => item.Name).ToList();
+            TeamTwoBox.ItemsSource = Connection.db.Teams.Where(item => !teams.Contains(item.ID)).Select(item => item.Name).ToList();
+            TournamentBox.ItemsSource = Connection.db.Tournaments.Where(item => item.ID == TournamentID).Select(item => item.Name).ToList();
+            TournamentBox.SelectedIndex = 0;
+        }
 
         private void TeamOneBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             #region Выбор команд
             TeamOneID = Connection.db.Teams.Where(item => item.Name == TeamOneBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault();
 
-            TeamTwoBox.ItemsSource = Connection.db.Teams.Where(item => item.ID != TeamOneID).Select(item => item.Name).ToList();
+            TeamTwoBox.ItemsSource = Connection.db.Teams.Where(item => item.ID != TeamOneID && !teams.Contains(item.ID)).Select(item => item.Name).ToList();
 
             if (Connection.db.Teams.Where(item => item.ID == TeamOneID).Select(item => item.Logo).SingleOrDefault() == null)
             {
@@ -43,7 +54,7 @@ namespace CybersportTournament.AddWindows
         {
             TeamTwoID = Connection.db.Teams.Where(item => item.Name == TeamTwoBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault();
 
-            TeamOneBox.ItemsSource = Connection.db.Teams.Where(item => item.ID != TeamTwoID).Select(item => item.Name).ToList();
+            TeamOneBox.ItemsSource = Connection.db.Teams.Where(item => item.ID != TeamTwoID && !teams.Contains(item.ID)).Select(item => item.Name).ToList();
 
             if (Connection.db.Teams.Where(item => item.ID == TeamTwoID).Select(item => item.Logo).SingleOrDefault() == null)
             {
@@ -120,6 +131,7 @@ namespace CybersportTournament.AddWindows
             Name += " " + Connection.db.Match.Where(item => item.ID == MatchID).Select(item => item.Time).FirstOrDefault();
 
             var matchUpdate = Connection.db.Match.Where(item => item.ID == MatchID).FirstOrDefault();
+            matchUpdate.Number = NumberTeamList;
             matchUpdate.Name = Name;
             Connection.db.SaveChanges();
 
