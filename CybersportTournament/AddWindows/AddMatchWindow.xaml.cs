@@ -32,6 +32,14 @@ namespace CybersportTournament.AddWindows
             TournamentBox.ItemsSource = Connection.db.Tournaments.Where(item => item.ID == TournamentID).Select(item => item.Name).ToList();
             TournamentBox.SelectedIndex = 0;
         }
+        public AddMatchWindow(int TournamentID, List<int> teams)
+        {
+            InitializeComponent();
+            TeamOneBox.ItemsSource = Connection.db.Teams.Where(item => teams.Contains(item.ID)).Select(item => item.Name).ToList();
+            TeamTwoBox.ItemsSource = Connection.db.Teams.Where(item => teams.Contains(item.ID)).Select(item => item.Name).ToList();
+            TournamentBox.ItemsSource = Connection.db.Tournaments.Where(item => item.ID == TournamentID).Select(item => item.Name).ToList();
+            TournamentBox.SelectedIndex = 0;
+        }
 
         private void TeamOneBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
