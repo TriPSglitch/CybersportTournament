@@ -12,8 +12,10 @@
         <DatePicker Name="Date" Margin="1010,134,0,0" VerticalAlignment="Top" Height="50" Width="250" FontSize="30" HorizontalAlignment="Left" Foreground="White"/>
         <Label Content="Команда 1:" HorizontalAlignment="Left" Margin="127,586,0,0" VerticalAlignment="Top" Height="50" Width="190" Foreground="White" FontSize="30"/>
         <ComboBox Name="TeamOneBox" HorizontalAlignment="Left" Margin="317,586,0,0" VerticalAlignment="Top" Height="50" Width="400" FontSize="30" SelectionChanged="TeamOneBoxSelectionChanged"/>
+        <Label Name="TeamOneLabel" HorizontalAlignment="Left" Margin="317,586,0,0" VerticalAlignment="Top" Height="50" Width="400" FontSize="30" Foreground="White" Visibility="Hidden"/>
         <Label Content="Команда 2:" HorizontalAlignment="Left" Margin="883,586,0,0" VerticalAlignment="Top" Height="50" Width="190" Foreground="White" FontSize="30"/>
         <ComboBox Name="TeamTwoBox" HorizontalAlignment="Left" Margin="1074,586,0,0" VerticalAlignment="Top" Height="50" Width="400" FontSize="30" SelectionChanged="TeamTwoBoxSelectionChanged"/>
+        <Label Name="TeamTwoLabel" HorizontalAlignment="Left" Margin="1074,586,0,0" VerticalAlignment="Top" Height="50" Width="400" FontSize="30" Foreground="White" Visibility="Hidden"/>
         <Image Name="TeamOneLogo" HorizontalAlignment="Left" Height="300" Margin="300,234,0,0" VerticalAlignment="Top" Width="300"/>
         <Image Name="TeamTwoLogo" HorizontalAlignment="Left" Height="300" Margin="1000,234,0,0" VerticalAlignment="Top" Width="300"/>
         <Button Name="BackButton"  Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>

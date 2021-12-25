@@ -31,7 +31,7 @@ namespace CybersportTournament.AddWindows
 
         private void AddButtonClick(object sender, RoutedEventArgs e)
         {
-            #region Добавление раундreturn;
+            #region Добавление раунда;
 
             Rounds round = new Rounds()
             {

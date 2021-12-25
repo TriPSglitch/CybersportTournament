@@ -17,45 +17,59 @@
         <Image Name="Logo" HorizontalAlignment="Left" Margin="984,34,0,0" Width="540" Height="93" VerticalAlignment="Top"/>
         <Label Name="FMatchFTeam" Content="" HorizontalAlignment="Left" Margin="78,270,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
                Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="FMatchMouseDoubleClick"/>
+        <Label Name="FMatchFTeamScore" Content="" HorizontalAlignment="Left" Margin="428,289,0,0" VerticalAlignment="Top" Foreground="White" Width="30"/>
         <Polyline Stroke="White" Points="0,0 75,0 75,30 150,30" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,292,0,0"/>
         <Label Name="FMatchSTeam" Content="" HorizontalAlignment="Left" Margin="78,330,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
                Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="FMatchMouseDoubleClick"/>
+        <Label Name="FMatchSTeamScore" Content="" HorizontalAlignment="Left" Margin="428,329,0,0" VerticalAlignment="Top" Foreground="White" Width="30"/>
         <Polyline Stroke="White" Points="0,30 75,30 75,0 150,0" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,322,0,0"/>
         <Label x:Name="SMatchFTeam" Content="" HorizontalAlignment="Left" Margin="78,390,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="SMatchMouseDoubleClick"/>
+        <Label Name="SMatchFTeamScore" Content="" HorizontalAlignment="Left" Margin="428,409,0,0" VerticalAlignment="Top" Foreground="White" Width="30"/>
         <Polyline Stroke="White" Points="0,0, 75,0 75,30, 150,30" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,412,0,0"/>
         <Label x:Name="SMatchSTeam" Content="" HorizontalAlignment="Left" Margin="78,450,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="SMatchMouseDoubleClick"/>
+        <Label Name="SMatchSTeamScore" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="428,449,0,0" Foreground="White" Width="30"/>
         <Polyline Stroke="White" Points="0,30, 75,30 75,0, 150,0" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,442,0,0"/>
         <Label x:Name="TMatchFTeam" Content="" HorizontalAlignment="Left" Margin="78,510,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="TMatchMouseDoubleClick"/>
+        <Label Name="TMatchFTeamScore" Content="" HorizontalAlignment="Left" Margin="428,529,0,0" VerticalAlignment="Top" Foreground="White" Width="30"/>
         <Polyline Stroke="White" Points="0,0, 75,0 75,30, 150,30" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,532,0,0"/>
         <Label x:Name="TMatchSTeam" Content="" HorizontalAlignment="Left" Margin="78,570,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="TMatchMouseDoubleClick"/>
+        <Label Name="TMatchSTeamScore" Content="" HorizontalAlignment="Left" Margin="428,569,0,0" VerticalAlignment="Top" Foreground="White" Width="30"/>
         <Polyline Stroke="White" Points="0,30, 75,30 75,0 150,0" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,562,0,0"/>
         <Label x:Name="FoMatchFTeam" Content="" HorizontalAlignment="Left" Margin="78,630,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="FoMatchMouseDoubleClick"/>
+        <Label Name="FoMatchFTeamScore" Content="" HorizontalAlignment="Left" Margin="428,649,0,0" VerticalAlignment="Top" Foreground="White" Width="30"/>
         <Polyline Stroke="White" Points="0,0, 75,0 75,30 150,30" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,652,0,0"/>
         <Label x:Name="FoMatchSTeam" Content="" HorizontalAlignment="Left" Margin="78,690,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="FoMatchMouseDoubleClick"/>
+        <Label Name="FoMatchSTeamScore" Content="" HorizontalAlignment="Left" Margin="428,689,0,0" VerticalAlignment="Top" Foreground="White" Width="30"/>
         <Polyline Stroke="White" Points="0,30, 75,30 75,0 150,0" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="329,682,0,0"/>
         <Label x:Name="FiMatchFTeam" Content="" HorizontalAlignment="Left" Margin="480,300,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="FiMatchMouseDoubleClick"/>
+        <Label Name="FiMatchFTeamScore" Content="" HorizontalAlignment="Left" Margin="831,349,0,0" VerticalAlignment="Top" Foreground="White" Width="30"/>
         <Polyline Stroke="White" Points="0,0, 75,0 75,60 150,60" Height="60" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="732,322,0,0"/>
         <Label x:Name="FiMatchSTeam" Content="" HorizontalAlignment="Left" Margin="480,0,0,0" VerticalAlignment="Center" Width="250" Height="45" FontSize="25" 
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="FiMatchMouseDoubleClick"/>
+        <Label Name="FiMatchSTeamScore" Content="" HorizontalAlignment="Left" Margin="831,389,0,0" VerticalAlignment="Top" Foreground="White" Width="30"/>
         <Polyline Stroke="White" Points="0,60, 75,60 75,0 150,0" Height="60" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="732,382,0,0"/>
         <Label x:Name="SiMatchFTeam" Content="" HorizontalAlignment="Left" Margin="480,540,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="SiMatchMouseDoubleClick"/>
+        <Label Name="SiMatchFTeamScore" Content="" HorizontalAlignment="Left" Margin="831,589,0,0" VerticalAlignment="Top" Foreground="White" Width="30"/>
         <Polyline Stroke="White" Points="0,0, 75,0 75,60 150,60" Height="60" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="732,562,0,0"/>
         <Label x:Name="SiMatchSTeam" Content="" HorizontalAlignment="Left" Margin="480,660,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="SiMatchMouseDoubleClick"/>
+        <Label Name="SiMatchSTeamScore" Content="" HorizontalAlignment="Left" Margin="831,629,0,0" VerticalAlignment="Top" Foreground="White" Width="30"/>
         <Polyline Stroke="White" Points="0,60, 75,60 75,0 150,0" Height="60" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="732,622,0,0"/>
         <Label x:Name="SeMatchFTeam" Content="" HorizontalAlignment="Left" Margin="883,360,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="SeMatchMouseDoubleClick"/>
+        <Label Name="SeMatchFTeamScore" Content="" HorizontalAlignment="Left" Margin="1236,469,0,0" VerticalAlignment="Top" Foreground="White" Width="30"/>
         <Polyline Stroke="White" Points="0,0, 75,0 75,120 150,120" Height="120" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1135,382,0,0"/>
         <Label x:Name="SeMatchSTeam" Content="" HorizontalAlignment="Left" Margin="883,600,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="SeMatchMouseDoubleClick"/>
+        <Label Name="SeMatchSTeamScore" Content="" HorizontalAlignment="Left" Margin="1236,509,0,0" VerticalAlignment="Top" Foreground="White" Width="30"/>
         <Polyline Stroke="White" Points="0,120,75,120 75,0 150,0" Height="120" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1135,502,0,0"/>
         <Label x:Name="Winner" Content="" HorizontalAlignment="Left" Margin="1286,480,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>
