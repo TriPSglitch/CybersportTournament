@@ -18,6 +18,7 @@ namespace CybersportTournament.ElementsWindows
             Name.Content = match.Name;
             Time.Content = match.Time;
             Period.Content = match.Period;
+            Result.Content = match.Result;
             int numberList = match.Number;
             int idTournament = Connection.db.MatchList.Where(item => item.IDMatch == id).Select(item => item.IDTournament).FirstOrDefault();
             int firstTeamID = Connection.db.TeamsList.Where(item => item.IDTournament == idTournament && item.NumberTeamList == numberList).Select(item => item.IDTeam).FirstOrDefault();

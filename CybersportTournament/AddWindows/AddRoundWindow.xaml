@@ -8,13 +8,13 @@
         Title="AddRoundWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Label Content="Матч:" HorizontalAlignment="Left" Margin="127,268,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <ComboBox Name="MatchesBox" HorizontalAlignment="Left" Margin="307,270,0,0" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>
+        <Label Name="Match" HorizontalAlignment="Left" Margin="307,270,0,0" VerticalAlignment="Top" Height="60" Width="850" FontSize="36" Foreground="White"/>
         <Label Content="Раунд:" HorizontalAlignment="Left" Margin="127,350,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <TextBox Name="RoundBox" HorizontalAlignment="Left" Margin="307,350,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36" TextChanged="RoundBoxTextChanged"/>
+        <Label Name="Round" HorizontalAlignment="Left" Margin="307,350,0,0" VerticalAlignment="Top" Height="60" Width="550" FontSize="36" Foreground="White"/>
         <Label Content="Длительность:" HorizontalAlignment="Left" Margin="59,432,0,0" VerticalAlignment="Top" Height="60" Width="248" Foreground="White" FontSize="36"/>
-        <TextBox Name="Period" HorizontalAlignment="Left" Margin="307,432,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36" TextChanged="RoundBoxTextChanged"/>
+        <TextBox Name="Period" HorizontalAlignment="Left" Margin="307,432,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36" TextChanged="TextChanged"/>
         <Label Content="Результат:" HorizontalAlignment="Left" Margin="127,514,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <TextBox Name="Result" HorizontalAlignment="Left" Margin="307,514,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36" TextChanged="RoundBoxTextChanged"/>
+        <TextBox Name="Result" HorizontalAlignment="Left" Margin="307,514,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36" TextChanged="TextChanged"/>
         <Button Name="BackButton"  Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>
         <Button Name="AddButton" Content="Добавить" HorizontalAlignment="Center" Margin="0,746,0,0" VerticalAlignment="Top" Height="60" Width="180" FontSize="36" Click="AddButtonClick" />
     </Grid>

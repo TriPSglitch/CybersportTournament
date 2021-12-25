@@ -48,20 +48,6 @@ namespace CybersportTournament
             atw.Show();
             this.Close();
         }
-
-        private void AddMatchClick(object sender, RoutedEventArgs e)
-        {
-            AddMatchWindow amw = new AddMatchWindow();
-            amw.Show();
-            this.Close();
-        }
-
-        private void AddRoundClick(object sender, RoutedEventArgs e)
-        {
-            AddRoundWindow arw = new AddRoundWindow();
-            arw.Show();
-            this.Close();
-        }
         #endregion
 
         #region Окна списков

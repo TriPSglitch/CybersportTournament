@@ -19,11 +19,10 @@
             </TabItem>
             <TabItem Name="AddItem" Header="Добавить" Height="20" Width="100" Background="#FF4F5856">
                 <Grid Margin="-3,-22,-3,-2">
-                    <Button Name="AddTeam" Content="Команду" HorizontalAlignment="Left" Margin="158,192,0,0" VerticalAlignment="Top" Height="70" Width="177" Click="AddTeamClick" FontSize="36"/>
-                    <Button Name="AddPlayer" Content="Игрока" HorizontalAlignment="Left" Margin="158,284,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="AddPlayerClick"/>
-                    <Button Name="AddGame" Content="Игру" HorizontalAlignment="Left" Margin="158,376,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="AddGameClick"/>
-                    <Button Name="AddTournament" Content="Турнир" HorizontalAlignment="Left" Margin="158,468,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="AddTournamentClick"/>
-                    <Button Name="AddMatch" Content="Матч" HorizontalAlignment="Left" Margin="158,560,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="AddMatchClick"/>
+                    <Button Name="AddTeam" Content="Команду" HorizontalAlignment="Left" Margin="158,250,0,0" VerticalAlignment="Top" Height="70" Width="177" Click="AddTeamClick" FontSize="36"/>
+                    <Button Name="AddPlayer" Content="Игрока" HorizontalAlignment="Left" Margin="158,342,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="AddPlayerClick"/>
+                    <Button Name="AddGame" Content="Игру" HorizontalAlignment="Left" Margin="158,434,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="AddGameClick"/>
+                    <Button Name="AddTournament" Content="Турнир" HorizontalAlignment="Left" Margin="158,526,0,0" VerticalAlignment="Top" Height="70" Width="177" FontSize="36" Click="AddTournamentClick"/>
                 </Grid>
             </TabItem>
         </TabControl>

@@ -16,15 +16,15 @@
                 </Style>
             </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding FirstName}" Header="FirstName" Width="200" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding SecondName}" Header="SecondName"  Width="200" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding MiddleName}" Header="MiddleName"  Width="200" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding Nickname}" Header="Nickname"  Width="200" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding Team}" Header="Team"  Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Players.Persons.FirstName}" Header="FirstName" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Players.Persons.SecondName}" Header="SecondName"  Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Players.Persons.MiddleName}" Header="MiddleName"  Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Players.Nickname}" Header="Nickname"  Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Teams.Name}" Header="Team"  Width="200" IsReadOnly="True"/>
                 <DataGridTemplateColumn Header="Photo" Width="320">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Photo}" Height="150"/>
+                            <Image Source="{Binding Players.Photo}" Height="150"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

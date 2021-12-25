@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f63be43c751644e1ab2561022016819b" Name="Diagram1">
+      <Diagram DiagramId="a79d7bf55976496586e1aae5b69eba74" Name="Diagram1">
         <EntityTypeShape EntityType="CybersportTournamentsModel.Games" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CybersportTournamentsModel.MapsGame" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.Match" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Match" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CybersportTournamentsModel.MatchList" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CybersportTournamentsModel.Persons" Width="1.5" PointX="7.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CybersportTournamentsModel.Players" Width="1.5" PointX="10" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CybersportTournamentsModel.PlayersList" Width="1.5" PointX="12.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.Rounds" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Rounds" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CybersportTournamentsModel.RoundsList" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CybersportTournamentsModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CybersportTournamentsModel.Teams" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />

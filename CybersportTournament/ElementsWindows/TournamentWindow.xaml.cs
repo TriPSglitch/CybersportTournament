@@ -24,8 +24,8 @@ namespace CybersportTournament.ElementsWindows
             Game.Content = tournament.Games.Name;
             PrizeFund.Content = tournament.PrizeFund;
             Logo.Source = NewImage(tournament);
-            Label[,] labels = new Label[8, 2] { { FMatchFTeam, FMatchSTeam }, {SMatchFTeam, SMatchSTeam }, { TMatchFTeam, TMatchSTeam },
-                { FoMatchFTeam, FoMatchSTeam }, { FiMatchFTeam, FiMatchSTeam }, { SiMatchFTeam, SiMatchSTeam }, { SeMatchFTeam, SeMatchSTeam }, { Winner, Winner } };
+            Label[,] labels = new Label[7, 2] { { FMatchFTeam, FMatchSTeam }, {SMatchFTeam, SMatchSTeam }, { TMatchFTeam, TMatchSTeam },
+                { FoMatchFTeam, FoMatchSTeam }, { FiMatchFTeam, FiMatchSTeam }, { SiMatchFTeam, SiMatchSTeam }, { SeMatchFTeam, SeMatchSTeam } };
             for (int i = 1; i < 8; i++)
             {
                 if (Connection.db.TeamsList.Where(item => item.IDTournament == tournament.ID).Select(item => item.NumberTeamList).Contains(i))
@@ -70,7 +70,7 @@ namespace CybersportTournament.ElementsWindows
             }
             else if (FMatchFTeam.Content.ToString() == "" || FMatchSTeam.Content.ToString() == "")
             {
-                AddMatchWindow amw = new AddMatchWindow(tournament.ID);
+                AddMatchWindow amw = new AddMatchWindow(tournament.ID, 1);
                 amw.Show();
                 this.Close();
             }
@@ -87,7 +87,7 @@ namespace CybersportTournament.ElementsWindows
             }
             else if (SMatchFTeam.Content.ToString() == "" || SMatchSTeam.Content.ToString() == "")
             {
-                AddMatchWindow amw = new AddMatchWindow(tournament.ID);
+                AddMatchWindow amw = new AddMatchWindow(tournament.ID, 2);
                 amw.Show();
                 this.Close();
             }
@@ -104,7 +104,7 @@ namespace CybersportTournament.ElementsWindows
             }
             else if (TMatchFTeam.Content.ToString() == "" || TMatchSTeam.Content.ToString() == "")
             {
-                AddMatchWindow amw = new AddMatchWindow(tournament.ID);
+                AddMatchWindow amw = new AddMatchWindow(tournament.ID, 3);
                 amw.Show();
                 this.Close();
             }
@@ -121,7 +121,7 @@ namespace CybersportTournament.ElementsWindows
             }
             else if (FoMatchFTeam.Content.ToString() == "" || FoMatchFTeam.Content.ToString() == "")
             {
-                AddMatchWindow amw = new AddMatchWindow(tournament.ID);
+                AddMatchWindow amw = new AddMatchWindow(tournament.ID, 4);
                 amw.Show();
                 this.Close();
             }
@@ -130,8 +130,9 @@ namespace CybersportTournament.ElementsWindows
 
         private void FiMatchMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if ((FMatchFTeam.Content.ToString() != "" && FMatchSTeam.Content.ToString() != "" 
-                && SMatchFTeam.Content.ToString() !=  "" && SMatchSTeam.Content.ToString() != "") 
+            #region Переход на матчи полуфинала и финала
+            if ((FMatchFTeam.Content.ToString() != "" && FMatchSTeam.Content.ToString() != ""
+                && SMatchFTeam.Content.ToString() != "" && SMatchSTeam.Content.ToString() != "")
                 && (FiMatchFTeam.Content.ToString() == "" && FiMatchSTeam.Content.ToString() == ""))
             {
                 List<int> teamsID = new List<int>();
@@ -139,7 +140,7 @@ namespace CybersportTournament.ElementsWindows
                 teamsID.Add(Connection.db.Teams.Where(item => item.Name == FMatchSTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
                 teamsID.Add(Connection.db.Teams.Where(item => item.Name == SMatchFTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
                 teamsID.Add(Connection.db.Teams.Where(item => item.Name == SMatchSTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
-                AddMatchWindow mw = new AddMatchWindow(tournament.ID, teamsID);
+                AddMatchWindow mw = new AddMatchWindow(tournament.ID, teamsID, 5);
                 mw.Show();
                 this.Close();
             }
@@ -150,6 +151,55 @@ namespace CybersportTournament.ElementsWindows
                 mw.Show();
                 this.Close();
             }
+        }
+
+        private void SiMatchMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if ((TMatchFTeam.Content.ToString() != "" && TMatchSTeam.Content.ToString() != ""
+                && FoMatchFTeam.Content.ToString() != "" && FoMatchSTeam.Content.ToString() != "")
+                && (SiMatchFTeam.Content.ToString() == "" && SiMatchSTeam.Content.ToString() == ""))
+            {
+                List<int> teamsID = new List<int>();
+                teamsID.Add(Connection.db.Teams.Where(item => item.Name == TMatchFTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
+                teamsID.Add(Connection.db.Teams.Where(item => item.Name == TMatchSTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
+                teamsID.Add(Connection.db.Teams.Where(item => item.Name == FoMatchFTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
+                teamsID.Add(Connection.db.Teams.Where(item => item.Name == FoMatchSTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
+                AddMatchWindow mw = new AddMatchWindow(tournament.ID, teamsID, 6);
+                mw.Show();
+                this.Close();
+            }
+            else if (SiMatchFTeam.Content.ToString() != "" && SiMatchSTeam.Content.ToString() != "")
+            {
+                int MatchID = Connection.db.MatchList.Where(item => item.Tournaments.ID == tournament.ID && item.Match.Number == 6).Select(item => item.IDMatch).FirstOrDefault();
+                MatchWindow mw = new MatchWindow(MatchID);
+                mw.Show();
+                this.Close();
+            }
+        }
+
+        private void SeMatchMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if ((FiMatchFTeam.Content.ToString() != "" && FiMatchSTeam.Content.ToString() != ""
+                && SiMatchFTeam.Content.ToString() != "" && SiMatchSTeam.Content.ToString() != "")
+                && (SeMatchFTeam.Content.ToString() == "" && SeMatchSTeam.Content.ToString() == ""))
+            {
+                List<int> teamsID = new List<int>();
+                teamsID.Add(Connection.db.Teams.Where(item => item.Name == FiMatchFTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
+                teamsID.Add(Connection.db.Teams.Where(item => item.Name == FiMatchSTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
+                teamsID.Add(Connection.db.Teams.Where(item => item.Name == SiMatchFTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
+                teamsID.Add(Connection.db.Teams.Where(item => item.Name == SiMatchSTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault());
+                AddMatchWindow mw = new AddMatchWindow(tournament.ID, teamsID, 7);
+                mw.Show();
+                this.Close();
+            }
+            else if (SeMatchFTeam.Content.ToString() != "" && SeMatchSTeam.Content.ToString() != "")
+            {
+                int MatchID = Connection.db.MatchList.Where(item => item.Tournaments.ID == tournament.ID && item.Match.Number == 7).Select(item => item.IDMatch).FirstOrDefault();
+                MatchWindow mw = new MatchWindow(MatchID);
+                mw.Show();
+                this.Close();
+            }
+            #endregion
         }
     }
 }

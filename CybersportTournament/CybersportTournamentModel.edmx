@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище CybersportTournamentsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище CybersportTournamentsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Games">
           <Key>
             <PropertyRef Name="ID" />
@@ -123,6 +123,7 @@
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PrizeFund" Type="money" />
           <Property Name="Logo" Type="image" />
+          <Property Name="Winner" Type="int" />
         </EntityType>
         <EntityType Name="TournamentsResults">
           <Key>
@@ -366,7 +367,8 @@
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CybersportTournamentsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -400,9 +402,9 @@
           <Property Name="Time" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Period" Type="Time" Precision="7" />
           <Property Name="Result" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
           <NavigationProperty Name="MatchList" Relationship="Self.FK_MatchList_Match" FromRole="Match" ToRole="MatchList" />
           <NavigationProperty Name="RoundsList" Relationship="Self.FK_RoundsList_Match" FromRole="Match" ToRole="RoundsList" />
-          <Property Name="Number" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="MatchList">
           <Key>
@@ -455,8 +457,8 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="Int32" Nullable="false" />
           <Property Name="Period" Type="Time" Precision="7" />
-          <NavigationProperty Name="RoundsList" Relationship="Self.FK_RoundsList_Rounds" FromRole="Rounds" ToRole="RoundsList" />
           <Property Name="Result" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RoundsList" Relationship="Self.FK_RoundsList_Rounds" FromRole="Rounds" ToRole="RoundsList" />
         </EntityType>
         <EntityType Name="RoundsList">
           <Key>
@@ -508,6 +510,7 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PrizeFund" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Winner" Type="Int32" />
           <NavigationProperty Name="Games" Relationship="Self.FK_Tournaments_Games" FromRole="Tournaments" ToRole="Games" />
           <NavigationProperty Name="MatchList" Relationship="Self.FK_MatchList_Tournaments" FromRole="Tournaments" ToRole="MatchList" />
           <NavigationProperty Name="TeamsList" Relationship="Self.FK_TeamsList_Tournaments" FromRole="Tournaments" ToRole="TeamsList" />
@@ -786,12 +789,12 @@
           <EntitySetMapping Name="Match">
             <EntityTypeMapping TypeName="CybersportTournamentsModel.Match">
               <MappingFragment StoreEntitySet="Match">
-                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Period" ColumnName="Period" />
                 <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -838,10 +841,10 @@
           <EntitySetMapping Name="Rounds">
             <EntityTypeMapping TypeName="CybersportTournamentsModel.Rounds">
               <MappingFragment StoreEntitySet="Rounds">
-                <ScalarProperty Name="Result" ColumnName="Result" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -892,6 +895,7 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="PrizeFund" ColumnName="PrizeFund" />
                 <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Winner" ColumnName="Winner" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

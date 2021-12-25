@@ -46,19 +46,18 @@
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="FiMatchMouseDoubleClick"/>
         <Polyline Stroke="White" Points="0,60, 75,60 75,0 150,0" Height="60" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="732,382,0,0"/>
         <Label x:Name="SiMatchFTeam" Content="" HorizontalAlignment="Left" Margin="480,540,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
-            Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>
+            Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="SiMatchMouseDoubleClick"/>
         <Polyline Stroke="White" Points="0,0, 75,0 75,60 150,60" Height="60" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="732,562,0,0"/>
         <Label x:Name="SiMatchSTeam" Content="" HorizontalAlignment="Left" Margin="480,660,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
-            Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>
+            Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="SiMatchMouseDoubleClick"/>
         <Polyline Stroke="White" Points="0,60, 75,60 75,0 150,0" Height="60" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="732,622,0,0"/>
         <Label x:Name="SeMatchFTeam" Content="" HorizontalAlignment="Left" Margin="883,360,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
-            Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>
+            Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="SeMatchMouseDoubleClick"/>
         <Polyline Stroke="White" Points="0,0, 75,0 75,120 150,120" Height="120" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1135,382,0,0"/>
         <Label x:Name="SeMatchSTeam" Content="" HorizontalAlignment="Left" Margin="883,600,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
-            Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>
+            Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="SeMatchMouseDoubleClick"/>
         <Polyline Stroke="White" Points="0,120,75,120 75,0 150,0" Height="120" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1135,502,0,0"/>
         <Label x:Name="Winner" Content="" HorizontalAlignment="Left" Margin="1286,480,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
             Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>
-
     </Grid>
 </Window>
