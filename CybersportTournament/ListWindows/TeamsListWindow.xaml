@@ -16,12 +16,11 @@
                 </Style>
             </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Teams.Name}" Header="Name" Width="200" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding Players.Nickname}" Header="Players"  Width="500" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="200" IsReadOnly="True"/>
                 <DataGridTemplateColumn Header="Logo" Width="500">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Teams.Logo}" Height="150"/>
+                            <Image Source="{Binding Logo}" Height="150"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

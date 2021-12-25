@@ -14,7 +14,7 @@ namespace CybersportTournament.ListWindows
         {
             InitializeComponent();
 
-            TeamList.ItemsSource = Connection.db.PlayersList.ToList();
+            TeamList.ItemsSource = Connection.db.Teams.ToList();
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -41,11 +41,11 @@ namespace CybersportTournament.ListWindows
         {
             if (Search.Text != "" && Search.Text != "Поиск")
             {
-                TeamList.ItemsSource = Connection.db.PlayersList.Where(item => (item.Teams.Name + " " + item.Players.Nickname).Contains(Search.Text)).ToList();
+                TeamList.ItemsSource = Connection.db.Teams.Where(item => (item.Name).Contains(Search.Text)).ToList();
             }
             else if (Search.Text == "" || Search.Text == "Поиск")
             {
-                TeamList.ItemsSource = Connection.db.PlayersList.ToList();
+                TeamList.ItemsSource = Connection.db.Teams.ToList();
             }
             #endregion
         }

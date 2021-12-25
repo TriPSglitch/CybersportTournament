@@ -72,6 +72,6 @@
         <Label Name="SeMatchSTeamScore" Content="" HorizontalAlignment="Left" Margin="1236,509,0,0" VerticalAlignment="Top" Foreground="White" Width="30"/>
         <Polyline Stroke="White" Points="0,120,75,120 75,0 150,0" Height="120" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1135,502,0,0"/>
         <Label x:Name="Winner" Content="" HorizontalAlignment="Left" Margin="1286,480,0,0" VerticalAlignment="Top" Width="250" Height="45" FontSize="25" 
-            Foreground="#FF54E4FF" HorizontalContentAlignment="Center"/>
+            Foreground="#FF54E4FF" HorizontalContentAlignment="Center" MouseDoubleClick="WinnerMouseDoubleClick"/>
     </Grid>
 </Window>

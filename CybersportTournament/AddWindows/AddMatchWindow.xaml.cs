@@ -88,7 +88,7 @@ namespace CybersportTournament.AddWindows
         private void AddButtonClick(object sender, RoutedEventArgs e)
         {
             #region Добавление матча
-            if (TeamOneLabel.Content.ToString() == "" || TeamTwoLabel.Content.ToString() == "")
+            if (TeamOneLabel.Visibility == Visibility.Hidden || TeamTwoLabel.Visibility == Visibility.Hidden)
             {
                 if (TeamOneBox.SelectedItem == null || TeamTwoBox.SelectedItem == null)
                 {

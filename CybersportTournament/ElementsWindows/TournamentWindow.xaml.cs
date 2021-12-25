@@ -46,6 +46,7 @@ namespace CybersportTournament.ElementsWindows
                     labels[i - 1, 3].Content = secondTeamScore;
                 }
             }
+            Winner.Content = Connection.db.TeamsList.Where(item => item.IDTournament == tournament.ID && item.Tournaments.Winner == item.IDTeam).Select(item => item.Teams.Name).FirstOrDefault();
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -140,9 +141,11 @@ namespace CybersportTournament.ElementsWindows
         private void FiMatchMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             #region Переход на матчи полуфинала и финала
-            if ((FMatchFTeamScore.Content.ToString() != "0" && FMatchSTeamScore.Content.ToString() != "0"
-                && SMatchFTeamScore.Content.ToString() != "0" && SMatchSTeamScore.Content.ToString() != "0")
-                && (FiMatchFTeam.Content.ToString() == "" && FiMatchSTeam.Content.ToString() == "")
+            if (FMatchFTeamScore.Content.ToString() == "0" && FMatchSTeamScore.Content.ToString() == "0"
+                && SMatchFTeamScore.Content.ToString() == "0" && SMatchSTeamScore.Content.ToString() == "0")
+                return;
+
+            if ((FiMatchFTeam.Content.ToString() == "" && FiMatchSTeam.Content.ToString() == "")
                 && (Convert.ToInt32(FMatchFTeamScore.Content) != Convert.ToInt32(FMatchSTeamScore.Content)
                 && Convert.ToInt32(SMatchFTeamScore.Content) != Convert.ToInt32(SMatchSTeamScore.Content)))
             {
@@ -172,17 +175,20 @@ namespace CybersportTournament.ElementsWindows
 
         private void SiMatchMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if ((TMatchFTeamScore.Content.ToString() != "0" && TMatchSTeamScore.Content.ToString() != "0"
-                && FoMatchFTeamScore.Content.ToString() != "0" && FoMatchSTeamScore.Content.ToString() != "0")
-                && (SiMatchFTeam.Content.ToString() == "" && SiMatchSTeam.Content.ToString() == "")
+            if (TMatchFTeamScore.Content.ToString() == "0" && TMatchSTeamScore.Content.ToString() == "0"
+                && FoMatchFTeamScore.Content.ToString() == "0" && FoMatchSTeamScore.Content.ToString() == "0")
+                return;
+
+            if ((SiMatchFTeam.Content.ToString() == "" && SiMatchSTeam.Content.ToString() == "")
                 && (Convert.ToInt32(TMatchFTeamScore.Content) != Convert.ToInt32(TMatchSTeamScore.Content)
                 && Convert.ToInt32(FoMatchFTeamScore.Content) != Convert.ToInt32(FoMatchSTeamScore.Content)))
             {
                 int FirstTeamNextMatchID = 0, SecondTeamNextMatchID = 0;
                 if (Convert.ToInt32(TMatchFTeamScore.Content) > Convert.ToInt32(TMatchSTeamScore.Content))
                     FirstTeamNextMatchID = Connection.db.Teams.Where(item => item.Name == TMatchFTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault();
-                else if (Convert.ToInt32(TMatchFTeamScore.Content) > Convert.ToInt32(TMatchSTeamScore.Content))
+                else if (Convert.ToInt32(TMatchFTeamScore.Content) < Convert.ToInt32(TMatchSTeamScore.Content))
                     FirstTeamNextMatchID = Connection.db.Teams.Where(item => item.Name == TMatchSTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault();
+
                 if (Convert.ToInt32(FoMatchFTeamScore.Content) > Convert.ToInt32(FoMatchSTeamScore.Content))
                     SecondTeamNextMatchID = Connection.db.Teams.Where(item => item.Name == FoMatchFTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault();
                 else if (Convert.ToInt32(FoMatchFTeamScore.Content) < Convert.ToInt32(FoMatchSTeamScore.Content))
@@ -203,17 +209,20 @@ namespace CybersportTournament.ElementsWindows
 
         private void SeMatchMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if ((FiMatchFTeamScore.Content.ToString() != "0" && FiMatchSTeamScore.Content.ToString() != "0"
-                && SiMatchFTeamScore.Content.ToString() != "0" && SiMatchSTeamScore.Content.ToString() != "0")
-                && (SeMatchFTeam.Content.ToString() == "" && SeMatchSTeam.Content.ToString() == "")
+            if ((FiMatchFTeamScore.Content.ToString() == "0" && FiMatchSTeamScore.Content.ToString() == "0"
+                && SiMatchFTeamScore.Content.ToString() == "0" && SiMatchSTeamScore.Content.ToString() == "0"))
+                return;
+
+            if ((SeMatchFTeam.Content.ToString() == "" && SeMatchSTeam.Content.ToString() == "")
                 && (Convert.ToInt32(FiMatchFTeamScore.Content) != Convert.ToInt32(FiMatchSTeamScore.Content)
                 && Convert.ToInt32(SiMatchFTeamScore.Content) != Convert.ToInt32(SiMatchSTeamScore.Content)))
             {
                 int FirstTeamNextMatchID = 0, SecondTeamNextMatchID = 0;
                 if (Convert.ToInt32(FiMatchFTeamScore.Content) > Convert.ToInt32(FiMatchSTeamScore.Content))
                     FirstTeamNextMatchID = Connection.db.Teams.Where(item => item.Name == FiMatchFTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault();
-                else if (Convert.ToInt32(FiMatchFTeamScore.Content) > Convert.ToInt32(FiMatchSTeamScore.Content))
+                else if (Convert.ToInt32(FiMatchFTeamScore.Content) < Convert.ToInt32(FiMatchSTeamScore.Content))
                     FirstTeamNextMatchID = Connection.db.Teams.Where(item => item.Name == FiMatchSTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault();
+
                 if (Convert.ToInt32(SiMatchFTeamScore.Content) > Convert.ToInt32(SiMatchSTeamScore.Content))
                     SecondTeamNextMatchID = Connection.db.Teams.Where(item => item.Name == SiMatchFTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault();
                 else if (Convert.ToInt32(SiMatchFTeamScore.Content) < Convert.ToInt32(SiMatchSTeamScore.Content))
@@ -229,6 +238,30 @@ namespace CybersportTournament.ElementsWindows
                 MatchWindow mw = new MatchWindow(MatchID);
                 mw.Show();
                 this.Close();
+            }
+            #endregion
+        }
+
+        private void WinnerMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            #region Выявление победителя
+            if (SeMatchFTeamScore.Content.ToString() == "0" && SeMatchSTeamScore.Content.ToString() == "0")
+                return;
+
+            if (Winner.Content.ToString() == "" && Convert.ToInt32(SeMatchFTeamScore.Content) != Convert.ToInt32(SeMatchSTeamScore.Content))
+            {
+                Tournaments tournamentUpdate = Connection.db.Tournaments.Where(item => item.ID == tournament.ID).FirstOrDefault();
+                if (Convert.ToInt32(SeMatchFTeamScore.Content) > Convert.ToInt32(SeMatchSTeamScore.Content))
+                {
+                    tournament.Winner = Connection.db.Teams.Where(item => item.Name == SeMatchFTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault();
+                    Winner.Content = SeMatchFTeam.Content.ToString();
+                }
+                else if (Convert.ToInt32(FiMatchFTeamScore.Content) < Convert.ToInt32(FiMatchSTeamScore.Content))
+                {
+                    tournament.Winner = Connection.db.Teams.Where(item => item.Name == SeMatchSTeam.Content.ToString()).Select(item => item.ID).FirstOrDefault();
+                    Winner.Content = SeMatchSTeam.Content.ToString();
+                }
+                Connection.db.SaveChanges();
             }
             #endregion
         }
