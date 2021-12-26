@@ -106,7 +106,8 @@ namespace CybersportTournament.AddWindows
 
             Match match = new Match()
             {
-                Time = (DateTime)Date.SelectedDate
+                Time = (DateTime)Date.SelectedDate,
+                Period = new TimeSpan(0, 0, 0)
             };
             match.Result = "0:0";
             Connection.db.Match.Add(match);

@@ -43,8 +43,8 @@ namespace CybersportTournament.ElementsWindows
         private void PlayersListMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             int id = ((Tournaments)TournamentsList.SelectedItem).ID;
-            //TournamentWindow tw = new TournamentWindow(id);
-            //tw.Show();
+            TournamentWindow tw = new TournamentWindow(id);
+            tw.Show();
             this.Hide();
         }
     }

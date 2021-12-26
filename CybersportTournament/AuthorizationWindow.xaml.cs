@@ -28,7 +28,8 @@ namespace CybersportTournament
             {
                 int personID = Connection.db.Users.Where(users => users.Login == Login.Text).Select(users => users.IDPerson).FirstOrDefault();
                 int Role = Connection.db.Persons.Where(users => users.ID == personID).Select(users => users.Role).FirstOrDefault();
-                user = new User(personID, Role);
+                User.Role = Role;
+                User.IDPerson = personID;
                 MainWindow mw = new MainWindow();
                 mw.Show();
                 this.Close();

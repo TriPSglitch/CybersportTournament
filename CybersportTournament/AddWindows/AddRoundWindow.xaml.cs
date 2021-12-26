@@ -41,6 +41,8 @@ namespace CybersportTournament.AddWindows
             {
                 int index = Period.Text.IndexOf(":");
                 round.Period = new TimeSpan(Convert.ToInt32(Period.Text.Substring(0, index)), Convert.ToInt32(Period.Text.Substring(index + 1, Period.Text.Length - index - 1)), 0);
+                TimeSpan matchPeriod = (TimeSpan)match.Period + (TimeSpan)round.Period;
+                match.Period = matchPeriod;
             }
             round.Result = "0:0";
             Connection.db.Rounds.Add(round);

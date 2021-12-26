@@ -78,7 +78,7 @@ namespace CybersportTournament.ElementsWindows
                 mw.Show();
                 this.Close();
             }
-            else if (FMatchFTeam.Content.ToString() == "" || FMatchSTeam.Content.ToString() == "")
+            else if ((FMatchFTeam.Content.ToString() == "" || FMatchSTeam.Content.ToString() == "") && User.Role == 0)
             {
                 AddMatchWindow amw = new AddMatchWindow(tournament.ID, 1);
                 amw.Show();
@@ -95,7 +95,7 @@ namespace CybersportTournament.ElementsWindows
                 mw.Show();
                 this.Close();
             }
-            else if (SMatchFTeam.Content.ToString() == "" || SMatchSTeam.Content.ToString() == "")
+            else if ((SMatchFTeam.Content.ToString() == "" || SMatchSTeam.Content.ToString() == "") && User.Role == 0)
             {
                 AddMatchWindow amw = new AddMatchWindow(tournament.ID, 2);
                 amw.Show();
@@ -112,7 +112,7 @@ namespace CybersportTournament.ElementsWindows
                 mw.Show();
                 this.Close();
             }
-            else if (TMatchFTeam.Content.ToString() == "" || TMatchSTeam.Content.ToString() == "")
+            else if ((TMatchFTeam.Content.ToString() == "" || TMatchSTeam.Content.ToString() == "") && User.Role == 0)
             {
                 AddMatchWindow amw = new AddMatchWindow(tournament.ID, 3);
                 amw.Show();
@@ -129,7 +129,7 @@ namespace CybersportTournament.ElementsWindows
                 mw.Show();
                 this.Close();
             }
-            else if (FoMatchFTeam.Content.ToString() == "" || FoMatchFTeam.Content.ToString() == "")
+            else if ((FoMatchFTeam.Content.ToString() == "" || FoMatchFTeam.Content.ToString() == "") && User.Role == 0)
             {
                 AddMatchWindow amw = new AddMatchWindow(tournament.ID, 4);
                 amw.Show();
@@ -145,9 +145,9 @@ namespace CybersportTournament.ElementsWindows
                 && SMatchFTeamScore.Content.ToString() == "0" && SMatchSTeamScore.Content.ToString() == "0")
                 return;
 
-            if ((FiMatchFTeam.Content.ToString() == "" && FiMatchSTeam.Content.ToString() == "")
+            if (((FiMatchFTeam.Content.ToString() == "" && FiMatchSTeam.Content.ToString() == "")
                 && (Convert.ToInt32(FMatchFTeamScore.Content) != Convert.ToInt32(FMatchSTeamScore.Content)
-                && Convert.ToInt32(SMatchFTeamScore.Content) != Convert.ToInt32(SMatchSTeamScore.Content)))
+                && Convert.ToInt32(SMatchFTeamScore.Content) != Convert.ToInt32(SMatchSTeamScore.Content))) && User.Role == 0)
             {
                 int FirstTeamNextMatchID = 0, SecondTeamNextMatchID = 0;
                 if (Convert.ToInt32(FMatchFTeamScore.Content) > Convert.ToInt32(FMatchSTeamScore.Content))
@@ -179,9 +179,9 @@ namespace CybersportTournament.ElementsWindows
                 && FoMatchFTeamScore.Content.ToString() == "0" && FoMatchSTeamScore.Content.ToString() == "0")
                 return;
 
-            if ((SiMatchFTeam.Content.ToString() == "" && SiMatchSTeam.Content.ToString() == "")
+            if (((SiMatchFTeam.Content.ToString() == "" && SiMatchSTeam.Content.ToString() == "")
                 && (Convert.ToInt32(TMatchFTeamScore.Content) != Convert.ToInt32(TMatchSTeamScore.Content)
-                && Convert.ToInt32(FoMatchFTeamScore.Content) != Convert.ToInt32(FoMatchSTeamScore.Content)))
+                && Convert.ToInt32(FoMatchFTeamScore.Content) != Convert.ToInt32(FoMatchSTeamScore.Content))) && User.Role == 0)
             {
                 int FirstTeamNextMatchID = 0, SecondTeamNextMatchID = 0;
                 if (Convert.ToInt32(TMatchFTeamScore.Content) > Convert.ToInt32(TMatchSTeamScore.Content))
@@ -198,7 +198,7 @@ namespace CybersportTournament.ElementsWindows
                 mw.Show();
                 this.Close();
             }
-            else if (SiMatchFTeam.Content.ToString() != "" && SiMatchSTeam.Content.ToString() != "")
+            else if ((SiMatchFTeam.Content.ToString() != "" && SiMatchSTeam.Content.ToString() != ""))
             {
                 int MatchID = Connection.db.MatchList.Where(item => item.Tournaments.ID == tournament.ID && item.Match.Number == 6).Select(item => item.IDMatch).FirstOrDefault();
                 MatchWindow mw = new MatchWindow(MatchID);
@@ -213,9 +213,9 @@ namespace CybersportTournament.ElementsWindows
                 && SiMatchFTeamScore.Content.ToString() == "0" && SiMatchSTeamScore.Content.ToString() == "0"))
                 return;
 
-            if ((SeMatchFTeam.Content.ToString() == "" && SeMatchSTeam.Content.ToString() == "")
+            if (((SeMatchFTeam.Content.ToString() == "" && SeMatchSTeam.Content.ToString() == "")
                 && (Convert.ToInt32(FiMatchFTeamScore.Content) != Convert.ToInt32(FiMatchSTeamScore.Content)
-                && Convert.ToInt32(SiMatchFTeamScore.Content) != Convert.ToInt32(SiMatchSTeamScore.Content)))
+                && Convert.ToInt32(SiMatchFTeamScore.Content) != Convert.ToInt32(SiMatchSTeamScore.Content))) && User.Role == 0)
             {
                 int FirstTeamNextMatchID = 0, SecondTeamNextMatchID = 0;
                 if (Convert.ToInt32(FiMatchFTeamScore.Content) > Convert.ToInt32(FiMatchSTeamScore.Content))
@@ -245,7 +245,7 @@ namespace CybersportTournament.ElementsWindows
         private void WinnerMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             #region Выявление победителя
-            if (SeMatchFTeamScore.Content.ToString() == "0" && SeMatchSTeamScore.Content.ToString() == "0")
+            if ((SeMatchFTeamScore.Content.ToString() == "0" && SeMatchSTeamScore.Content.ToString() == "0") || User.Role != 0)
                 return;
 
             if (Winner.Content.ToString() == "" && Convert.ToInt32(SeMatchFTeamScore.Content) != Convert.ToInt32(SeMatchSTeamScore.Content))
