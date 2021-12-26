@@ -68,6 +68,12 @@ namespace CybersportTournament.AddWindows
             {
                 if (MatchResult(Result.Text.ToString(), match.Result.ToString()) != "ошибка")
                     match.Result = MatchResult(Result.Text.ToString(), match.Result.ToString());
+                else
+                {
+                    ErrorWindow ew = new ErrorWindow("счёт за раунд не может быть равным");
+                    ew.Show();
+                    return;
+                }
 
                 round.Result = Result.Text;
             }
