@@ -41,8 +41,11 @@ namespace CybersportTournament.AddWindows
             TeamOneLabel.Visibility = Visibility.Visible;
             TeamTwoLabel.Visibility = Visibility.Visible;
 
-            TeamOneLogo.Source = (NewImage(FirstTeamNextMatchID));
-            TeamTwoLogo.Source = (NewImage(SecondTeamNextMatchID));
+            Teams teamOne = Connection.db.Teams.Where(item => item.ID == FirstTeamNextMatchID).FirstOrDefault();
+            Teams teamTwo = Connection.db.Teams.Where(item => item.ID == SecondTeamNextMatchID).FirstOrDefault();
+
+            TeamOneLogo.Source = (ImagesManip.NewImage(teamOne));
+            TeamTwoLogo.Source = (ImagesManip.NewImage(teamTwo));
 
             TeamOneLabel.Content = Connection.db.Teams.Where(item => item.ID == FirstTeamNextMatchID).Select(item => item.Name).FirstOrDefault();
             TeamTwoLabel.Content = Connection.db.Teams.Where(item => item.ID == SecondTeamNextMatchID).Select(item => item.Name).FirstOrDefault();
@@ -55,6 +58,7 @@ namespace CybersportTournament.AddWindows
         {
             #region Выбор команд
             TeamOneID = Connection.db.Teams.Where(item => item.Name == TeamOneBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault();
+            Teams teamOne = Connection.db.Teams.Where(item => item.ID == TeamOneID).FirstOrDefault();
 
             TeamTwoBox.ItemsSource = Connection.db.Teams.Where(item => item.ID != TeamOneID && teamsTwoID.Contains(item.ID)).Select(item => item.Name).ToList();
 
@@ -64,13 +68,14 @@ namespace CybersportTournament.AddWindows
             }
             else
             {
-                TeamOneLogo.Source = (NewImage(TeamOneID));
+                TeamOneLogo.Source = (ImagesManip.NewImage(teamOne));
             }
         }
 
         private void TeamTwoBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             TeamTwoID = Connection.db.Teams.Where(item => item.Name == TeamTwoBox.SelectedItem.ToString()).Select(item => item.ID).FirstOrDefault();
+            Teams teamTwo = Connection.db.Teams.Where(item => item.ID == TeamTwoID).FirstOrDefault();
 
             TeamOneBox.ItemsSource = Connection.db.Teams.Where(item => item.ID != TeamTwoID && teamsOneID.Contains(item.ID)).Select(item => item.Name).ToList();
 
@@ -80,7 +85,7 @@ namespace CybersportTournament.AddWindows
             }
             else
             {
-                TeamTwoLogo.Source = (NewImage(TeamTwoID));
+                TeamTwoLogo.Source = (ImagesManip.NewImage(teamTwo));
             }
             #endregion
         }
@@ -178,18 +183,6 @@ namespace CybersportTournament.AddWindows
             MainWindow mw = new MainWindow();
             mw.Show();
             this.Close();
-        }
-
-        private BitmapImage NewImage(int ID)
-        {
-            #region Декодирование картинки из бд
-            MemoryStream ms = new MemoryStream(Connection.db.Teams.Where(item => item.ID == ID).Select(item => item.Logo).SingleOrDefault());
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = ms;
-            image.EndInit();
-            return image;
-            #endregion
         }
     }
 }

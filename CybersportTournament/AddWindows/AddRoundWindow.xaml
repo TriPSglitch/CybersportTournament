@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CybersportTournament"
         mc:Ignorable="d"
-        Title="AddRoundWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Добавление раунда" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Label Content="Матч:" HorizontalAlignment="Left" Margin="127,268,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
         <Label Name="Match" HorizontalAlignment="Left" Margin="307,270,0,0" VerticalAlignment="Top" Height="60" Width="850" FontSize="36" Foreground="White"/>

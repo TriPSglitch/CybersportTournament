@@ -5,22 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CybersportTournament.ElementsWindows"
         mc:Ignorable="d"
-        Title="GameWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Игра" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Button Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>
         <Label Content="Название:" HorizontalAlignment="Left" Margin="140,176,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <Label Name="Name" HorizontalAlignment="Left" Margin="322,176,0,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36" Foreground="#FF54E4FF"/>
+        <Label Name="Name" HorizontalAlignment="Left" Margin="322,176,0,0" VerticalAlignment="Top" Height="60" Width="700" FontSize="36" Foreground="#FF54E4FF"/>
+        <Button Name="Link" Content="?" HorizontalAlignment="Right" VerticalAlignment="Top" Height="23" Width="21" FontSize="12" Margin="0,174,552,0" Click="LinkClick"/>
         <Image Name="Logo" HorizontalAlignment="Left" Margin="1129,133,0,0" Width="150" Height="150" VerticalAlignment="Top"/>
         <DataGrid Name="TournamentsList" AutoGenerateColumns="False" Height="500" Margin="0,314,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1340"
                    RowHeaderStyle="{StaticResource RowHeaderStyle}" ColumnHeaderStyle="{StaticResource ColumnHeaderStyle}">
             <DataGrid.ItemContainerStyle>
                 <Style TargetType="DataGridRow">
-                    <EventSetter Event="MouseDoubleClick" Handler="PlayersListMouseDoubleClick"/>
+                    <EventSetter Event="MouseDoubleClick" Handler="TournamentsListMouseDoubleClick"/>
                 </Style>
             </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Name}" Header="Tournament"  Width="500" IsReadOnly="True"/>
-                <DataGridTemplateColumn Header="Logo" Width="500">
+                <DataGridTextColumn Binding="{Binding Name}" Header="Турнир"  Width="500" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Лого" Width="500">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Image Source="{Binding Logo}" Height="150"/>

@@ -1,8 +1,5 @@
-﻿using System;
-using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
-using System.Windows.Media.Imaging;
 using ConnectionClass;
 using CybersportTournament.ListWindows;
 
@@ -19,7 +16,7 @@ namespace CybersportTournament.ElementsWindows
             InitializeComponent();
             team = Connection.db.Teams.Where(item => item.ID == id).FirstOrDefault();
             Name.Content = team.Name;
-            Logo.Source = NewImage(team);
+            Logo.Source = ImagesManip.NewImage(team);
             PlayersList.ItemsSource = Connection.db.PlayersList.Where(item => item.IDTeam == id).ToList();
         }
 
@@ -28,18 +25,6 @@ namespace CybersportTournament.ElementsWindows
             TeamsListWindow tlw = new TeamsListWindow();
             tlw.Show();
             this.Close();
-        }
-
-        private BitmapImage NewImage(Teams team)
-        {
-            #region Декодирование картинки из бд
-            MemoryStream ms = new MemoryStream(team.Logo);
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = ms;
-            image.EndInit();
-            return image;
-            #endregion
         }
 
         private void PlayersListMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)

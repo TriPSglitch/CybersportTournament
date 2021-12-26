@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CybersportTournament"
         mc:Ignorable="d"
-        Title="AddTournamentWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Добавление турнира" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Label Content="Название:" HorizontalAlignment="Left" Margin="127,270,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
         <TextBox Name="Name" HorizontalAlignment="Left" Margin="307,270,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>
-        <Label Content="Игра:" HorizontalAlignment="Left" Margin="127,352,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
+        <Label Content="Игра:" HorizontalAlignment="Left" Margin="199,352,0,0" VerticalAlignment="Top" Height="60" Width="107" Foreground="White" FontSize="36"/>
         <ComboBox Name="GamesBox" HorizontalAlignment="Left" Margin="307,352,0,0" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>
         <Label Content="Призовой фонд:" HorizontalAlignment="Left" Margin="17,434,0,0" VerticalAlignment="Top" Height="60" Width="290" Foreground="White" FontSize="36"/>
-        <TextBox Name="PrizeFund" HorizontalAlignment="Left" Margin="307,434,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>
+        <TextBox Name="PrizeFund" HorizontalAlignment="Left" Margin="307,434,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36" TextChanged="TextChanged"/>
         <Label Content="Фото:" HorizontalAlignment="Left" Margin="127,516,0,0" VerticalAlignment="Top" Height="61" Width="162" Foreground="White" FontSize="36"/>
         <Button Name="SelectButton" Content="Выбрать" HorizontalAlignment="Left" Margin="307,516,0,0" VerticalAlignment="Top" Height="60" Width="180" FontSize="36" Click="SelectButtonClick"/>
         <Image Name="Logo" HorizontalAlignment="Left" Height="250" Margin="1000,292,0,0" VerticalAlignment="Top"  Width="500"/>

@@ -12,10 +12,10 @@ namespace CybersportTournament
         public MainWindow()
         {
             InitializeComponent();
-            /*if (AuthorizationWindow.user.Role == 1)
+            if (User.Role != 0)
             {
                 AddItem.Visibility = Visibility.Hidden;
-            }*/
+            }
         }
 
         #region Переход на другие окна

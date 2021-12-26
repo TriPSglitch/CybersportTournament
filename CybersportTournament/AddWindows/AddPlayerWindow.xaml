@@ -8,11 +8,11 @@
         Title="Добавление игрока" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Label Content="Фамилия:" HorizontalAlignment="Left" Margin="127,142,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <TextBox Name="SecondName" HorizontalAlignment="Left" Margin="307,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>
+        <TextBox Name="SecondName" HorizontalAlignment="Left" Margin="307,142,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36" TextChanged="TextChanged"/>
         <Label Content="Имя:" HorizontalAlignment="Left" Margin="127,224,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <TextBox Name="FirstName" HorizontalAlignment="Left" Margin="307,224,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>
+        <TextBox Name="FirstName" HorizontalAlignment="Left" Margin="307,224,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36" TextChanged="TextChanged"/>
         <Label Content="Отчество:" HorizontalAlignment="Left" Margin="127,306,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
-        <TextBox Name="MiddleName" HorizontalAlignment="Left" Margin="307,306,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>
+        <TextBox Name="MiddleName" HorizontalAlignment="Left" Margin="307,306,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36" TextChanged="TextChanged"/>
         <Label Content="Почта:" HorizontalAlignment="Left" Margin="127,388,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
         <TextBox Name="Email" HorizontalAlignment="Left" Margin="307,388,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="60" Width="550" FontSize="36"/>
         <Label Content="Ник:" HorizontalAlignment="Left" Margin="127,470,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>

@@ -41,45 +41,12 @@ namespace CybersportTournament.ListWindows
         {
             if (Search.Text != "" && Search.Text != "Поиск")
             {
-                var result = (from ID in Connection.db.PlayersList
-                              join Team in Connection.db.Teams on ID.IDTeam equals Team.ID
-                              join Player in Connection.db.Players on ID.IDPlayer equals Player.ID
-                              from Players in Connection.db.Players
-                              join Person in Connection.db.Persons on Player.IDPerson equals Person.ID
-                              join PlayerID in Connection.db.PlayersList on Player.ID equals PlayerID.IDPlayer
-                              where Person.FirstName.Contains(Search.Text) || Person.SecondName.Contains(Search.Text) || Person.MiddleName.Contains(Search.Text)
-                              || Player.Nickname.Contains(Search.Text) || Team.Name.Contains(Search.Text)
-                              select new
-                              {
-                                  FirstName = Person.FirstName,
-                                  SecondName = Person.SecondName,
-                                  MiddleName = Person.MiddleName,
-                                  Nickname = Player.Nickname,
-                                  Team = Team.Name,
-                                  Photo = Player.Photo
-                              }).ToList();
-
-                PlayersList.ItemsSource = result;
+                PlayersList.ItemsSource = Connection.db.PlayersList.Where(item => (item.Players.Persons.FirstName + " " + item.Players.Persons.SecondName + " "
+                                        + item.Players.Persons.MiddleName + " " + item.Players.Nickname + " " + item.Teams.Name).Contains(Search.Text)).ToList();
             }
             else if (Search.Text == "" || Search.Text == "Поиск")
             {
-                var result = (from ID in Connection.db.PlayersList
-                              join Team in Connection.db.Teams on ID.IDTeam equals Team.ID
-                              join Player in Connection.db.Players on ID.IDPlayer equals Player.ID
-                              from Players in Connection.db.Players
-                              join Person in Connection.db.Persons on Player.IDPerson equals Person.ID
-                              join PlayerID in Connection.db.PlayersList on Player.ID equals PlayerID.IDPlayer
-                              select new
-                              {
-                                  FirstName = Person.FirstName,
-                                  SecondName = Person.SecondName,
-                                  MiddleName = Person.MiddleName,
-                                  Nickname = Player.Nickname,
-                                  Team = Team.Name,
-                                  Photo = Player.Photo
-                              }).ToList();
-
-                PlayersList.ItemsSource = result;
+                Connection.db.PlayersList.ToList();
             }
             #endregion
         }

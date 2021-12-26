@@ -2,8 +2,6 @@
 using System.Linq;
 using System.Windows;
 using ConnectionClass;
-using System.Windows.Media.Imaging;
-using System.IO;
 
 namespace CybersportTournament.ElementsWindows
 {
@@ -26,9 +24,9 @@ namespace CybersportTournament.ElementsWindows
             FirstName.Content = person.FirstName;
             MiddleName.Content = person.MiddleName;
             Nickname.Content = player.Nickname;
-            Photo.Source = NewImage(player);
+            Photo.Source = ImagesManip.NewImage(player);
             Team.Content = team.Name;
-            TeamLogo.Source = NewImage(team);
+            TeamLogo.Source = ImagesManip.NewImage(team);
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -36,28 +34,6 @@ namespace CybersportTournament.ElementsWindows
             PlayersListWindow plw = new PlayersListWindow();
             plw.Show();
             this.Close();
-        }
-
-        private BitmapImage NewImage(Players player)
-        {
-            #region Декодирование картинки из бд
-            MemoryStream ms = new MemoryStream(player.Photo);
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = ms;
-            image.EndInit();
-            return image;
-        }
-
-        private BitmapImage NewImage(Teams team)
-        {
-            MemoryStream ms = new MemoryStream(team.Logo);
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = ms;
-            image.EndInit();
-            return image;
-            #endregion
         }
     }
 }

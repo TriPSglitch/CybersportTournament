@@ -112,9 +112,11 @@
     <Compile Include="ElementsWindows\TournamentWindow.xaml.cs">
       <DependentUpon>TournamentWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Encrypt.cs" />
     <Compile Include="Games.cs">
       <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ImagesManip.cs" />
     <Compile Include="ListWindows\GamesListWindow.xaml.cs">
       <DependentUpon>GamesListWindow.xaml</DependentUpon>
     </Compile>

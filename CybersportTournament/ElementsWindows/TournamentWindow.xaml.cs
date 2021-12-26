@@ -1,7 +1,5 @@
-﻿using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
-using System.Windows.Media.Imaging;
 using ConnectionClass;
 using CybersportTournament.ListWindows;
 using CybersportTournament.AddWindows;
@@ -23,7 +21,7 @@ namespace CybersportTournament.ElementsWindows
             Name.Content = tournament.Name;
             Game.Content = tournament.Games.Name;
             PrizeFund.Content = tournament.PrizeFund;
-            Logo.Source = NewImage(tournament);
+            Logo.Source = ImagesManip.NewImage(tournament);
             Label[,] labels = new Label[7, 4] { { FMatchFTeam, FMatchSTeam, FMatchFTeamScore, FMatchSTeamScore }, {SMatchFTeam, SMatchSTeam, SMatchFTeamScore, SMatchSTeamScore },
                                                 { TMatchFTeam, TMatchSTeam, TMatchFTeamScore, TMatchSTeamScore },{ FoMatchFTeam, FoMatchSTeam, FoMatchFTeamScore, FoMatchSTeamScore },
                                                 { FiMatchFTeam, FiMatchSTeam, FiMatchFTeamScore, FiMatchSTeamScore },{ SiMatchFTeam, SiMatchSTeam, SiMatchFTeamScore, SiMatchSTeamScore },
@@ -54,18 +52,6 @@ namespace CybersportTournament.ElementsWindows
             TournamentsListWindow mw = new TournamentsListWindow();
             mw.Show();
             this.Close();
-        }
-
-        private BitmapImage NewImage(Tournaments tournament)
-        {
-            #region Декодирование картинки из бд
-            MemoryStream ms = new MemoryStream(tournament.Logo);
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = ms;
-            image.EndInit();
-            return image;
-            #endregion
         }
 
         private void FMatchMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)

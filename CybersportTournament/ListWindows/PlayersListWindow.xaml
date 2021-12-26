@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CybersportTournament.ListWindows"
         mc:Ignorable="d"
-        Title="PlayersListWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Список игроков" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Button Name="BackButton"  Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>
         <DataGrid Name="PlayersList" AutoGenerateColumns="False" Height="600" Margin="0,158,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1340"
@@ -16,12 +16,12 @@
                 </Style>
             </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Players.Persons.FirstName}" Header="FirstName" Width="200" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding Players.Persons.SecondName}" Header="SecondName"  Width="200" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding Players.Persons.MiddleName}" Header="MiddleName"  Width="200" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding Players.Nickname}" Header="Nickname"  Width="200" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding Teams.Name}" Header="Team"  Width="200" IsReadOnly="True"/>
-                <DataGridTemplateColumn Header="Photo" Width="320">
+                <DataGridTextColumn Binding="{Binding Players.Persons.SecondName}" Header="Фамилия"  Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Players.Persons.FirstName}" Header="Имя" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Players.Persons.MiddleName}" Header="Отчество"  Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Players.Nickname}" Header="Ник"  Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Teams.Name}" Header="Команда"  Width="200" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Фото" Width="320">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Image Source="{Binding Players.Photo}" Height="150"/>

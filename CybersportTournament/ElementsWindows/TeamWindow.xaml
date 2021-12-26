@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CybersportTournament.ElementsWindows"
         mc:Ignorable="d"
-        Title="TeamWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Команда" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Button Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>
         <Label Content="Название:" HorizontalAlignment="Left" Margin="140,176,0,0" VerticalAlignment="Top" Height="60" Width="180" Foreground="White" FontSize="36"/>
@@ -19,8 +19,8 @@
                 </Style>
             </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Players.Nickname}" Header="Player"  Width="500" IsReadOnly="True"/>
-                <DataGridTemplateColumn Header="Logo" Width="500">
+                <DataGridTextColumn Binding="{Binding Players.Nickname}" Header="Игрок"  Width="500" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Фото" Width="500">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Image Source="{Binding Players.Photo}" Height="150"/>

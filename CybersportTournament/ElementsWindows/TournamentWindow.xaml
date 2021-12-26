@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CybersportTournament.ElementsWindows"
         mc:Ignorable="d"
-        Title="TournamentWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Турнир" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid Margin="0,0,0,0">
         <Button Name="BackButton" Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>
         <Label Content="Название:" HorizontalAlignment="Left" Margin="129,88,0,0" VerticalAlignment="Top" Height="45" Width="131" Foreground="White" FontSize="25"/>
-        <Label Name="Name" HorizontalAlignment="Left" Margin="264,88,0,0" VerticalAlignment="Top" Height="45" Width="450" FontSize="25" Foreground="#FF54E4FF"/>
+        <Label Name="Name" HorizontalAlignment="Left" Margin="264,88,0,0" VerticalAlignment="Top" Height="45" Width="703" FontSize="25" Foreground="#FF54E4FF"/>
         <Label Content="Игра:" HorizontalAlignment="Left" Margin="183,158,0,0" VerticalAlignment="Top" Height="45" Width="77" Foreground="White" FontSize="25"/>
         <Label Name="Game" HorizontalAlignment="Left" Margin="262,158,0,0" VerticalAlignment="Top" Height="45" Width="450" FontSize="25" Foreground="#FF54E4FF"/>
         <Label Content="Призовой фонд:" HorizontalAlignment="Left" Margin="758,158,0,0" VerticalAlignment="Top" Height="45" Width="206" Foreground="White" FontSize="25"/>

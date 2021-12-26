@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CybersportTournament"
         mc:Ignorable="d"
-        Title="AddMatchWindow"  Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Добавление матча"  Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Label Content="Турнир:" HorizontalAlignment="Left" Margin="367,134,0,0" VerticalAlignment="Top" Height="50" Width="190" Foreground="White" FontSize="30"/>
         <ComboBox Name="TournamentBox" HorizontalAlignment="Left" Margin="557,134,0,0" VerticalAlignment="Top" Height="50" Width="400" FontSize="30"/>

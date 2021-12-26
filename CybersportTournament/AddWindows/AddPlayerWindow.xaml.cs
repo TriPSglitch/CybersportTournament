@@ -3,7 +3,9 @@ using Microsoft.Win32;
 using System;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace CybersportTournament.AddWindows
@@ -22,15 +24,9 @@ namespace CybersportTournament.AddWindows
         private void SelectButtonClick(object sender, RoutedEventArgs e)
         {
             #region Выбор картинки
-            OpenFileDialog op = new OpenFileDialog();
-            op.Title = "Выбрать изображение";
-            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
-                        "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-                        "Portable Network Graphic (*.png)|*.png";
-            if (op.ShowDialog() == true)
-            {
-                Photo.Source = new BitmapImage(new Uri(op.FileName));
-            }
+            BitmapImage image = new BitmapImage();
+            image = ImagesManip.SelectImage();
+            Photo.Source = image;
             #endregion
         }
 
@@ -47,6 +43,12 @@ namespace CybersportTournament.AddWindows
             if (FirstName.Text == "" || SecondName.Text == "" || Email.Text == "" || Nickname.Text == "")
             {
                 ErrorWindow ew = new ErrorWindow("пустые поля");
+                ew.Show();
+                return;
+            }
+            if(!IsValidEmail(Email.Text))
+            {
+                ErrorWindow ew = new ErrorWindow("неверный формат почты");
                 ew.Show();
                 return;
             }
@@ -72,7 +74,7 @@ namespace CybersportTournament.AddWindows
             };
 
             if (Photo.Source != null)
-                player.Photo = BitmapSourceToByteArray((BitmapSource)Photo.Source);
+                player.Photo = ImagesManip.BitmapSourceToByteArray((BitmapSource)Photo.Source);
 
             Connection.db.Players.Add(player);
             Connection.db.SaveChanges();
@@ -94,15 +96,22 @@ namespace CybersportTournament.AddWindows
             #endregion
         }
 
-        private byte[] BitmapSourceToByteArray(BitmapSource image)
+        private bool IsValidEmail(string email)
         {
-            #region Кодирование картинки
-            using (var stream = new MemoryStream())
+            #region Валидация
+            string regex = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+            if (Regex.IsMatch(email, regex))
+                return true;
+            else
+                return false;
+        }
+
+        private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            if (Regex.IsMatch((((TextBox)sender).Text).ToString(), "[^А-я-:]"))
             {
-                var encoder = new PngBitmapEncoder();
-                encoder.Frames.Add(BitmapFrame.Create(image));
-                encoder.Save(stream);
-                return stream.ToArray();
+                ((TextBox)sender).Text = ((TextBox)sender).Text.Remove(((TextBox)sender).Text.Length - 1);
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
             }
             #endregion
         }

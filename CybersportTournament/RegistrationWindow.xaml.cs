@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using System.Linq;
 using ConnectionClass;
+using System.Text.RegularExpressions;
+using System.Windows.Controls;
 
 namespace CybersportTournament
 {
@@ -29,6 +31,12 @@ namespace CybersportTournament
                 ew.Show();
                 return;
             }
+            if (!IsValidEmail(Email.Text))
+            {
+                ErrorWindow ew = new ErrorWindow("неверный формат почты");
+                ew.Show();
+                return;
+            }
             #endregion
 
 
@@ -52,7 +60,7 @@ namespace CybersportTournament
             {
                 IDPerson = Connection.db.Persons.Max(x => x.ID),
                 Login = Login.Text,
-                Password = Password.Password
+                Password = Encrypt.Hash(Password.Password)
             };
 
             Connection.db.Users.Add(user);
@@ -76,6 +84,26 @@ namespace CybersportTournament
             AuthorizationWindow aw = new AuthorizationWindow();
             aw.Show();
             this.Close();
+            #endregion
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            #region Валидация
+            string regex = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+            if (Regex.IsMatch(email, regex))
+                return true;
+            else
+                return false;
+        }
+
+        private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            if (Regex.IsMatch((((TextBox)sender).Text).ToString(), "[^А-я-:]"))
+            {
+                ((TextBox)sender).Text = ((TextBox)sender).Text.Remove(((TextBox)sender).Text.Length - 1);
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+            }
             #endregion
         }
     }

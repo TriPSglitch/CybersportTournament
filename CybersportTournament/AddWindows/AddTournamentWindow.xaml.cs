@@ -1,9 +1,9 @@
 ﻿using ConnectionClass;
-using Microsoft.Win32;
 using System;
-using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace CybersportTournament.AddWindows
@@ -22,15 +22,9 @@ namespace CybersportTournament.AddWindows
         private void SelectButtonClick(object sender, RoutedEventArgs e)
         {
             #region Выбор картинки
-            OpenFileDialog op = new OpenFileDialog();
-            op.Title = "Выбрать изображение";
-            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
-                        "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-                        "Portable Network Graphic (*.png)|*.png";
-            if (op.ShowDialog() == true)
-            {
-                Logo.Source = new BitmapImage(new Uri(op.FileName));
-            }
+            BitmapImage image = new BitmapImage();
+            image = ImagesManip.SelectImage();
+            Logo.Source = image;
             #endregion
         }
 
@@ -43,7 +37,7 @@ namespace CybersportTournament.AddWindows
 
         private void AddButtonClick(object sender, RoutedEventArgs e)
         {
-            #region Добавление игрока
+            #region Добавление турнира
             if (Name.Text == "" || GamesBox.SelectedItem == null)
             {
                 ErrorWindow ew = new ErrorWindow("пустые поля");
@@ -59,11 +53,17 @@ namespace CybersportTournament.AddWindows
 
             if (PrizeFund.Text != "")
             {
+                if (PrizeFund.Text.ToString().Count(item => item == '.') > 1)
+                {
+                    ErrorWindow ew = new ErrorWindow("неверный формат призового фонда");
+                    ew.Show();
+                    return;
+                }
                 tournament.PrizeFund = Convert.ToDecimal(PrizeFund.Text);
             }
 
             if (Logo.Source != null)
-                tournament.Logo = BitmapSourceToByteArray((BitmapSource)Logo.Source);
+                tournament.Logo = ImagesManip.BitmapSourceToByteArray((BitmapSource)Logo.Source);
 
             Connection.db.Tournaments.Add(tournament);
             Connection.db.SaveChanges();
@@ -74,15 +74,13 @@ namespace CybersportTournament.AddWindows
             #endregion
         }
 
-        private byte[] BitmapSourceToByteArray(BitmapSource image)
+        private void TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            #region Кодирование картинки
-            using (var stream = new MemoryStream())
+            #region Валидация
+            if (Regex.IsMatch((((TextBox)sender).Text).ToString(), "[^\\d-.]"))
             {
-                var encoder = new PngBitmapEncoder();
-                encoder.Frames.Add(BitmapFrame.Create(image));
-                encoder.Save(stream);
-                return stream.ToArray();
+                ((TextBox)sender).Text = ((TextBox)sender).Text.Remove(((TextBox)sender).Text.Length - 1);
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
             }
             #endregion
         }

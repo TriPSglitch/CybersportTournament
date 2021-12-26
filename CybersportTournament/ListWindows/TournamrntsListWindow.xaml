@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CybersportTournament.ListWindows"
         mc:Ignorable="d"
-        Title="TournamentsListWindow" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Список турниров" Height="900" Width="1600" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Button Name="BackButton"  Content="Назад" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Height="39" Width="140" FontSize="25" Click="BackButtonClick"/>
         <DataGrid Name="TournamrntsList" AutoGenerateColumns="False" Height="600" Margin="0,158,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1340"
@@ -16,10 +16,10 @@
                 </Style>
             </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="300" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding Games.Name}" Header="Game"  Width="300" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding PrizeFund}" Header="PrizeFund"  Width="300" IsReadOnly="True"/>
-                <DataGridTemplateColumn Header="Logo" Width="400">
+                <DataGridTextColumn Binding="{Binding Name}" Header="Название" Width="300" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Games.Name}" Header="Игра"  Width="300" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding PrizeFund}" Header="Призовой фонд"  Width="300" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Лого" Width="400">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Image Source="{Binding Logo}" Height="150"/>
