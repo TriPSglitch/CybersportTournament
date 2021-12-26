@@ -132,9 +132,6 @@
     <Compile Include="ListWindows\TournamrntsListWindow.xaml.cs">
       <DependentUpon>TournamrntsListWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MapsGame.cs">
-      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Match.cs">
       <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
@@ -148,6 +145,9 @@
       <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PlayersList.cs">
+      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Roles.cs">
       <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Rounds.cs">
@@ -176,9 +176,6 @@
       <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Tournaments.cs">
-      <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TournamentsResults.cs">
       <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />

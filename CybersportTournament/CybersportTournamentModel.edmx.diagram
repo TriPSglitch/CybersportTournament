@@ -4,27 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a79d7bf55976496586e1aae5b69eba74" Name="Diagram1">
-        <EntityTypeShape EntityType="CybersportTournamentsModel.Games" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.MapsGame" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+      <Diagram DiagramId="e865eb7c3cc7471a8b5d0f85675098d9" Name="Diagram1">
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Games" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CybersportTournamentsModel.Match" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.MatchList" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.Persons" Width="1.5" PointX="7.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.Players" Width="1.5" PointX="10" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.PlayersList" Width="1.5" PointX="12.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.Rounds" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.RoundsList" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.Teams" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.TeamsList" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.Tournaments" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.TournamentsResults" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CybersportTournamentsModel.Users" Width="1.5" PointX="10" PointY="4" IsExpanded="true" />
-        <AssociationConnector Association="CybersportTournamentsModel.FK_MapsGame_Games" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.MatchList" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Persons" Width="1.5" PointX="8" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Players" Width="1.5" PointX="10.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.PlayersList" Width="1.5" PointX="12.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Roles" Width="1.5" PointX="5.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Rounds" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.RoundsList" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Teams" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.TeamsList" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Tournaments" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CybersportTournamentsModel.Users" Width="1.5" PointX="10.25" PointY="10.25" IsExpanded="true" />
         <AssociationConnector Association="CybersportTournamentsModel.FK_Tournaments_Games" ManuallyRouted="false" />
         <AssociationConnector Association="CybersportTournamentsModel.FK_MatchList_Match" ManuallyRouted="false" />
         <AssociationConnector Association="CybersportTournamentsModel.FK_RoundsList_Match" ManuallyRouted="false" />
         <AssociationConnector Association="CybersportTournamentsModel.FK_MatchList_Tournaments" ManuallyRouted="false" />
+        <AssociationConnector Association="CybersportTournamentsModel.FK_Persons_Roles" ManuallyRouted="false" />
         <AssociationConnector Association="CybersportTournamentsModel.FK_Players_Persons" ManuallyRouted="false" />
         <AssociationConnector Association="CybersportTournamentsModel.FK_Users_Persons" ManuallyRouted="false" />
         <AssociationConnector Association="CybersportTournamentsModel.FK_PlayersList_Players" ManuallyRouted="false" />
@@ -32,7 +31,6 @@
         <AssociationConnector Association="CybersportTournamentsModel.FK_RoundsList_Rounds" ManuallyRouted="false" />
         <AssociationConnector Association="CybersportTournamentsModel.FK_TeamsList_Teams" ManuallyRouted="false" />
         <AssociationConnector Association="CybersportTournamentsModel.FK_TeamsList_Tournaments" ManuallyRouted="false" />
-        <AssociationConnector Association="CybersportTournamentsModel.FK_TournamentsResults_Tournaments" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

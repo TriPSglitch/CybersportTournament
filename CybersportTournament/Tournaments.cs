@@ -19,7 +19,6 @@ namespace CybersportTournament
         {
             this.MatchList = new HashSet<MatchList>();
             this.TeamsList = new HashSet<TeamsList>();
-            this.TournamentsResults = new HashSet<TournamentsResults>();
         }
     
         public int ID { get; set; }
@@ -34,7 +33,5 @@ namespace CybersportTournament
         public virtual ICollection<MatchList> MatchList { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TeamsList> TeamsList { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TournamentsResults> TournamentsResults { get; set; }
     }
 }

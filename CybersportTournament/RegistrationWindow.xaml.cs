@@ -46,7 +46,7 @@ namespace CybersportTournament
                 SecondName = SecondName.Text,
                 FirstName = FirstName.Text,
                 Email = Email.Text,
-                Role = 1
+                IDRole = 2
             };
             if (MiddleName.Text != "")
             {

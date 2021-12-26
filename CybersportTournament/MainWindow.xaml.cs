@@ -12,7 +12,7 @@ namespace CybersportTournament
         public MainWindow()
         {
             InitializeComponent();
-            if (User.Role != 0)
+            if (User.Role != 1)
             {
                 AddItem.Visibility = Visibility.Hidden;
             }

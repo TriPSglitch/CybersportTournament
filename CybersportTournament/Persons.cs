@@ -26,8 +26,9 @@ namespace CybersportTournament
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string Email { get; set; }
-        public int Role { get; set; }
+        public int IDRole { get; set; }
     
+        public virtual Roles Roles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Players> Players { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

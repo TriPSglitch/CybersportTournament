@@ -58,7 +58,7 @@ namespace CybersportTournament.AddWindows
                 SecondName = SecondName.Text,
                 FirstName = FirstName.Text,
                 Email = Email.Text,
-                Role = 2
+                IDRole = 2
             };
             if (MiddleName.Text != "")
             {

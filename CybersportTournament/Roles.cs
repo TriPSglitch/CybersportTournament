@@ -12,13 +12,18 @@ namespace CybersportTournament
     using System;
     using System.Collections.Generic;
     
-    public partial class MapsGame
+    public partial class Roles
     {
-        public int ID { get; set; }
-        public int IDGame { get; set; }
-        public string Name { get; set; }
-        public byte[] Image { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Roles()
+        {
+            this.Persons = new HashSet<Persons>();
+        }
     
-        public virtual Games Games { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Persons> Persons { get; set; }
     }
 }
