@@ -22,13 +22,8 @@
         <Label Name="Result" HorizontalAlignment="Left" Margin="676,368,0,0" VerticalAlignment="Top" Height="60" Width="450" FontSize="36" Foreground="#FF54E4FF"/>
         <DataGrid Name="RoundsList" AutoGenerateColumns="False" Height="295" Margin="0,455,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1340"
                    RowHeaderStyle="{StaticResource RowHeaderStyle}" ColumnHeaderStyle="{StaticResource ColumnHeaderStyle}">
-            <DataGrid.ItemContainerStyle>
-                <Style TargetType="DataGridRow">
-                    <EventSetter Event="MouseDoubleClick" Handler="RoundsListMouseDoubleClick"/>
-                </Style>
-            </DataGrid.ItemContainerStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Rounds.Name}" Header="Турнир"  Width="500" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding Rounds.Name}" Header="Раунд"  Width="500" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Rounds.Period}" Header="Длительность"  Width="500" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Rounds.Result}" Header="Результат"  Width="250" IsReadOnly="True"/>
             </DataGrid.Columns>

@@ -15,6 +15,11 @@ namespace CybersportTournament.AddWindows
     {
         Match match;
 
+        public AddRoundWindow()
+        {
+            InitializeComponent();
+        }
+
         public AddRoundWindow(int IDMatch)
         {
             InitializeComponent();
@@ -54,39 +59,15 @@ namespace CybersportTournament.AddWindows
             {
                 int index = Period.Text.IndexOf(":");
                 round.Period = new TimeSpan(Convert.ToInt32(Period.Text.Substring(0, index)), Convert.ToInt32(Period.Text.Substring(index + 1, Period.Text.Length - index - 1)), 0);
-                TimeSpan matchPeriod = (TimeSpan)match.Period + (TimeSpan)round.Period;
-                match.Period = matchPeriod;
+                match.Period = MatchPeriod(Period.Text.ToString(), (TimeSpan)match.Period);
             }
             round.Result = "0:0";
             Connection.db.Rounds.Add(round);
             Connection.db.SaveChanges();
             if (Result.Text.ToString() != "")
             {
-                #region Авто изменение счёта матча
-                int length = Result.Text.IndexOf(':');
-                int firstTeamRoundScore = Convert.ToInt32(Result.Text.Substring(0, length));
-                int secondTeamRoundScore = Convert.ToInt32(Result.Text.Substring(length + 1, Result.Text.Length - length - 1));
-                length = match.Result.IndexOf(':');
-                int firstTeamMatchScore = Convert.ToInt32(match.Result.Substring(0, length));
-                int secondTeamMatchScore = Convert.ToInt32(match.Result.Substring(length + 1, match.Result.Length - length - 1));
-
-                if (firstTeamRoundScore == secondTeamRoundScore)
-                {
-                    ErrorWindow ew = new ErrorWindow("счёт не может быть одинаковым");
-                    ew.Show();
-                    return;
-                }
-                else if (firstTeamRoundScore > secondTeamRoundScore)
-                {
-                    firstTeamMatchScore += 1;
-                }
-                else
-                {
-                    secondTeamMatchScore += 1;
-                }
-                string matchResult = firstTeamMatchScore.ToString() + ":" + secondTeamMatchScore.ToString();
-                match.Result = matchResult;
-                #endregion
+                if (MatchResult(Result.Text.ToString(), match.Result.ToString()) != "ошибка")
+                    match.Result = MatchResult(Result.Text.ToString(), match.Result.ToString());
 
                 round.Result = Result.Text;
             }
@@ -130,6 +111,43 @@ namespace CybersportTournament.AddWindows
                 return false;
             else
                 return true;
+            #endregion
+        }
+
+        public TimeSpan MatchPeriod(string roundPeriod, TimeSpan matchPeriod)
+        {
+            #region Авторасчёт длительности матча
+            int index = roundPeriod.IndexOf(":");
+            TimeSpan rp = new TimeSpan(Convert.ToInt32(roundPeriod.Substring(0, index)), Convert.ToInt32(roundPeriod.Substring(index + 1, roundPeriod.Length - index - 1)), 0);
+            return matchPeriod + rp;
+            #endregion
+        }
+
+        public string MatchResult(string score, string matchScore)
+        {
+            #region Авто изменение счёта матча
+            int length = score.IndexOf(':');
+            int firstTeamRoundScore = Convert.ToInt32(score.Substring(0, length));
+            int secondTeamRoundScore = Convert.ToInt32(score.Substring(length + 1, score.Length - length - 1));
+            length = matchScore.IndexOf(':');
+            int firstTeamMatchScore = Convert.ToInt32(matchScore.Substring(0, length));
+            int secondTeamMatchScore = Convert.ToInt32(matchScore.Substring(length + 1, matchScore.Length - length - 1));
+
+            if (firstTeamRoundScore == secondTeamRoundScore)
+            {
+                ErrorWindow ew = new ErrorWindow("счёт не может быть одинаковым");
+                ew.Show();
+                return "ошибка";
+            }
+            else if (firstTeamRoundScore > secondTeamRoundScore)
+            {
+                firstTeamMatchScore += 1;
+            }
+            else
+            {
+                secondTeamMatchScore += 1;
+            }
+            return firstTeamMatchScore.ToString() + ":" + secondTeamMatchScore.ToString();
             #endregion
         }
     }

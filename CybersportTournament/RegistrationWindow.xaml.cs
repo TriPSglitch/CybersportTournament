@@ -18,24 +18,43 @@ namespace CybersportTournament
 
         private void RegistrationClick(object sender, RoutedEventArgs e)
         {
+            #region Регистрация
+            bool regRes = Registration(Login.Text.ToString(), Password.Password.ToString(), FirstName.Text.ToString(),
+                                        SecondName.Text.ToString(), MiddleName.Text.ToString(), Email.Text.ToString());
+
+            if (regRes)
+            {
+                #region Результат и переход на окно авторизации
+                RegitrationConfirmedWindow rcw = new RegitrationConfirmedWindow();
+                rcw.Show();
+
+                AuthorizationWindow aw = new AuthorizationWindow();
+                aw.Show();
+                this.Close();
+                #endregion
+            }
+        }
+
+        public bool Registration(string login, string password, string Fname, string Sname, string Mname, string email)
+        {
             #region Валидация
             if (Login.Text == "" || Password.Password == "" || FirstName.Text == "" || SecondName.Text == "" || Email.Text == "")
             {
                 ErrorWindow ew = new ErrorWindow("пустые поля");
                 ew.Show();
-                return;
+                return false;
             }
             if (Connection.db.Users.Select(item => item.Login).Contains(Login.Text))
             {
                 ErrorWindow ew = new ErrorWindow("такой пользователь уже существует");
                 ew.Show();
-                return;
+                return false;
             }
             if (!IsValidEmail(Email.Text))
             {
                 ErrorWindow ew = new ErrorWindow("неверный формат почты");
                 ew.Show();
-                return;
+                return false;
             }
             #endregion
 
@@ -65,16 +84,8 @@ namespace CybersportTournament
 
             Connection.db.Users.Add(user);
             Connection.db.SaveChanges();
+            return true;
             #endregion
-
-
-            #region Результат и переход на окно авторизации
-            RegitrationConfirmedWindow rcw = new RegitrationConfirmedWindow();
-            rcw.Show();
-
-            AuthorizationWindow aw = new AuthorizationWindow();
-            aw.Show();
-            this.Close();
             #endregion
         }
 

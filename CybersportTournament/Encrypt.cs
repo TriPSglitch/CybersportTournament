@@ -3,7 +3,7 @@ using System.Text;
 
 namespace CybersportTournament
 {
-    internal class Encrypt
+    public class Encrypt
     {
         public static string Hash(string password)
         {

@@ -35,14 +35,6 @@ namespace CybersportTournament.ElementsWindows
             this.Close();
         }
 
-        private void RoundsListMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            int id = ((Rounds)RoundsList.SelectedItem).ID;
-            MatchWindow mw = new MatchWindow(id);
-            mw.Show();
-            this.Hide();
-        }
-
         private void AddRoundClick(object sender, RoutedEventArgs e)
         {
             AddRoundWindow arw = new AddRoundWindow(match.ID);
