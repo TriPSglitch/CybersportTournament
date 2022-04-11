@@ -73,6 +73,17 @@
                 </EventTrigger.Actions>
             </EventTrigger>-->
 
+            <!--Обратная смена при убирании-->
+            <!--<EventTrigger RoutedEvent="Button.MouseLeave">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard Duration="0:0:1" SpeedRatio="3" FillBehavior="HoldEnd">
+                            <ColorAnimation Storyboard.TargetProperty="Background.GradientStops[1].Color" To="#FF01A288"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>-->
+
             <!--Анимация при нажатии-->
             <EventTrigger RoutedEvent="Button.PreviewMouseLeftButtonDown">
                 <EventTrigger.Actions>
