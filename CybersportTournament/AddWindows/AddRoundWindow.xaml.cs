@@ -124,7 +124,8 @@ namespace CybersportTournament.AddWindows
         {
             #region Авторасчёт длительности матча
             int index = roundPeriod.IndexOf(":");
-            TimeSpan rp = new TimeSpan(Convert.ToInt32(roundPeriod.Substring(0, index)), Convert.ToInt32(roundPeriod.Substring(index + 1, roundPeriod.Length - index - 1)), 0);
+            TimeSpan rp = new TimeSpan(Convert.ToInt32(roundPeriod.Substring(0, index)), 
+                Convert.ToInt32(roundPeriod.Substring(index + 1, roundPeriod.Length - index - 1)), 0);
             return matchPeriod + rp;
             #endregion
         }

@@ -4,6 +4,7 @@
                     x:Class="CybersportTournament.Style">
 
 
+    <!--#region Оформление окна-->
     <Style TargetType="Grid">
         <Setter Property="Background">
             <Setter.Value>
@@ -14,9 +15,12 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <!--#endregion-->
 
-
+    <!--#region Стиль кнопки-->
     <Style TargetType="Button">
+        
+        <!--Текст-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -27,35 +31,96 @@
             </Setter.Value>
         </Setter>
 
+        <!--Цвет-->
+        <Setter Property="Background">
+            <Setter.Value>
+                <RadialGradientBrush MappingMode="RelativeToBoundingBox" GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0" RadiusY="0">
+                    <GradientStop Color="#787d7c" Offset="0"/>
+                    <GradientStop Color="#4f5856" Offset="1"/>
+                </RadialGradientBrush>
+            </Setter.Value>
+        </Setter>
+
+        <!--Тень-->
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect/>
+            </Setter.Value>
+        </Setter>
+
+        <!--Скруглённые углы-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Name="Border" CornerRadius="15" Background="#FF4F5856" BorderBrush="Black" 
-                            MouseEnter="MouseEnter" MouseLeave="MouseLeave">
+                    <Border Name="Border" CornerRadius="15" Background="#FF4F5856" BorderBrush="Black">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Setter Property="Background" Value="{Binding ElementName=Border}"/>
-    </Style>
 
+        <!--Анимации-->
+        <Style.Triggers>
+            <!--Смена цвета при наведении (пишет, что GradientStops не поддерживается в проекте WPF, хотя на метаните нормально через него работают)-->
+            <!--<EventTrigger RoutedEvent="Button.MouseEnter">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard Duration="0:0:1" SpeedRatio="3" FillBehavior="HoldEnd">
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientStops[1].Color)" To="#FF409E8E"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>-->
+
+            <!--Анимация при нажатии-->
+            <EventTrigger RoutedEvent="Button.PreviewMouseLeftButtonDown">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard Duration="0:0:1" SpeedRatio="3" FillBehavior="HoldEnd">
+                            <DoubleAnimation Storyboard.TargetProperty="Background.RadiusX" To="1.0"/>
+                            <DoubleAnimation Storyboard.TargetProperty="Background.RadiusY" To="1.0"/>
+                            <DoubleAnimation Storyboard.TargetProperty="Effect.Opacity" To="0"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+
+            <!--Анимация при отпускании-->
+            <EventTrigger RoutedEvent="PreviewMouseLeftButtonUp">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard Duration="0:0:1" SpeedRatio="3" FillBehavior="HoldEnd">
+                            <DoubleAnimation Storyboard.TargetProperty="Background.RadiusX" To="0"/>
+                            <DoubleAnimation Storyboard.TargetProperty="Background.RadiusY" To="0"/>
+                            <DoubleAnimation Storyboard.TargetProperty="Effect.Opacity" To="1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Оформление датагрида-->
+    <!--Поля-->
     <Style TargetType="DataGrid">
         <Setter Property="FontSize" Value="20"/>
-        
-
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="RowBackground" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Background" Value="Transparent"/>
     </Style>
 
+    <!--Заголовки столбцов-->
     <Style x:Key="ColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="FontWeight" Value="Bold"/>
     </Style>
 
+    <!--Заголовки строк-->
     <Style x:Key="RowHeaderStyle" TargetType="{x:Type DataGridRowHeader}">
         <Setter Property="Background" Value="Transparent" />
     </Style>
+    <!--#endregion-->
 </ResourceDictionary>

@@ -156,7 +156,6 @@
     <Compile Include="RoundsList.cs">
       <DependentUpon>CybersportTournamentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Styles\Style.xaml.cs" />
     <Compile Include="ErrorWindow.xaml.cs">
       <DependentUpon>ErrorWindow.xaml</DependentUpon>
     </Compile>
